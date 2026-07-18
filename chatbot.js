@@ -29,7 +29,7 @@
         "corporate video",
       ],
       reply:
-        "Thanks for asking. Our focus is the software and strategy side of video marketing — platforms, planning and custom builds that help your content work harder. If that sounds useful, I’m happy to point you toward a short call with the team.",
+        "Thanks for asking — we’re best placed on the software, platforms and strategy side of video marketing. If that’s useful, I’m happy to point you toward a short call with the team.",
       book: true,
     },
     {
@@ -46,7 +46,7 @@
     {
       keys: ["tiktok shop", "tiktok", "amazon"],
       reply:
-        "We’re official TikTok and Amazon Partners, so we spend a lot of time in those ecosystems. We support brands with the platforms and strategy around live and social commerce, rather than one-off campaign production. Happy to talk through what you’re working on if you’d like.",
+        "We’re official TikTok and Amazon Partners, so we spend a lot of time in those ecosystems. We help with the platforms and strategy around live and social commerce. Happy to talk through what you’re working on if you’d like.",
       book: true,
     },
     {

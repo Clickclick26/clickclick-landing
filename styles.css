@@ -242,6 +242,10 @@ nav.scrolled {
   margin-bottom: 28px;
 }
 
+.hero-logo-mobile {
+  display: none;
+}
+
 .hero-title {
   font-family: var(--display);
   font-size: clamp(3rem, 6vw, 5.2rem);
@@ -1121,40 +1125,57 @@ footer::before {
 
   .hero-right {
     margin-top: 40px;
-    min-height: 460px;
+    min-height: 520px;
+  }
+
+  .phone-shell {
+    z-index: 1;
   }
 
   .polaroid {
-    width: 112px;
+    width: 118px;
     padding: 8px 8px 22px;
+    z-index: 2;
   }
 
   .polaroid img {
-    height: 128px;
+    height: 134px;
+  }
+
+  .polaroid-1 {
+    top: 0%;
+    left: 2%;
+    width: 118px;
   }
 
   .polaroid-2 {
-    width: 104px;
+    top: 2%;
+    right: 2%;
+    width: 110px;
   }
 
   .polaroid-2 img {
-    height: 118px;
+    height: 126px;
   }
 
   .polaroid-3 {
-    width: 108px;
+    bottom: 4%;
+    left: 0%;
+    width: 114px;
   }
 
   .polaroid-3 img {
-    height: 114px;
+    height: 120px;
   }
 
   .polaroid-4 {
-    width: 116px;
+    bottom: 2%;
+    right: 0%;
+    width: 122px;
   }
 
   .polaroid-4 img {
-    height: 132px;
+    height: 140px;
   }
 
   nav,
@@ -1166,10 +1187,16 @@ footer::before {
     height: 40px;
   }
 
-  .hero-logo {
-    width: min(100%, 300px);
+  .hero-logo-desktop {
+    display: none;
+  }
+
+  .hero-logo-mobile {
+    display: block;
+    width: min(72%, 220px);
     margin-left: auto;
     margin-right: auto;
+    margin-bottom: 22px;
   }
 
   .nav-links a:not(.nav-cta) {
@@ -1222,6 +1249,34 @@ footer::before {
 @media (max-width: 540px) {
   .footer-top {
     grid-template-columns: 1fr;
+  }
+
+  .hero-right {
+    min-height: 480px;
+  }
+
+  .phone-shell {
+    width: min(220px, 58vw);
+  }
+
+  .polaroid-1 {
+    left: -2%;
+  }
+
+  .polaroid-2 {
+    right: -2%;
+  }
+
+  .polaroid-3 {
+    left: -4%;
+  }
+
+  .polaroid-4 {
+    right: -4%;
+  }
+
+  .hero-logo-mobile {
+    width: min(68%, 190px);
   }
 }
 
