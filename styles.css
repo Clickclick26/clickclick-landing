@@ -825,6 +825,10 @@ nav.scrolled {
   color: #999;
 }
 
+.about-lead + .about-lead {
+  margin-top: 18px;
+}
+
 /* ── QUOTES ── */
 .quotes-grid {
   display: grid;
