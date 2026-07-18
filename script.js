@@ -17,10 +17,10 @@ if (finePointer) {
     inner.style.transform =
       "translate3d(" + mx + "px," + my + "px,0) translate(-50%,-50%)";
 
-    const onChat = e.target.closest(
-      "#cc-btn, #cc-panel, #cc-label, #cookie-banner, #cookie-open, #cookie-tag"
+    const onUi = e.target.closest(
+      "#cc-btn, #cc-panel, #cc-label, #cookie-banner, #cookie-open, #cookie-tag, .cookie-tag, .cookie-btn"
     );
-    document.body.classList.toggle("cursor-on-chat", !!onChat);
+    document.body.classList.toggle("cursor-on-chat", !!onUi);
   });
 
   (function animBlob() {
@@ -32,7 +32,14 @@ if (finePointer) {
   })();
 
   document.querySelectorAll("a, button").forEach((el) => {
-    if (el.closest("#cc-panel") || el.id === "cc-btn") return;
+    if (
+      el.closest("#cc-panel") ||
+      el.id === "cc-btn" ||
+      el.id === "cookie-tag" ||
+      el.closest("#cookie-banner")
+    ) {
+      return;
+    }
     el.addEventListener("mouseenter", () =>
       document.body.classList.add("cursor-hover")
     );

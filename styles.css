@@ -144,8 +144,11 @@ body.cursor-on-chat #cc-btn,
 body.cursor-on-chat #cc-send,
 body.cursor-on-chat .cc-qb,
 body.cursor-on-chat #cc-book,
-body.cursor-on-chat #cc-mail {
-  cursor: pointer;
+body.cursor-on-chat #cc-mail,
+body.cursor-on-chat #cookie-tag,
+body.cursor-on-chat .cookie-btn,
+body.cursor-on-chat #cookie-open {
+  cursor: pointer !important;
 }
 
 /* ── NAV ── */
@@ -1160,37 +1163,6 @@ footer::before {
   color: var(--turquoise);
 }
 
-/* Showreel gated by cookies */
-.showreel-poster {
-  position: absolute;
-  inset: 0;
-  z-index: 2;
-  border: none;
-  cursor: pointer;
-  background:
-    linear-gradient(160deg, rgba(0, 188, 212, 0.35), rgba(232, 62, 140, 0.35)),
-    #111;
-  color: #fff;
-  font-family: var(--font);
-  font-size: 0.85rem;
-  font-weight: 600;
-  letter-spacing: 0.04em;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.showreel-poster:hover {
-  background:
-    linear-gradient(160deg, rgba(0, 188, 212, 0.5), rgba(232, 62, 140, 0.5)),
-    #111;
-}
-
-#showreel-frame[hidden],
-.showreel-poster[hidden] {
-  display: none !important;
-}
-
 /* Cookie manage tag */
 .cookie-tag {
   position: fixed;
@@ -1207,7 +1179,7 @@ footer::before {
   font-size: 0.78rem;
   font-weight: 500;
   letter-spacing: 0.01em;
-  cursor: pointer;
+  cursor: pointer !important;
   box-shadow: 0 -2px 14px rgba(0, 0, 0, 0.12);
   transition: color 0.15s, box-shadow 0.15s;
 }

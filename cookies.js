@@ -1,15 +1,10 @@
 (function () {
   const KEY = "cc-cookie-consent";
-  const YT =
-    "https://www.youtube-nocookie.com/embed/uGo14WQWrGI?autoplay=1&mute=1&loop=1&playlist=uGo14WQWrGI&controls=0";
 
   const banner = document.getElementById("cookie-banner");
   const tag = document.getElementById("cookie-tag");
   const managePanel = document.getElementById("cookie-manage");
-  const mediaToggle = document.getElementById("cookie-media");
   const openBtn = document.getElementById("cookie-open");
-  const poster = document.getElementById("showreel-poster");
-  const frame = document.getElementById("showreel-frame");
 
   function readConsent() {
     try {
@@ -19,27 +14,11 @@
     }
   }
 
-  function writeConsent(consent) {
-    localStorage.setItem(KEY, JSON.stringify(consent));
-  }
-
-  function loadShowreel() {
-    if (!frame || frame.getAttribute("src")) return;
-    frame.hidden = false;
-    frame.src = frame.getAttribute("data-src") || YT;
-    if (poster) poster.hidden = true;
-  }
-
-  function unloadShowreel() {
-    if (!frame) return;
-    frame.removeAttribute("src");
-    frame.hidden = true;
-    if (poster) poster.hidden = false;
-  }
-
-  function applyConsent(consent) {
-    if (consent && consent.media) loadShowreel();
-    else unloadShowreel();
+  function writeConsent(choice) {
+    localStorage.setItem(
+      KEY,
+      JSON.stringify({ necessary: true, media: true, choice: choice, ts: Date.now() })
+    );
   }
 
   function hideBanner() {
@@ -53,14 +32,10 @@
     if (tag) tag.hidden = true;
     document.body.classList.add("cookie-open");
     managePanel.hidden = !showManage;
-    const consent = readConsent();
-    if (mediaToggle) mediaToggle.checked = !!(consent && consent.media);
   }
 
-  function decide(media) {
-    const consent = { necessary: true, media: !!media, ts: Date.now() };
-    writeConsent(consent);
-    applyConsent(consent);
+  function decide(choice) {
+    writeConsent(choice);
     hideBanner();
   }
 
@@ -68,13 +43,9 @@
     const btn = e.target.closest("[data-cookie]");
     if (!btn) return;
     const action = btn.getAttribute("data-cookie");
-    if (action === "accept") decide(true);
-    else if (action === "reject") decide(false);
-    else if (action === "manage") {
-      managePanel.hidden = false;
-    } else if (action === "save") {
-      decide(mediaToggle && mediaToggle.checked);
-    }
+    if (action === "accept") decide("accept");
+    else if (action === "reject") decide("reject");
+    else if (action === "manage") managePanel.hidden = false;
   });
 
   if (openBtn) {
@@ -83,25 +54,17 @@
 
   if (tag) {
     tag.addEventListener("click", () => showBanner(true));
-  }
-
-  if (poster) {
-    poster.addEventListener("click", () => {
-      const consent = readConsent();
-      if (consent && consent.media) {
-        loadShowreel();
-        return;
-      }
-      showBanner(true);
-      if (mediaToggle) mediaToggle.checked = true;
+    tag.addEventListener("mouseenter", () => {
+      document.body.classList.add("cursor-on-chat");
+    });
+    tag.addEventListener("mouseleave", () => {
+      if (banner.hidden) document.body.classList.remove("cursor-on-chat");
     });
   }
 
-  const existing = readConsent();
-  if (!existing) {
+  if (!readConsent()) {
     showBanner(false);
-  } else {
-    applyConsent(existing);
-    if (tag) tag.hidden = false;
+  } else if (tag) {
+    tag.hidden = false;
   }
 })();
