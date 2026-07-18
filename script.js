@@ -17,7 +17,9 @@ if (finePointer) {
     inner.style.transform =
       "translate3d(" + mx + "px," + my + "px,0) translate(-50%,-50%)";
 
-    const onChat = e.target.closest("#cc-btn, #cc-panel, #cc-label");
+    const onChat = e.target.closest(
+      "#cc-btn, #cc-panel, #cc-label, #cookie-banner, #cookie-open"
+    );
     document.body.classList.toggle("cursor-on-chat", !!onChat);
   });
 

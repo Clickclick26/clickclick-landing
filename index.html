@@ -23,7 +23,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css?v=mobile4" />
+  <link rel="stylesheet" href="styles.css?v=cookies1" />
 </head>
 <body>
   <div id="cursor-blob" aria-hidden="true"></div>
@@ -72,12 +72,17 @@
           </figure>
         </div>
         <div class="phone-shell">
-          <div class="phone-screen">
+          <div class="phone-screen" id="showreel">
+            <button type="button" class="showreel-poster" id="showreel-poster" aria-label="Play showreel (requires cookie consent)">
+              <span>Play showreel</span>
+            </button>
             <iframe
-              src="https://www.youtube.com/embed/uGo14WQWrGI?autoplay=1&amp;mute=1&amp;loop=1&amp;playlist=uGo14WQWrGI&amp;controls=0"
+              id="showreel-frame"
+              data-src="https://www.youtube-nocookie.com/embed/uGo14WQWrGI?autoplay=1&amp;mute=1&amp;loop=1&amp;playlist=uGo14WQWrGI&amp;controls=0"
               title="ClickClick showreel"
               allow="autoplay; encrypted-media"
               allowfullscreen
+              hidden
             ></iframe>
           </div>
         </div>
@@ -294,10 +299,65 @@
     </div>
     <div class="footer-bottom">
       <p>© <span id="year"></span> ClickClick. All rights reserved.</p>
+      <p class="footer-legal">
+        <a href="#cookies">Cookies</a>
+        <button type="button" id="cookie-open" class="footer-cookie-btn">Cookie settings</button>
+      </p>
     </div>
   </footer>
 
+  <section id="cookies" class="section cookies-policy">
+    <p class="section-eyebrow">Legal</p>
+    <h2 class="section-title">Cookies</h2>
+    <div class="cookies-copy">
+      <p>
+        We use essential cookies to remember your cookie preferences. If you accept, we also load embedded media
+        (our YouTube showreel), which may set cookies from Google/YouTube.
+      </p>
+      <p>
+        You can accept, reject, or change your choice anytime via Cookie settings. Rejecting will not affect browsing the site —
+        the showreel simply stays paused until you allow media cookies.
+      </p>
+      <p>Questions? Email <a href="mailto:hello@clickclick.video">hello@clickclick.video</a>.</p>
+    </div>
+  </section>
+
+  <div id="cookie-banner" class="cookie-banner" hidden>
+    <div class="cookie-banner-main">
+      <p class="cookie-banner-text">
+        We use cookies for essential site preferences and, if you allow, to play our YouTube showreel.
+        <a href="#cookies">Learn more</a>
+      </p>
+      <div class="cookie-banner-actions">
+        <button type="button" class="cookie-btn cookie-btn-reject" data-cookie="reject">Reject</button>
+        <button type="button" class="cookie-btn cookie-btn-manage" data-cookie="manage">Manage</button>
+        <button type="button" class="cookie-btn cookie-btn-accept" data-cookie="accept">Accept</button>
+      </div>
+    </div>
+    <div class="cookie-banner-manage" id="cookie-manage" hidden>
+      <label class="cookie-option">
+        <input type="checkbox" checked disabled />
+        <span>
+          <strong>Essential</strong>
+          Remember your cookie choice. Always on.
+        </span>
+      </label>
+      <label class="cookie-option">
+        <input type="checkbox" id="cookie-media" />
+        <span>
+          <strong>Embedded media</strong>
+          Load the YouTube showreel (may set third-party cookies).
+        </span>
+      </label>
+      <div class="cookie-banner-actions">
+        <button type="button" class="cookie-btn cookie-btn-reject" data-cookie="reject">Reject all</button>
+        <button type="button" class="cookie-btn cookie-btn-accept" data-cookie="save">Save preferences</button>
+      </div>
+    </div>
+  </div>
+
   <script src="script.js"></script>
+  <script src="cookies.js"></script>
   <script src="chatbot.js?v=2"></script>
 </body>
 </html>
