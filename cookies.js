@@ -4,6 +4,7 @@
     "https://www.youtube-nocookie.com/embed/uGo14WQWrGI?autoplay=1&mute=1&loop=1&playlist=uGo14WQWrGI&controls=0";
 
   const banner = document.getElementById("cookie-banner");
+  const tag = document.getElementById("cookie-tag");
   const managePanel = document.getElementById("cookie-manage");
   const mediaToggle = document.getElementById("cookie-media");
   const openBtn = document.getElementById("cookie-open");
@@ -44,10 +45,12 @@
   function hideBanner() {
     banner.hidden = true;
     document.body.classList.remove("cookie-open");
+    if (tag) tag.hidden = false;
   }
 
   function showBanner(showManage) {
     banner.hidden = false;
+    if (tag) tag.hidden = true;
     document.body.classList.add("cookie-open");
     managePanel.hidden = !showManage;
     const consent = readConsent();
@@ -78,6 +81,10 @@
     openBtn.addEventListener("click", () => showBanner(true));
   }
 
+  if (tag) {
+    tag.addEventListener("click", () => showBanner(true));
+  }
+
   if (poster) {
     poster.addEventListener("click", () => {
       const consent = readConsent();
@@ -95,5 +102,6 @@
     showBanner(false);
   } else {
     applyConsent(existing);
+    if (tag) tag.hidden = false;
   }
 })();
