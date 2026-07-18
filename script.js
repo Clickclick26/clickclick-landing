@@ -1,5 +1,52 @@
 document.getElementById("year").textContent = new Date().getFullYear();
 
+const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+/* Hero entrance — remove this IIFE + related CSS/HTML classes to revert */
+(function heroEntrance() {
+  const hero = document.getElementById("hero");
+  if (!hero) return;
+
+  if (reduceMotion) {
+    hero.classList.remove("hero-entrance");
+    return;
+  }
+
+  requestAnimationFrame(() => {
+    requestAnimationFrame(() => {
+      hero.classList.add("is-in");
+    });
+  });
+
+  window.setTimeout(() => {
+    hero.classList.add("is-ready");
+  }, 1500);
+})();
+
+/* Title mask reveals */
+(function titleReveals() {
+  const titles = document.querySelectorAll(".title-reveal");
+  if (!titles.length) return;
+
+  if (reduceMotion) {
+    titles.forEach((el) => el.classList.add("is-revealed"));
+    return;
+  }
+
+  const obs = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+        entry.target.classList.add("is-revealed");
+        obs.unobserve(entry.target);
+      });
+    },
+    { threshold: 0.35, rootMargin: "0px 0px -8% 0px" }
+  );
+
+  titles.forEach((el) => obs.observe(el));
+})();
+
 const finePointer = window.matchMedia("(hover: hover) and (pointer: fine)").matches;
 if (finePointer) {
   document.body.classList.add("has-fine-pointer");
@@ -48,6 +95,29 @@ if (finePointer) {
       document.body.classList.remove("cursor-hover")
     );
   });
+
+  /* Magnetic CTAs */
+  if (!reduceMotion) {
+    document.querySelectorAll(".magnetic").forEach((btn) => {
+      const strength = 0.28;
+      const maxPull = 12;
+
+      btn.addEventListener("pointermove", (e) => {
+        const rect = btn.getBoundingClientRect();
+        const x = e.clientX - (rect.left + rect.width / 2);
+        const y = e.clientY - (rect.top + rect.height / 2);
+        const mxPull = Math.max(-maxPull, Math.min(maxPull, x * strength));
+        const myPull = Math.max(-maxPull, Math.min(maxPull, y * strength));
+        btn.style.setProperty("--mx", mxPull.toFixed(2) + "px");
+        btn.style.setProperty("--my", myPull.toFixed(2) + "px");
+      });
+
+      btn.addEventListener("pointerleave", () => {
+        btn.style.setProperty("--mx", "0px");
+        btn.style.setProperty("--my", "0px");
+      });
+    });
+  }
 }
 
 window.addEventListener(

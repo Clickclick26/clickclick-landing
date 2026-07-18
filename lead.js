@@ -9,12 +9,24 @@
   const errorEl = document.getElementById("lead-error");
   const interestField = document.getElementById("lead-interest");
   const submitBtn = form && form.querySelector(".lead-submit");
+  const dialog = modal && modal.querySelector(".lead-dialog");
 
   if (!modal || !form) return;
 
   let lastFocus = null;
+  let closing = false;
+  let closeTimer = null;
+  const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
   function openLead(interest) {
+    if (closing) {
+      closing = false;
+      if (closeTimer) {
+        clearTimeout(closeTimer);
+        closeTimer = null;
+      }
+    }
+
     lastFocus = document.activeElement;
     if (interestField) interestField.value = interest || "General";
     formWrap.hidden = false;
@@ -23,18 +35,57 @@
     errorEl.textContent = "";
     form.reset();
     if (interestField) interestField.value = interest || "General";
+
     modal.hidden = false;
     modal.setAttribute("aria-hidden", "false");
     document.body.classList.add("lead-open");
+
+    requestAnimationFrame(() => {
+      requestAnimationFrame(() => {
+        modal.classList.add("is-open");
+      });
+    });
+
     const first = form.querySelector("input:not(.lead-honey), select, textarea");
-    if (first) first.focus();
+    if (first) {
+      window.setTimeout(() => first.focus(), reduceMotion ? 0 : 280);
+    }
+  }
+
+  function finishClose() {
+    if (!closing) return;
+    closing = false;
+    closeTimer = null;
+    modal.hidden = true;
+    modal.classList.remove("is-open");
+    if (lastFocus && typeof lastFocus.focus === "function") lastFocus.focus();
   }
 
   function closeLead() {
-    modal.hidden = true;
+    if (modal.hidden && !modal.classList.contains("is-open")) return;
+
     modal.setAttribute("aria-hidden", "true");
     document.body.classList.remove("lead-open", "cursor-on-chat");
-    if (lastFocus && typeof lastFocus.focus === "function") lastFocus.focus();
+
+    if (reduceMotion) {
+      modal.classList.remove("is-open");
+      modal.hidden = true;
+      if (lastFocus && typeof lastFocus.focus === "function") lastFocus.focus();
+      return;
+    }
+
+    closing = true;
+    modal.classList.remove("is-open");
+
+    const onEnd = (e) => {
+      if (e.target !== modal && e.target !== dialog) return;
+      modal.removeEventListener("transitionend", onEnd);
+      finishClose();
+    };
+
+    modal.addEventListener("transitionend", onEnd);
+    if (closeTimer) clearTimeout(closeTimer);
+    closeTimer = window.setTimeout(finishClose, 420);
   }
 
   document.addEventListener("click", (e) => {
@@ -50,7 +101,9 @@
   });
 
   document.addEventListener("keydown", (e) => {
-    if (e.key === "Escape" && !modal.hidden) closeLead();
+    if (e.key === "Escape" && (!modal.hidden || modal.classList.contains("is-open"))) {
+      closeLead();
+    }
   });
 
   form.addEventListener("submit", async (e) => {
