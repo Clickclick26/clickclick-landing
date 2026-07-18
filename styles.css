@@ -1115,20 +1115,62 @@ footer::before {
   #hero {
     grid-template-columns: 1fr;
     text-align: center;
-    padding: 100px 24px 48px;
+    padding: 88px 24px 48px;
+    display: flex;
+    flex-direction: column;
   }
 
-  .hero-sub {
-    margin-left: auto;
-    margin-right: auto;
-  }
-
-  .hero-ctas {
-    justify-content: center;
+  .hero-left {
+    display: contents;
   }
 
   .hero-logo-desktop {
     display: none;
+  }
+
+  /* First screen: big headline + awards */
+  .hero-title {
+    order: 1;
+    font-size: clamp(3.6rem, 16vw, 5.8rem);
+    line-height: 0.95;
+    margin: 14vh 0 16px;
+    max-width: 9ch;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .award-line {
+    order: 2;
+    margin: 0 auto 28vh;
+    font-size: 0.72rem;
+    letter-spacing: 1px;
+    max-width: 16rem;
+    line-height: 1.45;
+  }
+
+  /* Below the fold */
+  .hero-right {
+    order: 3;
+    margin-top: 8px;
+    min-height: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 22px;
+  }
+
+  .hero-sub {
+    order: 4;
+    margin: 28px auto 0;
+    max-width: 34rem;
+    font-size: 1rem;
+  }
+
+  .hero-ctas {
+    order: 5;
+    justify-content: center;
+    margin-top: 24px;
+    margin-bottom: 12px;
   }
 
   nav {
@@ -1154,16 +1196,6 @@ footer::before {
 
   .nav-links a:not(.nav-cta) {
     display: none;
-  }
-
-  /* Phone fully visible, polaroids in a row underneath — no overlap */
-  .hero-right {
-    margin-top: 36px;
-    min-height: 0;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 22px;
   }
 
   .phone-shell {
