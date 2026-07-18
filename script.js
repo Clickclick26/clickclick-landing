@@ -14,19 +14,23 @@ if (finePointer) {
   document.addEventListener("mousemove", (e) => {
     mx = e.clientX;
     my = e.clientY;
-    inner.style.left = mx + "px";
-    inner.style.top = my + "px";
+    inner.style.transform =
+      "translate3d(" + mx + "px," + my + "px,0) translate(-50%,-50%)";
+
+    const onChat = e.target.closest("#cc-btn, #cc-panel, #cc-label");
+    document.body.classList.toggle("cursor-on-chat", !!onChat);
   });
 
   (function animBlob() {
-    bx += (mx - bx) * 0.07;
-    by += (my - by) * 0.07;
-    blob.style.left = bx + "px";
-    blob.style.top = by + "px";
+    bx += (mx - bx) * 0.14;
+    by += (my - by) * 0.14;
+    blob.style.transform =
+      "translate3d(" + bx + "px," + by + "px,0) translate(-50%,-50%)";
     requestAnimationFrame(animBlob);
   })();
 
   document.querySelectorAll("a, button").forEach((el) => {
+    if (el.closest("#cc-panel") || el.id === "cc-btn") return;
     el.addEventListener("mouseenter", () =>
       document.body.classList.add("cursor-hover")
     );
