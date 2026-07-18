@@ -23,7 +23,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css?v=about1" />
+  <link rel="stylesheet" href="styles.css?v=lead1" />
 </head>
 <body>
   <div id="cursor-blob" aria-hidden="true"></div>
@@ -36,7 +36,7 @@
     <ul class="nav-links">
       <li><a href="#solutions">Solutions</a></li>
       <li><a href="#about">About</a></li>
-      <li><a href="#contact" class="nav-cta">Let’s Talk</a></li>
+      <li><a href="#contact" class="nav-cta" data-open-lead>Let’s Talk</a></li>
     </ul>
   </nav>
 
@@ -51,7 +51,7 @@
         </p>
         <p class="award-line">2026 UK Start Up Awards for Marketing &amp; Advertising</p>
         <div class="hero-ctas">
-          <a href="#contact" class="btn-primary"><span>Contact our team</span></a>
+          <a href="#contact" class="btn-primary" data-open-lead><span>Contact our team</span></a>
           <a href="#solutions" class="btn-outline"><span>See solutions</span></a>
         </div>
       </div>
@@ -144,7 +144,7 @@
                 <li>Custom-built software</li>
                 <li>Automated content planning</li>
               </ul>
-              <a href="mailto:hello@clickclick.video" class="service-cta cta-consult">Book a consultation <span class="cta-arrow">→</span></a>
+              <a href="#contact" class="service-cta cta-consult" data-open-lead data-lead-interest="Consultation / strategy">Book a consultation <span class="cta-arrow">→</span></a>
             </div>
           </div>
         </div>
@@ -170,7 +170,7 @@
                 <li>Shoppable video setups</li>
                 <li>Sales tracking</li>
               </ul>
-              <a href="mailto:hello@clickclick.video" class="service-cta cta-commerce">Talk Live Commerce <span class="cta-arrow">→</span></a>
+              <a href="#contact" class="service-cta cta-commerce" data-open-lead data-lead-interest="Live &amp; social commerce">Talk Live Commerce <span class="cta-arrow">→</span></a>
             </div>
           </div>
         </div>
@@ -196,7 +196,7 @@
                 <li>Cross-channel creative</li>
                 <li>Performance data</li>
               </ul>
-              <a href="mailto:hello@clickclick.video" class="service-cta cta-media">Explore media platforms <span class="cta-arrow">→</span></a>
+              <a href="#contact" class="service-cta cta-media" data-open-lead data-lead-interest="Media &amp; advertising tech">Explore media platforms <span class="cta-arrow">→</span></a>
             </div>
           </div>
         </div>
@@ -209,10 +209,10 @@
       <p class="section-eyebrow">About</p>
       <h2 class="section-title">Built by people who’ve<br />done it for real.</h2>
       <p class="section-sub about-lead">
-        ClickClick is an award-winning company founded by experienced agency owners and IBM-trained developers, combining creative leadership with technical depth to deliver video marketing that actually works. We’re based in Belfast City Centre and backed by InvestNI.
+        ClickClick is an award-winning company founded by experienced agency owners and IBM-trained developers, combining creative leadership with technical depth to deliver quality video marketing that actually works. We’re based in Belfast City Centre and backed by InvestNI.
       </p>
       <p class="section-sub about-lead">
-        Our platforms are designed with relationship management and the human touch in mind, built for consistency, collaboration, and long-term partnerships. They strengthen those things while saving clients time and money. These aren’t rogue ChatGPT add-ons or white-labelled outdated tools: they’re shaped by real experts, trained and partnered with the best in the industry, to retain and improve what matters.
+        Our platforms are designed with relationship management and the human touch in mind, built for consistency, collaboration, and long-term partnerships. They strengthen those things while saving clients time and money. These aren’t rogue ChatGPT add-ons or white-labelled outdated tools: they’re shaped by real experts, trained and partnered with the best in the industry, to retain and improve quality and what matters.
       </p>
     </section>
 
@@ -265,7 +265,8 @@
         <p class="close-sub">
           Tell us what you’re building: consultations, live commerce, or the full platform suite.
         </p>
-        <a href="mailto:hello@clickclick.video" class="btn-primary btn-large btn-on-dark"><span>hello@clickclick.video</span></a>
+        <button type="button" class="btn-primary btn-large btn-on-dark" data-open-lead><span>Tell us a bit about you</span></button>
+        <p class="close-email"><a href="mailto:hello@clickclick.video">or email hello@clickclick.video</a></p>
       </div>
     </section>
   </main>
@@ -332,8 +333,93 @@
     </div>
   </div>
 
-  <script src="script.js?v=cookies3"></script>
+  <div id="lead-modal" class="lead-modal" hidden aria-hidden="true">
+    <div class="lead-backdrop" data-lead-close></div>
+    <div class="lead-dialog" role="dialog" aria-modal="true" aria-labelledby="lead-title">
+      <button type="button" class="lead-close" data-lead-close aria-label="Close">&times;</button>
+      <div class="lead-form-wrap" id="lead-form-wrap">
+        <p class="lead-eyebrow">Let’s talk</p>
+        <h2 id="lead-title" class="lead-title">A few friendly questions</h2>
+        <p class="lead-intro">
+          Helps us point you in the right direction. Takes about a minute — no hard sell.
+        </p>
+        <form id="lead-form" class="lead-form" novalidate>
+          <input type="hidden" name="_subject" value="New ClickClick enquiry (website)" />
+          <input type="hidden" name="interest" id="lead-interest" value="General" />
+          <input type="text" name="_honey" class="lead-honey" tabindex="-1" autocomplete="off" aria-hidden="true" />
+
+          <div class="lead-row">
+            <label class="lead-field">
+              <span>Your name</span>
+              <input type="text" name="name" required autocomplete="name" />
+            </label>
+            <label class="lead-field">
+              <span>Work email</span>
+              <input type="email" name="email" required autocomplete="email" />
+            </label>
+          </div>
+
+          <label class="lead-field">
+            <span>Company <em>(optional)</em></span>
+            <input type="text" name="company" autocomplete="organization" />
+          </label>
+
+          <label class="lead-field">
+            <span>What are you hoping to achieve?</span>
+            <textarea name="need" rows="3" required placeholder="e.g. live commerce setup, strategy session, multi-site screens…"></textarea>
+          </label>
+
+          <label class="lead-field">
+            <span>Rough budget range</span>
+            <select name="budget" required>
+              <option value="">Select one</option>
+              <option value="Still figuring it out">Still figuring it out</option>
+              <option value="Under £5k">Under £5k</option>
+              <option value="£5k–£15k">£5k–£15k</option>
+              <option value="£15k–£50k">£15k–£50k</option>
+              <option value="£50k+">£50k+</option>
+            </select>
+          </label>
+
+          <label class="lead-field">
+            <span>Your role in the decision</span>
+            <select name="authority" required>
+              <option value="">Select one</option>
+              <option value="I make the decision">I make the decision</option>
+              <option value="I influence the decision">I influence the decision</option>
+              <option value="Exploring for someone else">Exploring for someone else</option>
+              <option value="Prefer not to say">Prefer not to say</option>
+            </select>
+          </label>
+
+          <label class="lead-field">
+            <span>When are you looking to get started?</span>
+            <select name="timeline" required>
+              <option value="">Select one</option>
+              <option value="As soon as possible">As soon as possible</option>
+              <option value="This quarter">This quarter</option>
+              <option value="Later this year">Later this year</option>
+              <option value="Just exploring for now">Just exploring for now</option>
+            </select>
+          </label>
+
+          <p class="lead-error" id="lead-error" hidden></p>
+          <button type="submit" class="btn-primary lead-submit"><span>Send to the team</span></button>
+          <p class="lead-note">Goes straight to hello@clickclick.video. We’ll reply soon.</p>
+        </form>
+      </div>
+      <div class="lead-success" id="lead-success" hidden>
+        <p class="lead-eyebrow">Thanks</p>
+        <h2 class="lead-title">We’ve got it.</h2>
+        <p class="lead-intro">Someone from the team will be in touch shortly.</p>
+        <button type="button" class="btn-primary" data-lead-close><span>Close</span></button>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js?v=lead1"></script>
   <script src="cookies.js?v=3"></script>
+  <script src="lead.js?v=1"></script>
   <script src="chatbot.js?v=2"></script>
 </body>
 </html>

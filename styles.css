@@ -147,8 +147,19 @@ body.cursor-on-chat #cc-book,
 body.cursor-on-chat #cc-mail,
 body.cursor-on-chat #cookie-tag,
 body.cursor-on-chat .cookie-btn,
-body.cursor-on-chat #cookie-open {
+body.cursor-on-chat #cookie-open,
+body.cursor-on-chat #lead-modal button,
+body.cursor-on-chat #lead-modal a,
+body.cursor-on-chat #lead-modal input,
+body.cursor-on-chat #lead-modal select,
+body.cursor-on-chat #lead-modal textarea {
   cursor: pointer !important;
+}
+
+body.cursor-on-chat #lead-modal input,
+body.cursor-on-chat #lead-modal select,
+body.cursor-on-chat #lead-modal textarea {
+  cursor: text !important;
 }
 
 /* ── NAV ── */
@@ -318,12 +329,15 @@ nav.scrolled {
   background: var(--dark);
   color: #fff;
   padding: 14px 28px;
+  border: none;
   border-radius: var(--radius);
   font-family: var(--font);
   font-size: 0.85rem;
   font-weight: 600;
   position: relative;
   overflow: hidden;
+  cursor: pointer;
+  text-decoration: none;
   transition: transform 0.2s, box-shadow 0.2s, background 0.25s;
 }
 
@@ -1004,6 +1018,20 @@ nav.scrolled {
   margin-right: auto;
 }
 
+.close-email {
+  margin-top: 18px;
+}
+
+.close-email a {
+  color: #888;
+  font-size: 0.88rem;
+  text-decoration: none;
+}
+
+.close-email a:hover {
+  color: var(--turquoise);
+}
+
 .btn-on-dark {
   background: #fff;
   color: #111;
@@ -1316,6 +1344,190 @@ body.cookie-open #cc-label {
     right: 12px;
     bottom: 12px;
     max-width: none;
+  }
+}
+
+/* Lead prequal modal */
+body.lead-open {
+  overflow: hidden;
+}
+
+body.lead-open #cc-label {
+  opacity: 0;
+}
+
+.lead-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 11000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.lead-modal[hidden] {
+  display: none !important;
+}
+
+.lead-backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(20, 20, 20, 0.55);
+}
+
+.lead-dialog {
+  position: relative;
+  z-index: 1;
+  width: min(560px, 100%);
+  max-height: min(90vh, 820px);
+  overflow: auto;
+  background: #F0EAD6;
+  color: var(--dark);
+  border-radius: 18px;
+  padding: 28px 28px 24px;
+  box-shadow: 0 24px 70px rgba(0, 0, 0, 0.35);
+  font-family: var(--font);
+}
+
+.lead-close {
+  position: absolute;
+  top: 12px;
+  right: 14px;
+  border: none;
+  background: transparent;
+  color: #666;
+  font-size: 1.6rem;
+  line-height: 1;
+  cursor: pointer;
+  padding: 4px 8px;
+}
+
+.lead-close:hover {
+  color: #111;
+}
+
+.lead-eyebrow {
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--turquoise);
+  margin-bottom: 10px;
+}
+
+.lead-title {
+  font-family: var(--display);
+  font-size: clamp(1.7rem, 4vw, 2.2rem);
+  font-weight: 400;
+  line-height: 1.15;
+  margin-bottom: 10px;
+}
+
+.lead-intro {
+  color: #666;
+  font-size: 0.92rem;
+  line-height: 1.6;
+  margin-bottom: 22px;
+}
+
+.lead-form {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.lead-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.lead-field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: #444;
+}
+
+.lead-field em {
+  font-style: normal;
+  font-weight: 400;
+  color: #888;
+}
+
+.lead-field input,
+.lead-field select,
+.lead-field textarea {
+  font-family: var(--font);
+  font-size: 0.9rem;
+  font-weight: 400;
+  color: var(--dark);
+  background: #fff;
+  border: 1.5px solid rgba(0, 0, 0, 0.12);
+  border-radius: 10px;
+  padding: 11px 12px;
+  outline: none;
+  transition: border-color 0.15s;
+}
+
+.lead-field input:focus,
+.lead-field select:focus,
+.lead-field textarea:focus {
+  border-color: var(--turquoise);
+}
+
+.lead-field textarea {
+  resize: vertical;
+  min-height: 84px;
+}
+
+.lead-honey {
+  position: absolute;
+  left: -9999px;
+  opacity: 0;
+  height: 0;
+  width: 0;
+  pointer-events: none;
+}
+
+.lead-submit {
+  width: 100%;
+  justify-content: center;
+  margin-top: 4px;
+}
+
+.lead-submit:disabled {
+  opacity: 0.7;
+  pointer-events: none;
+}
+
+.lead-note {
+  font-size: 0.78rem;
+  color: #888;
+  text-align: center;
+  line-height: 1.45;
+}
+
+.lead-error {
+  color: #b00040;
+  font-size: 0.85rem;
+  line-height: 1.45;
+}
+
+.lead-success .lead-intro {
+  margin-bottom: 24px;
+}
+
+@media (max-width: 600px) {
+  .lead-dialog {
+    padding: 24px 18px 20px;
+  }
+
+  .lead-row {
+    grid-template-columns: 1fr;
   }
 }
 

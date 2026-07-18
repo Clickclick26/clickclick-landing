@@ -18,7 +18,7 @@ if (finePointer) {
       "translate3d(" + mx + "px," + my + "px,0) translate(-50%,-50%)";
 
     const onUi = e.target.closest(
-      "#cc-btn, #cc-panel, #cc-label, #cookie-banner, #cookie-open, #cookie-tag, .cookie-tag, .cookie-btn"
+      "#cc-btn, #cc-panel, #cc-label, #cookie-banner, #cookie-open, #cookie-tag, .cookie-tag, .cookie-btn, #lead-modal, .lead-dialog, .lead-close, .lead-submit"
     );
     document.body.classList.toggle("cursor-on-chat", !!onUi);
   });
@@ -36,7 +36,8 @@ if (finePointer) {
       el.closest("#cc-panel") ||
       el.id === "cc-btn" ||
       el.id === "cookie-tag" ||
-      el.closest("#cookie-banner")
+      el.closest("#cookie-banner") ||
+      el.closest("#lead-modal")
     ) {
       return;
     }
