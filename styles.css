@@ -162,6 +162,10 @@ nav {
   transition: padding 0.4s, background 0.4s, border-color 0.4s;
 }
 
+.nav-brand-mobile {
+  display: none;
+}
+
 nav.scrolled {
   padding: 8px 60px;
   background: #F0EAD6;
@@ -1111,7 +1115,7 @@ footer::before {
   #hero {
     grid-template-columns: 1fr;
     text-align: center;
-    padding: 120px 24px 60px;
+    padding: 100px 24px 48px;
   }
 
   .hero-sub {
@@ -1123,84 +1127,89 @@ footer::before {
     justify-content: center;
   }
 
-  .hero-right {
-    margin-top: 40px;
-    min-height: 520px;
-  }
-
-  .phone-shell {
-    z-index: 1;
-  }
-
-  .polaroid {
-    width: 118px;
-    padding: 8px 8px 22px;
-    z-index: 2;
-  }
-
-  .polaroid img {
-    height: 134px;
-  }
-
-  .polaroid-1 {
-    top: 0%;
-    left: 2%;
-    width: 118px;
-  }
-
-  .polaroid-2 {
-    top: 2%;
-    right: 2%;
-    width: 110px;
-  }
-
-  .polaroid-2 img {
-    height: 126px;
-  }
-
-  .polaroid-3 {
-    bottom: 4%;
-    left: 0%;
-    width: 114px;
-  }
-
-  .polaroid-3 img {
-    height: 120px;
-  }
-
-  .polaroid-4 {
-    bottom: 2%;
-    right: 0%;
-    width: 122px;
-  }
-
-  .polaroid-4 img {
-    height: 140px;
-  }
-
-  nav,
-  nav.scrolled {
-    padding: 12px 20px;
-  }
-
-  .nav-logo-img {
-    height: 40px;
-  }
-
   .hero-logo-desktop {
     display: none;
   }
 
-  .hero-logo-mobile {
+  nav {
+    justify-content: space-between;
+    padding: 10px 16px;
+  }
+
+  nav.scrolled {
+    padding: 8px 16px;
+  }
+
+  .nav-brand-mobile {
     display: block;
-    width: min(72%, 220px);
-    margin-left: auto;
-    margin-right: auto;
-    margin-bottom: 22px;
+    line-height: 0;
+    flex-shrink: 0;
+  }
+
+  .nav-brand-mobile img {
+    width: 52px;
+    height: auto;
+    display: block;
   }
 
   .nav-links a:not(.nav-cta) {
     display: none;
+  }
+
+  /* Phone fully visible, polaroids in a row underneath — no overlap */
+  .hero-right {
+    margin-top: 36px;
+    min-height: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 22px;
+  }
+
+  .phone-shell {
+    position: relative;
+    z-index: 1;
+    width: min(240px, 62vw);
+    order: 1;
+  }
+
+  .polaroid-stack {
+    position: static;
+    inset: auto;
+    width: 100%;
+    max-width: 420px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+    order: 2;
+    pointer-events: none;
+  }
+
+  .polaroid {
+    position: static;
+    width: 100% !important;
+    margin: 0;
+    padding: 6px 6px 16px;
+    animation: none;
+    z-index: auto;
+  }
+
+  .polaroid-1 { transform: rotate(-4deg) !important; }
+  .polaroid-2 { transform: rotate(3deg) !important; }
+  .polaroid-3 { transform: rotate(5deg) !important; }
+  .polaroid-4 { transform: rotate(-3deg) !important; }
+
+  .polaroid img,
+  .polaroid-2 img,
+  .polaroid-3 img,
+  .polaroid-4 img {
+    height: auto;
+    aspect-ratio: 3 / 4;
+    object-fit: cover;
+  }
+
+  .nav-logo-img {
+    height: 40px;
   }
 
   .section {
@@ -1251,32 +1260,18 @@ footer::before {
     grid-template-columns: 1fr;
   }
 
-  .hero-right {
-    min-height: 480px;
+  .nav-brand-mobile img {
+    width: 44px;
   }
 
   .phone-shell {
-    width: min(220px, 58vw);
+    width: min(210px, 58vw);
   }
 
-  .polaroid-1 {
-    left: -2%;
-  }
-
-  .polaroid-2 {
-    right: -2%;
-  }
-
-  .polaroid-3 {
-    left: -4%;
-  }
-
-  .polaroid-4 {
-    right: -4%;
-  }
-
-  .hero-logo-mobile {
-    width: min(68%, 190px);
+  .polaroid-stack {
+    grid-template-columns: repeat(2, 1fr);
+    max-width: 280px;
+    gap: 12px;
   }
 }
 
