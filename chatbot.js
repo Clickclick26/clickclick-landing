@@ -52,7 +52,7 @@
     {
       keys: ["signage", "screens", "digital signage", "gym screen", "in-store"],
       reply:
-        "Digital signage is a really common ask for us. We help teams get video onto screens across gyms, retail and multi-site spaces, and keep content updating without chasing USB sticks. If that sounds close to what you need, we can walk through options on a call or over email.",
+        "Motion/video signage is a really common ask for us. We help teams get video onto screens across gyms, retail and multi-site spaces, and keep content updating without chasing USB sticks. If that sounds close to what you need, we can walk through options on a call or over email.",
       book: true,
     },
     {
@@ -139,7 +139,7 @@
         "offer",
       ],
       reply:
-        "ClickClick helps brands with video marketing software and strategy. That covers consultations and planning, live and social commerce platforms, and media tech like social listening, TV platforms, digital signage and performance data — plus custom builds when you need something tailored. What area are you most interested in?",
+        "ClickClick helps brands with video marketing software and strategy. That covers consultations and planning, live and social commerce platforms, and media tech like social listening, TV platforms, motion/video signage and performance data — plus custom builds when you need something tailored. What area are you most interested in?",
     },
     {
       keys: ["belfast", "northern ireland", "ni ", "glandore", "arthur", "address", "based", "where are you", "location", "office"],

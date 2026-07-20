@@ -1,6 +1,6 @@
 # ClickClick | Video Marketing Solutions
 
-One-pager for **ClickClick**: consultations and proprietary video platforms for Live Commerce, Social Listening Signals, Influencer Marketing, TV advertising and Digital Signage.
+One-pager for **ClickClick**: consultations and proprietary video platforms for Live Commerce, Social Listening Signals, Influencer Marketing, TV advertising and Motion/Video Signage.
 
 **Contact:** hello@clickclick.video
 
