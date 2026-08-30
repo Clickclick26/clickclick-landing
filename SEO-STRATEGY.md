@@ -160,9 +160,9 @@ words, internally linked, added to `sitemap.xml`.
 - [ ] Rewrite the `/about/` line "founded by experienced agency owners" →
       keep the credibility but frame as "founded by agency veterans who became
       software builders" so the page doesn't self-identify as an agency.
-- [x] `<title>` → "ClickClick | Video Marketing Software | Belfast" (dropped
-      "& Strategy"); `og:title` / `twitter:title` aligned to "ClickClick | Video
-      Marketing Software".
+- [x] `<title>` kept as "ClickClick | Video Marketing Software & Strategy |
+      Belfast" — software-first, "& Strategy" retained per founder. `og:title` /
+      `twitter:title` match.
 
 ### Next (no new pages required)
 - [ ] **Lazy-load the hero YouTube embed** behind a click/scroll facade (a poster
