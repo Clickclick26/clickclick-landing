@@ -85,24 +85,27 @@ words, internally linked, added to `sitemap.xml`.
 
 ```
 /                         Home — "Video marketing software" (positioning + overview)  ← keep
-/live-commerce/           "Live commerce & live shopping software"  ← build first
+/live-commerce/           "Live commerce & live shopping software"  ✅ BUILT
+/about/                   Story, InvestNI, awards, partners (E-E-A-T page)  ✅ BUILT
+/guides/what-is-live-commerce/   Cornerstone informational article  ✅ BUILT
 /social-listening/        "Social listening software / signals for retail"
 /influencer-marketing/    "Influencer marketing software & creator workflows"
 /media/                   "TV advertising & video signage software"
 /consultations/           "Video marketing strategy & implementation"
-/about/                   Team, story, InvestNI, awards, partners (E-E-A-T page)
 /case-studies/            Index + one page per client (L'Occitane, Revolución de Cuba, Astrid & Miyu)
-/guides/what-is-live-commerce/   Cornerstone informational article
 /guides/live-commerce-uk/        "State of live commerce in the UK" — link-bait
 ```
 
 **Priority order:**
 
-1. `/live-commerce/` — the single biggest differentiator and least contested term
-2. `/about/` — real named people + credentials = E-E-A-T, helps *everything* rank
-3. `/case-studies/` with at least one detailed story (real numbers if allowed)
-4. `/guides/what-is-live-commerce/` — the asset AI engines will cite
-5. The remaining service pages
+1. ✅ `/live-commerce/` — biggest differentiator, least contested term
+2. ✅ `/about/` — credentials = E-E-A-T, helps *everything* rank
+3. ✅ `/guides/what-is-live-commerce/` — the asset AI engines will cite
+4. `/case-studies/` with at least one detailed story (real numbers if allowed)
+5. The remaining service pages — **reuse the `.doc-page` template** from
+   `/live-commerce/index.html` (same head/nav/footer, swap the `<main>` content
+   and the JSON-LD `SoftwareApplication` + `FAQPage`). Each needs genuinely
+   distinct copy — do not ship near-duplicates or Google treats them as thin.
 
 **Each service page needs:**
 
@@ -137,6 +140,13 @@ words, internally linked, added to `sitemap.xml`.
 ## 5. Technical SEO backlog
 
 ### Done in this pass
+- [x] **Built 3 new indexable pages** off the main page: `/live-commerce/`
+      (`SoftwareApplication` + `FAQPage` schema), `/about/` (`AboutPage` + inline
+      `Organization`, E-E-A-T), `/guides/what-is-live-commerce/` (`Article` +
+      `FAQPage`, AEO cornerstone). All with breadcrumb schema, unique
+      title/description/canonical/OG, shared nav + footer, and internal links to
+      and from the home page. New `.doc-page` CSS template in `styles.css`.
+      Added all 3 to `sitemap.xml`.
 - [x] Reframed schema + copy as a **software company**: `SoftwareApplication` +
       `OfferCatalog` (software modules) replace the old `ProfessionalService`
       (agency signal); `naics` 511210 (software publishing); OG/Twitter/FAQ/chatbot
