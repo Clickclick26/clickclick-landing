@@ -35,7 +35,7 @@
     {
       keys: ["agency", "are you an agency"],
       reply:
-        "We’re a video marketing solutions team — software platforms, strategy and planning, and custom builds. If you tell me what you’re hoping to achieve, I can steer you in the right direction.",
+        "We’re a software company, not an agency — we build video marketing platforms (live commerce, social listening, influencer systems, signage) plus the strategy and custom builds around them. If you tell me what you’re hoping to achieve, I can steer you in the right direction.",
     },
     {
       keys: ["live commerce", "live stream", "live selling", "live shop", "shoppable", "social commerce"],
