@@ -147,6 +147,15 @@ words, internally linked, added to `sitemap.xml`.
       title/description/canonical/OG, shared nav + footer, and internal links to
       and from the home page. New `.doc-page` CSS template in `styles.css`.
       Added all 3 to `sitemap.xml`.
+- [x] `/live-commerce/` positioned around **quality management, sales
+      optimisation, multi-platform and scalability** (save time and money), not
+      "we make streams".
+- [x] Client references (L'Occitane, Revolución de Cuba, Astrid & Miyu) set to
+      **past tense** site-wide; home "Trusted by brands" band relabelled "Brands
+      we've worked with".
+- [x] Em-dashes removed from all new/edited copy (house style). Each new page
+      carries one image from `assets/bts/` — swap for licensed stock in `assets/`
+      if preferred.
 - [x] Reframed schema + copy as a **software company**: `SoftwareApplication` +
       `OfferCatalog` (software modules) replace the old `ProfessionalService`
       (agency signal); `naics` 511210 (software publishing); OG/Twitter/FAQ/chatbot

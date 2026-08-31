@@ -1588,6 +1588,26 @@ nav.nav--doc .nav-doc-brand img {
   margin: 52px 0 8px;
 }
 
+.doc-figure {
+  margin: 12px 0 40px;
+}
+
+.doc-figure img {
+  width: 100%;
+  height: auto;
+  max-height: 440px;
+  object-fit: cover;
+  object-position: center 30%;
+  border-radius: var(--radius);
+  display: block;
+}
+
+.doc-figure figcaption {
+  font-size: 0.8rem;
+  color: var(--light);
+  margin-top: 8px;
+}
+
 .doc-main .faq-list {
   margin-top: 24px;
 }
