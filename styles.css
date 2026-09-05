@@ -1602,6 +1602,18 @@ nav.nav--doc .nav-doc-brand img {
   display: block;
 }
 
+.doc-figure video {
+  width: 100%;
+  max-width: 340px;
+  height: auto;
+  max-height: 560px;
+  object-fit: cover;
+  border-radius: var(--radius);
+  display: block;
+  margin: 0 auto;
+  background: #000;
+}
+
 .doc-figure figcaption {
   font-size: 0.8rem;
   color: var(--light);
@@ -1662,6 +1674,75 @@ nav.nav--doc .nav-doc-brand img {
 
 .doc-related a:hover {
   color: var(--turquoise);
+}
+
+.cost-calc {
+  margin: 8px 0 40px;
+  padding: 28px;
+  background: #fff;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  border-radius: var(--radius);
+}
+
+.cost-calc-kicker {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-weight: 600;
+  color: var(--turquoise);
+  margin-bottom: 16px;
+}
+
+.cost-calc-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.cost-calc label {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--mid);
+  line-height: 1.35;
+}
+
+.cost-calc input {
+  font-family: var(--sans);
+  font-size: 1.15rem;
+  font-weight: 500;
+  padding: 12px 14px;
+  border: 1px solid rgba(0, 0, 0, 0.14);
+  border-radius: 10px;
+  background: var(--cream);
+}
+
+.cost-calc input:focus {
+  outline: 2px solid var(--turquoise);
+  outline-offset: 1px;
+}
+
+.cost-calc-hint {
+  margin-top: 14px;
+  font-size: 0.8rem;
+  color: var(--light);
+  line-height: 1.5;
+}
+
+.cost-calc-result {
+  margin-top: 18px;
+  font-family: var(--display);
+  font-size: 1.45rem;
+  line-height: 1.25;
+  color: #111;
+}
+
+@media (max-width: 640px) {
+  .cost-calc-grid {
+    grid-template-columns: 1fr;
+  }
 }
 
 @media (max-width: 600px) {
