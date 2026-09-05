@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>ClickClick Live: Watch The Software In Action | ClickClick</title>
-  <meta name="description" content="See ClickClick Live in action: the pre-show check, one comment feed across every platform, and a buy button that never leaves the stream. Watch the clip, then try the real demo." />
+  <meta name="description" content="See ClickClick Live in action: the pre-show check, one comment feed across every platform, and a buy button that never leaves the stream. Watch the clip, try the real demo, and see what it costs next to hiring." />
   <meta name="author" content="ClickClick" />
   <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
   <meta name="theme-color" content="#f3f4f4" />
@@ -41,7 +41,7 @@
   <noscript>
     <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
   </noscript>
-  <link rel="stylesheet" href="/styles.css?v=seo5" />
+  <link rel="stylesheet" href="/styles.css?v=seo6" />
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -79,9 +79,19 @@
           "One comment feed across the website player, YouTube, Instagram, Facebook and TikTok",
           "A buy button that stays live wherever the show is being watched",
           "One stop control that ends a show everywhere at once",
-          "Show staffing: main hosts, standby cover, moderators and a director, booked per show"
+          "Role-based show controls: separate screens for host, standby, moderator and director, set before the show"
         ],
-        "description": "ClickClick Live is the live shopping software behind ClickClick's live commerce service: a pre-show quality check, one moderation feed across every platform, and a buy button that follows the show wherever it's watched."
+        "description": "ClickClick Live is the live shopping software behind ClickClick's live commerce work: a pre-show quality check, one moderation feed across every platform, and a buy button that follows the show wherever it's watched.",
+        "offers": {
+          "@type": "Offer",
+          "priceCurrency": "GBP",
+          "priceSpecification": {
+            "@type": "PriceSpecification",
+            "priceCurrency": "GBP",
+            "minPrice": "350"
+          },
+          "availability": "https://schema.org/InStock"
+        }
       },
       {
         "@type": "VideoObject",
@@ -111,7 +121,7 @@
             "name": "How do I see it running?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "Open the live demo linked on this page. It is the same product rail, buy-now flow and director controls used to run a real show."
+              "text": "Open the live demo linked on this page. It is the real player, not a video of one: the same product rail, buy-now flow and director controls used to run a real show."
             }
           },
           {
@@ -129,6 +139,30 @@
               "@type": "Answer",
               "text": "One stop control ends the show on every connected platform at once. Nobody hunts through five separate apps to shut things down."
             }
+          },
+          {
+            "@type": "Question",
+            "name": "What do I need to run a show?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "A phone or a camera, your products, a decent internet connection, and someone willing to talk. The software handles the pre-show check, the comments and the buy button."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What does it cost?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Plans start at £350 a month, more depending on how many shows you run. The calculator on this page compares that against what a dedicated person to run your shows would cost you instead."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Does it cost less than hiring someone?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "For most small and mid-size teams, yes. A full-time hire in the UK often costs upwards of £28,000 a year before tax and pension. ClickClick Live starts at £350 a month, and you are not committing to a full-time wage to run occasional shows."
+            }
           }
         ]
       }
@@ -143,7 +177,7 @@
     </a>
     <ul class="nav-links">
       <li><a href="/#solutions">Solutions</a></li>
-      <li><a href="/live-commerce/">Live commerce</a></li>
+      <li><a href="/clickclick-live/">ClickClick Live</a></li>
       <li><a href="/#contact" class="nav-cta">Let’s Talk</a></li>
     </ul>
   </nav>
@@ -153,10 +187,10 @@
     <p class="doc-eyebrow">See it before you buy it</p>
     <h1 class="doc-title">ClickClick Live: watch the software run a show</h1>
     <p class="doc-lede">
-      A live show fails in public, in real time, in front of the exact people you want to impress.
-      ClickClick Live is the software that stops that from happening: a 90-second check before anyone
-      is watching, one comment feed no matter how many platforms are live, and a buy button that never
-      leaves the screen. Watch it work below.
+      A live show fails in public, in real time, in front of the exact people you wanted to
+      impress. ClickClick Live is built to stop that. A 90-second check before anyone is watching.
+      One comment feed, however many platforms are live. A buy button that never leaves the screen.
+      Watch it work below.
     </p>
 
     <figure class="doc-figure">
@@ -175,8 +209,11 @@
     </figure>
 
     <div class="doc-cta" style="margin-top:0">
-      <h2>Take it for a spin</h2>
-      <p>The same buy flow, the same product rail, live right now.</p>
+      <h2>Open it. It’s running right now.</h2>
+      <p>
+        The real player, not a video of one. Same buy button, same product rail (the strip of
+        products down the side that a viewer taps to buy).
+      </p>
       <a href="https://clickclick-live.fly.dev/shop-player" class="btn-primary magnetic" target="_blank" rel="noopener"><span>Open the live demo</span></a>
     </div>
 
@@ -207,11 +244,63 @@
         through separate accounts while the wrong thing stays live.
       </p>
 
-      <h2>A full crew, booked before the show starts</h2>
+      <h2>Everyone in the show has a seat in the software</h2>
       <p>
-        A main host (or a few, each from their own home), standby cover if someone drops, a moderator,
-        and a director calling what is live. All of it booked ahead, not worked out on the day.
+        A show has roles: a host, standby cover in case someone drops out, a moderator watching the
+        comments, and a director deciding what goes on screen next. Each of them gets their own
+        screen and their own controls, and they can all be in different houses. You set who does
+        what before the show starts, not while it is running.
       </p>
+
+      <h2>What lag actually costs</h2>
+      <p>
+        Every extra second of buffering costs you viewers. Akamai&rsquo;s analysis of 370 million real
+        video plays found that a single rebuffering event pushes about 1% of viewers to leave on the
+        spot, and as many as 40% leave after just one interruption over two seconds. Shows that stay
+        under a 0.5% rebuffering ratio (the industry term for how much of the total watch time is
+        spent stuck buffering, not actually playing) finish 90% of the time. Above 1%, that drops to
+        50%. That is why the pre-show check tests your connection before anyone is watching, not
+        during the show.
+      </p>
+
+      <h2>What a no-show actually costs</h2>
+      <p>
+        UK employers lose several working days per employee a year to sickness and other absence on
+        average, and unplanned time off costs a business real money in disruption, not just the
+        missed wage. A host not turning up is the same problem, at the worst possible moment: live,
+        in front of the people you wanted to impress. That is why standby cover is built in. If the
+        main host does not show, standby already knows, instead of the audience finding out first.
+      </p>
+
+      <h2>What a studio actually costs</h2>
+      <p>
+        A professional studio in the UK typically runs somewhere between £30 and £170 an hour
+        depending on the city and the kit, which adds up fast for a weekly show. A basic home setup
+        (lighting, a mic, a phone or camera) usually costs less than a single day of studio hire,
+        once, and then it is paid for. Every show on ClickClick Live runs from wherever the host
+        already is: a kitchen, a shop floor, a living room. No studio booking, no travel, no day
+        rate.
+      </p>
+    </div>
+
+    <div class="cost-calc" id="calc">
+      <p class="cost-calc-kicker">Your numbers</p>
+      <div class="cost-calc-grid">
+        <label>
+          What a dedicated person to run your shows costs you a year (£)
+          <input id="staff-cost" type="number" inputmode="numeric" min="0" step="500" value="28000" />
+        </label>
+        <label>
+          What ClickClick Live costs you a year (£)
+          <input id="live-cost" type="number" inputmode="numeric" min="0" step="100" value="4200" />
+        </label>
+      </div>
+      <p class="cost-calc-hint">
+        £28,000 is roughly what a full-time hire costs in the UK before tax and pension go on top.
+        £4,200 is our starting plan for a year (plans start at £350 a month; more if you run extra
+        shows). Put in your own numbers.
+      </p>
+      <p class="cost-calc-result" id="calc-result"></p>
     </div>
 
     <section aria-label="Frequently asked questions">
@@ -228,15 +317,15 @@
         <details class="faq-item">
           <summary><h3>How do I see it running?</h3></summary>
           <p>
-            Open the live demo linked on this page. It’s the same product rail, buy-now flow and
-            director controls used to run a real show.
+            Open the live demo linked on this page. It is the real player, not a video of one: the
+            same product rail, buy-now flow and director controls used to run a real show.
           </p>
         </details>
         <details class="faq-item">
           <summary><h3>Which platforms does the buy button work on?</h3></summary>
           <p>
-            The brand’s own website player, YouTube, Instagram, Facebook and TikTok, so a show is never
-            tied to one platform.
+            The brand&rsquo;s own website player, YouTube, Instagram, Facebook and TikTok, so a show is
+            never tied to one platform.
           </p>
         </details>
         <details class="faq-item">
@@ -246,20 +335,41 @@
             five separate apps to shut things down.
           </p>
         </details>
+        <details class="faq-item">
+          <summary><h3>What do I need to run a show?</h3></summary>
+          <p>
+            A phone or a camera, your products, a decent internet connection, and someone willing to
+            talk. The software handles the pre-show check, the comments and the buy button.
+          </p>
+        </details>
+        <details class="faq-item">
+          <summary><h3>What does it cost?</h3></summary>
+          <p>
+            Plans start at £350 a month, more depending on how many shows you run. The calculator on
+            this page compares that against what a dedicated person to run your shows would cost you
+            instead.
+          </p>
+        </details>
+        <details class="faq-item">
+          <summary><h3>Does it cost less than hiring someone?</h3></summary>
+          <p>
+            For most small and mid-size teams, yes. A full-time hire in the UK often costs upwards of
+            £28,000 a year before tax and pension. ClickClick Live starts at £350 a month, and you are
+            not committing to a full-time wage to run occasional shows.
+          </p>
+        </details>
       </div>
     </section>
 
     <div class="doc-cta">
       <h2>Want this running for your brand?</h2>
-      <p>Tell us what you sell. We’ll show you what a first show would look like on it.</p>
-      <a href="/#contact" class="btn-primary magnetic"><span>Talk to the team</span></a>
+      <p>Tell us what you sell. We&rsquo;ll show you what a first show would look like on it, and what it would cost.</p>
+      <a href="/#contact" class="btn-primary magnetic"><span>Show me my numbers</span></a>
     </div>
 
     <div class="doc-related" aria-label="Related pages">
       <p>More from ClickClick</p>
       <ul>
-        <li><a href="/live-commerce/">Live commerce software</a></li>
-        <li><a href="/cheaper-than-hiring/">Live shopping vs hiring</a></li>
         <li><a href="/guides/what-is-live-commerce/">Guide: What is live commerce?</a></li>
         <li><a href="/about/">About ClickClick</a></li>
       </ul>
@@ -276,9 +386,7 @@
         <p class="footer-col-title">Explore</p>
         <ul class="footer-links">
           <li><a href="/#solutions">Solutions</a></li>
-          <li><a href="/live-commerce/">Live commerce</a></li>
-          <li><a href="/clickclick-live/">ClickClick Live demo</a></li>
-          <li><a href="/cheaper-than-hiring/">Live vs hiring</a></li>
+          <li><a href="/clickclick-live/">ClickClick Live</a></li>
           <li><a href="/about/">About</a></li>
           <li><a href="/#faq">FAQ</a></li>
           <li><a href="/#contact">Contact</a></li>
@@ -305,6 +413,36 @@
 
   <script>
     document.getElementById("year").textContent = new Date().getFullYear();
+
+    function money(n) {
+      return "£" + Math.round(n).toLocaleString("en-GB");
+    }
+
+    function updateCalc() {
+      var staff = Number(document.getElementById("staff-cost").value) || 0;
+      var live = Number(document.getElementById("live-cost").value) || 0;
+      var el = document.getElementById("calc-result");
+      if (staff <= 0) {
+        el.textContent = "Type what a dedicated person would cost you.";
+        return;
+      }
+      if (live <= 0) {
+        el.textContent = "Type what you would pay for ClickClick Live.";
+        return;
+      }
+      var gap = staff - live;
+      if (gap > 0) {
+        el.textContent = "That is " + money(gap) + " a year still in the business, before a single sale from the shows.";
+      } else if (gap === 0) {
+        el.textContent = "Same cost either way. The shows themselves are what tips it.";
+      } else {
+        el.textContent = "At these numbers, hiring your own person costs less. Send us your figures anyway and we will tell you straight if we are not the right fit.";
+      }
+    }
+
+    document.getElementById("staff-cost").addEventListener("input", updateCalc);
+    document.getElementById("live-cost").addEventListener("input", updateCalc);
+    updateCalc();
   </script>
 </body>
 </html>

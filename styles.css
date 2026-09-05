@@ -446,6 +446,10 @@ body.has-fine-pointer .btn-on-dark.magnetic:hover {
   object-fit: cover;
   display: block;
   background: #ddd;
+  /* Raw, uncorrected photos read flat next to the rest of the site's
+     graded look. A touch more contrast, saturation and warmth gives them
+     the same "someone actually graded this" feel without going cartoonish. */
+  filter: contrast(1.1) saturate(1.2) brightness(1.03) sepia(0.06);
 }
 
 .polaroid-1 {
