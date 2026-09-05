@@ -238,11 +238,6 @@
       </div>
     </div>
 
-    <figure class="doc-shot ccl-wide">
-      <img src="/assets/product/hub.png" alt="ClickClick Live's brand admin home: money in this month, shows this month, Green Room pass rate, and standby cover used, plus tiles for Overview, Shop player demo, Shows and Green Room strictness" width="1280" height="860" loading="lazy" />
-      <figcaption>The brand admin's home screen: real numbers, one click to every part of the software.</figcaption>
-    </figure>
-
     <div class="ccl-section-head">
       <h2>What the software actually does</h2>
       <p>Live commerce (also called live shopping) is selling products through live video: a host shows the products, viewers ask questions in the comments, and they buy without leaving the stream. ClickClick Live is the software that runs that show, end to end.</p>
@@ -287,12 +282,8 @@
         <figcaption>The Green Room, mid-check.</figcaption>
       </figure>
       <figure class="doc-shot">
-        <img src="/assets/product/moderation.png" alt="ClickClick Live's moderation screen: one comment stream from every platform, with pin, hide and block controls, plus a featured product panel and an emergency stop button" width="1280" height="745" loading="lazy" />
-        <figcaption>Moderation: every platform, one feed.</figcaption>
-      </figure>
-      <figure class="doc-shot">
-        <img src="/assets/product/shows.png" alt="ClickClick Live's show staffing screen: set the number of main hosts, standby hosts and moderators for a show, and pick each person by name" width="1280" height="900" loading="lazy" />
-        <figcaption>Setting who is on a show, by name.</figcaption>
+        <img src="/assets/product/moderation.png" alt="ClickClick Live's moderation screen live: a moderator typing a reply to a real comment, alongside the featured product panel and an emergency stop button" width="1280" height="745" loading="lazy" />
+        <figcaption>Moderation, live: replying to a real comment.</figcaption>
       </figure>
     </div>
 
@@ -335,15 +326,16 @@
           What a dedicated person to run your shows costs you a year (£)
           <input id="staff-cost" type="number" inputmode="numeric" min="0" step="500" value="28000" />
         </label>
-        <label>
-          What ClickClick Live costs you a year (£)
-          <input id="live-cost" type="number" inputmode="numeric" min="0" step="100" value="4200" />
-        </label>
+        <div class="cost-calc-fixed">
+          <span class="cost-calc-fixed-label">ClickClick Live, from</span>
+          <span class="cost-calc-fixed-fig">£350<span class="cost-calc-fixed-per">/month</span></span>
+          <span class="cost-calc-fixed-sub">£4,200 a year on the starting plan. More if you run extra shows.</span>
+        </div>
       </div>
       <p class="cost-calc-hint">
         £28,000 is roughly what a full-time hire costs in the UK before tax and pension go on top.
-        £4,200 is our starting plan for a year (plans start at £350 a month; more if you run extra
-        shows). Put in your own numbers.
+        The starting plan is a fixed price, not something to guess at &mdash; put in your own hiring
+        figure and we&rsquo;ll do the rest.
       </p>
       <p class="cost-calc-result" id="calc-result"></p>
     </div>
@@ -478,21 +470,19 @@
       return "£" + Math.round(n).toLocaleString("en-GB");
     }
 
+    var LIVE_STARTING_PRICE_PER_YEAR = 4200; // £350/month starting plan, fixed, not user-editable
+
     function updateCalc() {
       var staff = Number(document.getElementById("staff-cost").value) || 0;
-      var live = Number(document.getElementById("live-cost").value) || 0;
+      var live = LIVE_STARTING_PRICE_PER_YEAR;
       var el = document.getElementById("calc-result");
       if (staff <= 0) {
         el.textContent = "Type what a dedicated person would cost you.";
         return;
       }
-      if (live <= 0) {
-        el.textContent = "Type what you would pay for ClickClick Live.";
-        return;
-      }
       var gap = staff - live;
       if (gap > 0) {
-        el.textContent = "That is " + money(gap) + " a year still in the business, before a single sale from the shows.";
+        el.textContent = "That is " + money(gap) + " a year still in the business on our starting plan, before a single sale from the shows.";
       } else if (gap === 0) {
         el.textContent = "Same cost either way. The shows themselves are what tips it.";
       } else {
@@ -501,7 +491,6 @@
     }
 
     document.getElementById("staff-cost").addEventListener("input", updateCalc);
-    document.getElementById("live-cost").addEventListener("input", updateCalc);
     updateCalc();
   </script>
 </body>

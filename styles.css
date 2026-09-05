@@ -1810,7 +1810,7 @@ nav.nav--doc .nav-doc-brand img {
 
 .ccl-shot-row {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(2, 1fr);
   gap: 18px;
   margin: 0 0 48px;
 }
@@ -1969,6 +1969,39 @@ nav.nav--doc .nav-doc-brand img {
 .cost-calc input:focus {
   outline: 2px solid var(--turquoise);
   outline-offset: 1px;
+}
+
+.cost-calc-fixed {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  gap: 4px;
+  padding: 12px 14px;
+  border: 1px solid rgba(0, 0, 0, 0.14);
+  border-radius: 10px;
+  background: var(--cream);
+}
+.cost-calc-fixed-label {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--mid);
+}
+.cost-calc-fixed-fig {
+  font-family: var(--display);
+  font-size: 1.6rem;
+  color: #111;
+  line-height: 1.2;
+}
+.cost-calc-fixed-per {
+  font-family: var(--sans);
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--light);
+}
+.cost-calc-fixed-sub {
+  font-size: 0.75rem;
+  color: var(--light);
+  line-height: 1.4;
 }
 
 .cost-calc-hint {
