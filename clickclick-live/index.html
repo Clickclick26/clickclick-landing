@@ -98,7 +98,7 @@
         "@id": "https://www.clickclick.video/clickclick-live/#video",
         "name": "ClickClick Live demo: what a prospect sees during a live shopping show",
         "description": "A short clip of the ClickClick Live shop player: the LIVE badge, viewer count, live comments, and a buy-now bar that stays on screen through the whole show.",
-        "thumbnailUrl": ["https://www.clickclick.video/assets/live-commerce.jpg"],
+        "thumbnailUrl": ["https://www.clickclick.video/assets/product/shop-player.png"],
         "uploadDate": "2026-09-05",
         "duration": "PT10S",
         "contentUrl": "https://www.clickclick.video/assets/clickclick-live-demo.mp4",
@@ -163,6 +163,22 @@
               "@type": "Answer",
               "text": "For most small and mid-size teams, yes. A full-time hire in the UK often costs upwards of £28,000 a year before tax and pension. ClickClick Live starts at £350 a month, and you are not committing to a full-time wage to run occasional shows."
             }
+          },
+          {
+            "@type": "Question",
+            "name": "What is live commerce in simple terms?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Live commerce is a live video broadcast where a host shows products and viewers can buy them straight away, without leaving the stream. It combines a live stream, a shoppable product list and checkout in one experience. It is also called live shopping."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Where does live commerce happen?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Mostly on TikTok Shop and Amazon Live, and increasingly on brands' own websites and apps. Instagram, YouTube and retail media networks also run live shopping formats. ClickClick Live works across all of them from one place."
+            }
           }
         ]
       }
@@ -172,8 +188,10 @@
 </head>
 <body class="doc-page">
   <nav id="navbar" class="scrolled nav--doc">
-    <a href="/" class="nav-doc-brand" aria-label="ClickClick home">
-      <img src="/assets/clickclick-logo-full-horizontal.png" alt="ClickClick" width="180" height="30" />
+    <a href="/" class="nav-doc-brand brand-live" aria-label="ClickClick home">
+      <img src="/assets/clickclick-logo-full-horizontal.png" alt="ClickClick" width="130" height="22" />
+      <span class="brand-live-sep" aria-hidden="true"></span>
+      <span class="brand-live-word">Live</span>
     </a>
     <ul class="nav-links">
       <li><a href="/#solutions">Solutions</a></li>
@@ -182,105 +200,151 @@
     </ul>
   </nav>
 
-  <main class="doc-main">
+  <main class="doc-main ccl-main">
     <p class="doc-breadcrumb"><a href="/">Home</a> &rsaquo; ClickClick Live</p>
-    <p class="doc-eyebrow">See it before you buy it</p>
-    <h1 class="doc-title">ClickClick Live: watch the software run a show</h1>
-    <p class="doc-lede">
-      A live show fails in public, in real time, in front of the exact people you wanted to
-      impress. ClickClick Live is built to stop that. A 90-second check before anyone is watching.
-      One comment feed, however many platforms are live. A buy button that never leaves the screen.
-      Watch it work below.
-    </p>
 
-    <figure class="doc-figure">
-      <video
-        src="/assets/clickclick-live-demo.mp4"
-        poster="/assets/live-commerce.jpg"
-        controls
-        muted
-        loop
-        playsinline
-        preload="metadata"
-        width="1440"
-        height="2560"
-      ></video>
-      <figcaption>What a viewer sees: the LIVE badge, a real viewer count, comments landing as they happen, and a buy-now bar that never leaves the screen.</figcaption>
+    <div class="ccl-hero">
+      <div>
+        <p class="doc-eyebrow">See it before you buy it</p>
+        <h1 class="doc-title">ClickClick Live: watch the software run a show</h1>
+        <p class="doc-lede">
+          A live show fails in public, in real time, in front of the exact people you wanted to
+          impress. ClickClick Live is built to stop that.
+        </p>
+        <ul class="ccl-checks">
+          <li>A 90-second check before anyone is watching</li>
+          <li>One comment feed, however many platforms are live</li>
+          <li>A buy button that never leaves the screen</li>
+        </ul>
+        <div class="ccl-hero-ctas">
+          <a href="https://clickclick-live.fly.dev/shop-player" class="btn-primary magnetic" target="_blank" rel="noopener"><span>Open the live demo</span></a>
+          <a href="#calc" class="btn-outline magnetic"><span>See what it costs</span></a>
+        </div>
+      </div>
+
+      <figure class="doc-figure">
+        <video
+          src="/assets/clickclick-live-demo.mp4"
+          poster="/assets/product/shop-player.png"
+          controls
+          muted
+          loop
+          playsinline
+          preload="metadata"
+          width="1440"
+          height="2560"
+        ></video>
+        <figcaption>What a viewer sees: the LIVE badge, a real viewer count, comments landing as they happen, and a buy-now bar that never leaves the screen.</figcaption>
+      </figure>
+    </div>
+
+    <div class="ccl-stats">
+      <div>
+        <p class="ccl-stat-fig">5</p>
+        <p class="ccl-stat-label">Platforms in one comment feed</p>
+      </div>
+      <div>
+        <p class="ccl-stat-fig">90 sec</p>
+        <p class="ccl-stat-label">Pre-show check, every show</p>
+      </div>
+      <div>
+        <p class="ccl-stat-fig">1</p>
+        <p class="ccl-stat-label">Control to stop a show everywhere</p>
+      </div>
+      <div>
+        <p class="ccl-stat-fig">£350</p>
+        <p class="ccl-stat-label">Starting price, per month</p>
+      </div>
+    </div>
+
+    <figure class="doc-shot ccl-wide">
+      <img src="/assets/product/hub.png" alt="ClickClick Live's brand admin home: money in this month, shows this month, Green Room pass rate, and standby cover used, plus tiles for Overview, Shop player demo, Shows and Green Room strictness" width="1280" height="860" loading="lazy" />
+      <figcaption>The brand admin's home screen: real numbers, one click to every part of the software.</figcaption>
     </figure>
 
-    <div class="doc-cta" style="margin-top:0">
+    <div class="ccl-section-head">
+      <h2>What the software actually does</h2>
+      <p>Live commerce (also called live shopping) is selling products through live video: a host shows the products, viewers ask questions in the comments, and they buy without leaving the stream. ClickClick Live is the software that runs that show, end to end.</p>
+    </div>
+
+    <div class="ccl-grid">
+      <div class="ccl-card ccl-a-signal">
+        <span class="ccl-dot" aria-hidden="true"></span>
+        <h3>Nothing goes live on a guess</h3>
+        <p>Every show starts with a 90-second check: sound, connection, light, frame and brand, and the show itself. Whatever would have gone wrong in front of an audience gets caught before it does.</p>
+      </div>
+      <div class="ccl-card ccl-a-signal">
+        <span class="ccl-dot" aria-hidden="true"></span>
+        <h3>Every platform, one screen</h3>
+        <p>Comments from your website, YouTube, Instagram, Facebook and TikTok land in a single feed. Reply, pin, hide, block, or stop the whole show, all from here.</p>
+      </div>
+      <div class="ccl-card ccl-a-commerce">
+        <span class="ccl-dot" aria-hidden="true"></span>
+        <h3>A buy button nobody hunts for</h3>
+        <p>Whoever is watching, on whatever platform, sees a working buy button pointed at exactly what is live right now. Tap it, buy it, without leaving the stream.</p>
+      </div>
+      <div class="ccl-card ccl-a-commerce">
+        <span class="ccl-dot" aria-hidden="true"></span>
+        <h3>One control, not five logins</h3>
+        <p>If something goes wrong mid-show, one control ends it everywhere at once. Nobody is scrambling through separate accounts while the wrong thing stays live.</p>
+      </div>
+      <div class="ccl-card ccl-a-cast">
+        <span class="ccl-dot" aria-hidden="true"></span>
+        <h3>Everyone gets their own seat</h3>
+        <p>A host, standby cover, a moderator and a director each get their own screen and controls, and can all be in different houses. Set who does what before the show starts.</p>
+      </div>
+      <div class="ccl-card ccl-a-cast">
+        <span class="ccl-dot" aria-hidden="true"></span>
+        <h3>Runs on TikTok Shop and Amazon Live too</h3>
+        <p>Started on platforms like Taobao Live, now mainstream through TikTok Shop and Amazon Live. ClickClick Live works across all of them, plus your own site, from one place.</p>
+      </div>
+    </div>
+
+    <div class="ccl-shot-row">
+      <figure class="doc-shot">
+        <img src="/assets/product/green-room.png" alt="ClickClick Live's Green Room pre-show check mid-way through, showing a host on camera and a checklist for sound, connection, light, frame and brand, and the show" width="1280" height="530" loading="lazy" />
+        <figcaption>The Green Room, mid-check.</figcaption>
+      </figure>
+      <figure class="doc-shot">
+        <img src="/assets/product/moderation.png" alt="ClickClick Live's moderation screen: one comment stream from every platform, with pin, hide and block controls, plus a featured product panel and an emergency stop button" width="1280" height="745" loading="lazy" />
+        <figcaption>Moderation: every platform, one feed.</figcaption>
+      </figure>
+      <figure class="doc-shot">
+        <img src="/assets/product/shows.png" alt="ClickClick Live's show staffing screen: set the number of main hosts, standby hosts and moderators for a show, and pick each person by name" width="1280" height="900" loading="lazy" />
+        <figcaption>Setting who is on a show, by name.</figcaption>
+      </figure>
+    </div>
+
+    <div class="doc-cta">
       <h2>Open it. It’s running right now.</h2>
       <p>
         The real player, not a video of one. Same buy button, same product rail (the strip of
         products down the side that a viewer taps to buy).
       </p>
-      <a href="https://clickclick-live.fly.dev/shop-player" class="btn-primary magnetic" target="_blank" rel="noopener"><span>Open the live demo</span></a>
+      <a href="https://clickclick-live.fly.dev/shop-player" class="btn-primary btn-on-dark magnetic" target="_blank" rel="noopener"><span>Open the live demo</span></a>
     </div>
 
-    <div class="prose">
-      <h2>Nothing goes live on a guess</h2>
-      <p>
-        Every show starts with a 90-second check: sound, connection, light, frame and brand, and the
-        show itself (products loaded, first line ready, who is backstage). Whatever would have gone
-        wrong in front of an audience gets caught before it does, not during the show.
-      </p>
+    <div class="ccl-section-head">
+      <h2>Why it also increases sales</h2>
+      <p>These aren&rsquo;t abstract features. Each one is there because of a real, measurable cost it stops you paying.</p>
+    </div>
 
-      <h2>Every platform, one screen</h2>
-      <p>
-        Comments from your website, YouTube, Instagram, Facebook and TikTok land in a single feed.
-        Reply, pin, hide, block, or stop the whole show, without switching between five apps while a
-        sale is happening.
-      </p>
-
-      <h2>A buy button nobody has to hunt for</h2>
-      <p>
-        Whoever is watching, on whatever platform, sees a working buy button pointed at exactly what is
-        live right now. Tap it, buy it, without leaving the stream.
-      </p>
-
-      <h2>One control, not five logins</h2>
-      <p>
-        If something goes wrong mid-show, one control ends it everywhere at once. Nobody is scrambling
-        through separate accounts while the wrong thing stays live.
-      </p>
-
-      <h2>Everyone in the show has a seat in the software</h2>
-      <p>
-        A show has roles: a host, standby cover in case someone drops out, a moderator watching the
-        comments, and a director deciding what goes on screen next. Each of them gets their own
-        screen and their own controls, and they can all be in different houses. You set who does
-        what before the show starts, not while it is running.
-      </p>
-
-      <h2>What lag actually costs</h2>
-      <p>
-        Every extra second of buffering costs you viewers. Akamai&rsquo;s analysis of 370 million real
-        video plays found that a single rebuffering event pushes about 1% of viewers to leave on the
-        spot, and as many as 40% leave after just one interruption over two seconds. Shows that stay
-        under a 0.5% rebuffering ratio (the industry term for how much of the total watch time is
-        spent stuck buffering, not actually playing) finish 90% of the time. Above 1%, that drops to
-        50%. That is why the pre-show check tests your connection before anyone is watching, not
-        during the show.
-      </p>
-
-      <h2>What a no-show actually costs</h2>
-      <p>
-        UK employers lose several working days per employee a year to sickness and other absence on
-        average, and unplanned time off costs a business real money in disruption, not just the
-        missed wage. A host not turning up is the same problem, at the worst possible moment: live,
-        in front of the people you wanted to impress. That is why standby cover is built in. If the
-        main host does not show, standby already knows, instead of the audience finding out first.
-      </p>
-
-      <h2>What a studio actually costs</h2>
-      <p>
-        A professional studio in the UK typically runs somewhere between £30 and £170 an hour
-        depending on the city and the kit, which adds up fast for a weekly show. A basic home setup
-        (lighting, a mic, a phone or camera) usually costs less than a single day of studio hire,
-        once, and then it is paid for. Every show on ClickClick Live runs from wherever the host
-        already is: a kitchen, a shop floor, a living room. No studio booking, no travel, no day
-        rate.
-      </p>
+    <div class="ccl-grid">
+      <div class="ccl-card ccl-a-signal">
+        <span class="ccl-dot" aria-hidden="true"></span>
+        <h3>What lag actually costs</h3>
+        <p>Akamai&rsquo;s analysis of 370 million video plays found a single rebuffering event pushes about 1% of viewers to leave on the spot, and up to 40% leave after just one interruption. That is why the pre-show check tests your connection first, not mid-show.</p>
+      </div>
+      <div class="ccl-card ccl-a-cast">
+        <span class="ccl-dot" aria-hidden="true"></span>
+        <h3>What a no-show actually costs</h3>
+        <p>UK employers lose several working days per employee a year to sickness and absence on average, and unplanned time off costs real money in disruption. That is why standby cover is built in, not bolted on.</p>
+      </div>
+      <div class="ccl-card ccl-a-commerce">
+        <span class="ccl-dot" aria-hidden="true"></span>
+        <h3>What a studio actually costs</h3>
+        <p>A professional studio in the UK typically runs £30&ndash;£170 an hour. A basic home setup usually costs less than a single day&rsquo;s hire, once, then it&rsquo;s paid for. Every show runs from wherever the host already is.</p>
+      </div>
     </div>
 
     <div class="cost-calc" id="calc">
@@ -358,19 +422,34 @@
             not committing to a full-time wage to run occasional shows.
           </p>
         </details>
+        <details class="faq-item">
+          <summary><h3>What is live commerce in simple terms?</h3></summary>
+          <p>
+            Live commerce is a live video broadcast where a host shows products and viewers can buy
+            them straight away, without leaving the stream. It combines a live stream, a shoppable
+            product list and checkout in one experience. It is also called live shopping.
+          </p>
+        </details>
+        <details class="faq-item">
+          <summary><h3>Where does live commerce happen?</h3></summary>
+          <p>
+            Mostly on TikTok Shop and Amazon Live, and increasingly on brands&rsquo; own websites and
+            apps. Instagram, YouTube and retail media networks also run live shopping formats.
+            ClickClick Live works across all of them from one place.
+          </p>
+        </details>
       </div>
     </section>
 
     <div class="doc-cta">
       <h2>Want this running for your brand?</h2>
       <p>Tell us what you sell. We&rsquo;ll show you what a first show would look like on it, and what it would cost.</p>
-      <a href="/#contact" class="btn-primary magnetic"><span>Show me my numbers</span></a>
+      <a href="/#contact" class="btn-primary btn-on-dark magnetic"><span>Show me my numbers</span></a>
     </div>
 
     <div class="doc-related" aria-label="Related pages">
       <p>More from ClickClick</p>
       <ul>
-        <li><a href="/guides/what-is-live-commerce/">Guide: What is live commerce?</a></li>
         <li><a href="/about/">About ClickClick</a></li>
       </ul>
     </div>
