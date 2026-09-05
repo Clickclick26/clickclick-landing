@@ -1603,6 +1603,9 @@ nav.nav--doc .nav-doc-brand img {
 }
 
 .doc-figure video {
+  /* Centering a narrow portrait video in the wide text column left it
+     floating in the middle of the page instead of lining up with the
+     paragraph text above it — left-align it to the same edge instead. */
   width: 100%;
   max-width: 340px;
   height: auto;
@@ -1610,7 +1613,7 @@ nav.nav--doc .nav-doc-brand img {
   object-fit: cover;
   border-radius: var(--radius);
   display: block;
-  margin: 0 auto;
+  margin: 0;
   background: #000;
 }
 
