@@ -1642,6 +1642,18 @@ nav.nav--doc .nav-doc-brand img {
 .ccl-hero .doc-figure {
   margin: 0;
 }
+.ccl-hero-shots {
+  display: flex;
+  gap: 14px;
+  justify-content: center;
+}
+.ccl-hero-shots .doc-shot {
+  margin: 0;
+  max-width: 190px;
+}
+.ccl-hero-shots figcaption {
+  text-align: center;
+}
 .ccl-hero-ctas {
   display: flex;
   gap: 12px;
