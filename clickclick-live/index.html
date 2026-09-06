@@ -37,7 +37,7 @@
   <noscript>
     <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
   </noscript>
-  <link rel="stylesheet" href="/styles.css?v=seo9" />
+  <link rel="stylesheet" href="/styles.css?v=seo10" />
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -505,12 +505,13 @@
         return;
       }
       var gap = staff - live;
+      var pct = Math.round((gap / staff) * 100);
       if (gap > 0) {
-        el.textContent = "That is " + money(gap) + " a year still in the business, before a single sale from the shows - and you still have a real host, cover and a moderator, just not a senior crew's price tag.";
+        el.textContent = "That's " + pct + "% less than a senior crew, still with a real host, cover and a moderator - just not a senior crew's price tag.";
       } else if (gap === 0) {
         el.textContent = "Same cost either way. The shows themselves are what tips it.";
       } else {
-        el.textContent = "At these numbers, your senior crew costs less than ours plus a part-time team. Send us your figures anyway and we will tell you straight if we are not the right fit.";
+        el.textContent = "At these numbers, your senior crew costs " + Math.abs(pct) + "% less than ours plus a part-time team. Send us your figures anyway and we will tell you straight if we are not the right fit.";
       }
     }
 
