@@ -84,7 +84,9 @@
           "priceSpecification": {
             "@type": "PriceSpecification",
             "priceCurrency": "GBP",
-            "minPrice": "350"
+            "minPrice": "600",
+            "maxPrice": "3200",
+            "description": "Plans exclude VAT. Broadcast, the plan most brands run, is £1,450 a month."
           },
           "availability": "https://schema.org/InStock"
         }
@@ -135,10 +137,18 @@
           },
           {
             "@type": "Question",
+            "name": "Does it check my host's setup is good enough?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes. The pre-show check holds sound, light, connection and frame to the same standard a professional studio would, wherever the host actually is. You get that standard without a studio's cost or a crew to run it."
+            }
+          },
+          {
+            "@type": "Question",
             "name": "What does it cost?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "Plans start at £350 a month, more depending on how many shows you run. The calculator on this page compares that against what a dedicated person to run your shows would cost you instead."
+              "text": "Broadcast, the plan most brands run, is £1,450 a month plus VAT (8 shows a month, up to 2,500 viewers each). A smaller Studio plan starts at £600 a month. The calculator on this page compares Broadcast against what a dedicated person to run your shows would cost you instead."
             }
           },
           {
@@ -146,7 +156,7 @@
             "name": "Does it cost less than hiring someone?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "For most small and mid-size teams, yes. A full-time hire in the UK often costs upwards of £28,000 a year before tax and pension. ClickClick Live starts at £350 a month, and you are not committing to a full-time wage to run occasional shows."
+              "text": "For most small and mid-size teams, yes. A full-time hire in the UK often costs upwards of £28,000 a year before tax and pension. ClickClick Live's Broadcast plan is £17,400 a year plus VAT, and you are not committing to a full-time wage to run occasional shows."
             }
           },
           {
@@ -233,8 +243,8 @@
         <p class="ccl-stat-label">Control to stop a show everywhere</p>
       </div>
       <div>
-        <p class="ccl-stat-fig">£350</p>
-        <p class="ccl-stat-label">Starting price, per month</p>
+        <p class="ccl-stat-fig">£1,450</p>
+        <p class="ccl-stat-label">Broadcast plan, per month +VAT</p>
       </div>
     </div>
 
@@ -315,7 +325,7 @@
       <div class="ccl-card ccl-a-commerce">
         <span class="ccl-dot" aria-hidden="true"></span>
         <h3>What a studio actually costs</h3>
-        <p>A professional studio in the UK typically runs £30&ndash;£170 an hour. A basic home setup usually costs less than a single day&rsquo;s hire, once, then it&rsquo;s paid for. Every show runs from wherever the host already is.</p>
+        <p>A professional studio in the UK typically runs £30&ndash;£170 an hour. A basic home setup usually costs less than a single day&rsquo;s hire, once, then it&rsquo;s paid for. Every show runs from wherever the host already is, and the pre-show check holds it to the same standard a studio would, sound, light and frame, without paying for one or hiring a crew to run it.</p>
       </div>
     </div>
 
@@ -327,15 +337,16 @@
           <input id="staff-cost" type="number" inputmode="numeric" min="0" step="500" value="28000" />
         </label>
         <div class="cost-calc-fixed">
-          <span class="cost-calc-fixed-label">ClickClick Live, from</span>
-          <span class="cost-calc-fixed-fig">£350<span class="cost-calc-fixed-per">/month</span></span>
-          <span class="cost-calc-fixed-sub">£4,200 a year on the starting plan. More if you run extra shows.</span>
+          <span class="cost-calc-fixed-label">ClickClick Live, Broadcast plan</span>
+          <span class="cost-calc-fixed-fig">£1,450<span class="cost-calc-fixed-per">/month +VAT</span></span>
+          <span class="cost-calc-fixed-sub">£17,400 a year, 8 shows a month. Smaller plans from £600/month.</span>
         </div>
       </div>
       <p class="cost-calc-hint">
         £28,000 is roughly what a full-time hire costs in the UK before tax and pension go on top.
-        The starting plan is a fixed price, not something to guess at &mdash; put in your own hiring
-        figure and we&rsquo;ll do the rest.
+        Broadcast is the plan most brands run, and it&rsquo;s a fixed price, not something to guess at
+        &mdash; put in your own hiring figure and we&rsquo;ll do the rest. Selling into Ireland or the
+        EU too? That&rsquo;s £1,800 a month all-in.
       </p>
       <p class="cost-calc-result" id="calc-result"></p>
     </div>
@@ -382,8 +393,9 @@
         <details class="faq-item">
           <summary><h3>What does it cost?</h3></summary>
           <p>
-            Plans start at £350 a month, more depending on how many shows you run. The calculator on
-            this page compares that against what a dedicated person to run your shows would cost you
+            Broadcast, the plan most brands run, is £1,450 a month plus VAT (8 shows a month, up to
+            2,500 viewers each). A smaller Studio plan starts at £600 a month. The calculator on this
+            page compares Broadcast against what a dedicated person to run your shows would cost you
             instead.
           </p>
         </details>
@@ -391,8 +403,8 @@
           <summary><h3>Does it cost less than hiring someone?</h3></summary>
           <p>
             For most small and mid-size teams, yes. A full-time hire in the UK often costs upwards of
-            £28,000 a year before tax and pension. ClickClick Live starts at £350 a month, and you are
-            not committing to a full-time wage to run occasional shows.
+            £28,000 a year before tax and pension. ClickClick Live&rsquo;s Broadcast plan is £17,400 a
+            year plus VAT, and you are not committing to a full-time wage to run occasional shows.
           </p>
         </details>
         <details class="faq-item">
@@ -470,7 +482,7 @@
       return "£" + Math.round(n).toLocaleString("en-GB");
     }
 
-    var LIVE_STARTING_PRICE_PER_YEAR = 4200; // £350/month starting plan, fixed, not user-editable
+    var LIVE_STARTING_PRICE_PER_YEAR = 17400; // £1,450/month Broadcast plan, fixed, not user-editable
 
     function updateCalc() {
       var staff = Number(document.getElementById("staff-cost").value) || 0;

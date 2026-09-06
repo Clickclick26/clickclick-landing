@@ -1943,6 +1943,7 @@ nav.nav--doc .nav-doc-brand img {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 16px;
+  align-items: stretch;
 }
 
 .cost-calc label {
@@ -1954,19 +1955,28 @@ nav.nav--doc .nav-doc-brand img {
   font-weight: 600;
   color: var(--mid);
   line-height: 1.35;
-}
-
-.cost-calc input {
-  font-family: var(--sans);
-  font-size: 1.15rem;
-  font-weight: 500;
   padding: 12px 14px;
   border: 1px solid rgba(0, 0, 0, 0.14);
   border-radius: 10px;
   background: var(--cream);
 }
 
+.cost-calc input {
+  font-family: var(--sans);
+  font-size: 1.15rem;
+  font-weight: 500;
+  color: #111;
+  padding: 0;
+  border: none;
+  border-radius: 0;
+  background: transparent;
+  width: 100%;
+}
+
 .cost-calc input:focus {
+  outline: none;
+}
+.cost-calc label:focus-within {
   outline: 2px solid var(--turquoise);
   outline-offset: 1px;
 }
@@ -2016,7 +2026,7 @@ nav.nav--doc .nav-doc-brand img {
   font-family: var(--display);
   font-size: 1.45rem;
   line-height: 1.25;
-  color: #111;
+  color: var(--turquoise);
 }
 
 @media (max-width: 640px) {
