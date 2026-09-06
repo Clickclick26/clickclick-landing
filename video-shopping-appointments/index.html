@@ -1,11 +1,12 @@
 <!DOCTYPE html>
 <!--
-  BEFORE THIS PAGE GOES LIVE, three things must be true. Checked 2026-09-06.
+  BEFORE THIS PAGE GOES LIVE, one thing must still be true. Checked 2026-09-07.
 
-  1. Booked appointments. This page describes clients picking a slot. Consult
-     has booked mode, opening hours and routing, but the client's slot
-     picker and the staff diary are NOT built yet. Either build them or cut
-     the "Pre-booked" H3 and the booking mentions before publishing.
+  1. DONE, 2026-09-07. Booked appointments. This page describes clients picking
+     a slot, and they now can. lib/slots.ts in clickclick-live generates the
+     open times from the brand's hours and whoever is on the expert list, the
+     client picks one from the next fourteen days, and it lands in that
+     person's diary on /consult. 16 tests cover it. No copy change needed.
   2. Prices are deliberately NOT on this page. Kathryn's call, 2026-09-06:
      no competitor publishes theirs, so neither do we. The real numbers live in
      docs/pricing.md in clickclick-live. Do not put a figure back on this page
