@@ -60,6 +60,22 @@ a {
   text-decoration: none;
 }
 
+.see-live-link {
+  color: var(--turquoise);
+  font-weight: 600;
+  text-decoration: none;
+  transition: color 0.15s, transform 0.08s;
+  display: inline-block;
+}
+.see-live-link:hover {
+  color: #00a0b5;
+  text-decoration: underline;
+}
+.see-live-link:active {
+  transform: translateY(1px) scale(0.97);
+  color: #007f90;
+}
+
 /* ── CURSOR ── */
 #cursor-blob {
   width: 90px;
