@@ -148,7 +148,7 @@
             "name": "What does it cost?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "Broadcast, the plan most brands run, is £1,450 a month plus VAT (8 shows a month, up to 2,500 viewers each). A smaller Studio plan starts at £600 a month. The calculator on this page compares Broadcast against what a dedicated person to run your shows would cost you instead."
+              "text": "Broadcast, the plan most brands run, is £1,450 a month plus VAT (8 shows a month, up to 2,500 viewers each). A smaller Studio plan starts at £600 a month. The calculator on this page compares Broadcast against what a production team, a host, a standby host and a moderator, would cost you instead."
             }
           },
           {
@@ -156,7 +156,7 @@
             "name": "Does it cost less than hiring someone?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "For most small and mid-size teams, yes. A full-time hire in the UK often costs upwards of £28,000 a year before tax and pension. ClickClick Live's Broadcast plan is £17,400 a year plus VAT, and you are not committing to a full-time wage to run occasional shows."
+              "text": "For most small and mid-size teams, yes. A main host, a standby host and a moderator, each working 16 hours a week, typically costs upwards of £36,000 a year in UK wages before tax and pension. ClickClick Live's Broadcast plan is £17,400 a year plus VAT, and you are not committing to three part-time wages to run occasional shows."
             }
           },
           {
@@ -333,8 +333,8 @@
       <p class="cost-calc-kicker">Your numbers</p>
       <div class="cost-calc-grid">
         <label>
-          What a dedicated person to run your shows costs you a year (£)
-          <input id="staff-cost" type="number" inputmode="numeric" min="0" step="500" value="28000" />
+          What a production team to run your shows costs you a year (£)
+          <input id="staff-cost" type="number" inputmode="numeric" min="0" step="500" value="36600" />
         </label>
         <div class="cost-calc-fixed">
           <span class="cost-calc-fixed-label">ClickClick Live, Broadcast plan</span>
@@ -343,10 +343,11 @@
         </div>
       </div>
       <p class="cost-calc-hint">
-        £28,000 is roughly what a full-time hire costs in the UK before tax and pension go on top.
-        Broadcast is the plan most brands run, and it&rsquo;s a fixed price, not something to guess at
-        &mdash; put in your own hiring figure and we&rsquo;ll do the rest. Selling into Ireland or the
-        EU too? That&rsquo;s £1,800 a month all-in.
+        £36,600 is roughly a main host, a standby host and a moderator, each working 16 hours a
+        week in the UK, before tax and pension go on top. Broadcast is the plan most brands run,
+        and it&rsquo;s a fixed price, not something to guess at &mdash; put in your own team
+        figure and we&rsquo;ll do the rest. Selling into Ireland or the EU too? That&rsquo;s
+        £1,800 a month all-in.
       </p>
       <p class="cost-calc-result" id="calc-result"></p>
     </div>
@@ -395,16 +396,17 @@
           <p>
             Broadcast, the plan most brands run, is £1,450 a month plus VAT (8 shows a month, up to
             2,500 viewers each). A smaller Studio plan starts at £600 a month. The calculator on this
-            page compares Broadcast against what a dedicated person to run your shows would cost you
-            instead.
+            page compares Broadcast against what a production team, a host, a standby host and a
+            moderator, would cost you instead.
           </p>
         </details>
         <details class="faq-item">
           <summary><h3>Does it cost less than hiring someone?</h3></summary>
           <p>
-            For most small and mid-size teams, yes. A full-time hire in the UK often costs upwards of
-            £28,000 a year before tax and pension. ClickClick Live&rsquo;s Broadcast plan is £17,400 a
-            year plus VAT, and you are not committing to a full-time wage to run occasional shows.
+            For most small and mid-size teams, yes. A main host, a standby host and a moderator,
+            each working 16 hours a week, typically costs upwards of £36,000 a year in UK wages
+            before tax and pension. ClickClick Live&rsquo;s Broadcast plan is £17,400 a year plus
+            VAT, and you are not committing to three part-time wages to run occasional shows.
           </p>
         </details>
         <details class="faq-item">
@@ -489,7 +491,7 @@
       var live = LIVE_STARTING_PRICE_PER_YEAR;
       var el = document.getElementById("calc-result");
       if (staff <= 0) {
-        el.textContent = "Type what a dedicated person would cost you.";
+        el.textContent = "Type what your production team would cost you.";
         return;
       }
       var gap = staff - live;
@@ -498,7 +500,7 @@
       } else if (gap === 0) {
         el.textContent = "Same cost either way. The shows themselves are what tips it.";
       } else {
-        el.textContent = "At these numbers, hiring your own person costs less. Send us your figures anyway and we will tell you straight if we are not the right fit.";
+        el.textContent = "At these numbers, building your own team costs less. Send us your figures anyway and we will tell you straight if we are not the right fit.";
       }
     }
 
