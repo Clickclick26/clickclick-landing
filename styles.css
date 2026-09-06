@@ -1662,10 +1662,29 @@ nav.nav--doc .nav-doc-brand img {
   display: flex;
   gap: 14px;
   justify-content: center;
+  align-items: stretch;
 }
 .ccl-hero-shots .doc-shot {
   margin: 0;
   max-width: 190px;
+  display: flex;
+  flex-direction: column;
+}
+/* Flex stretch makes both frames the same outer height, but the two real
+   screenshots have different aspect ratios (the checkout sheet is taller
+   and narrower than the live view), so the shorter one was rendering small
+   inside a same-sized frame with a dead gap above its caption - looked
+   shrunk and oddly cropped next to the one that filled its frame. Let the
+   taller shot set the frame height at its own real size, and have the
+   shorter one stretch+crop to fill the same height instead of padding out
+   to it - same fix as .ccl-shot-row further down this page. */
+.ccl-hero-shots .doc-shot img {
+  flex: 1 1 auto;
+  min-height: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
 }
 .ccl-hero-shots figcaption {
   text-align: center;
