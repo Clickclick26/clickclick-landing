@@ -1835,19 +1835,29 @@ nav.nav--doc .nav-doc-brand img {
     grid-template-columns: 1fr;
   }
 }
-.ccl-shot-row .doc-shot {
-  margin: 0;
-}
 /* The two screenshots come from different app screens with different
    natural shapes (Green Room is wide and short, Moderation is tall), so
-   at a shared card width they rendered at different heights. Give both
-   images the same box and letterbox in the page's own cream instead of
-   cropping either one - no real UI gets cut off. */
+   at a shared card width they rendered at different heights. A fixed
+   aspect-ratio box made both match, but letterboxed the short one in
+   cream padding - it read as "smaller", not full-size, next to the tall
+   one that already filled its box edge to edge. Instead: let the row's
+   own grid stretch both cards to the height of the taller screenshot
+   (Moderation, shown at its real, uncropped size), and have the shorter
+   one (Green Room) stretch+crop to fill that same height instead of
+   padding out to it. */
+.ccl-shot-row .doc-shot {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
 .ccl-shot-row .doc-shot img {
-  aspect-ratio: 16 / 11;
-  height: auto;
-  object-fit: contain;
-  background: var(--cream);
+  flex: 1 1 auto;
+  min-height: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
 }
 
 .doc-shot {
