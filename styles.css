@@ -1718,6 +1718,41 @@ nav.nav--doc .nav-doc-brand img {
   flex: none;
 }
 
+/* Running prose on the Consult page.
+   The class was in the markup and had no styles at all, so paragraphs ran
+   straight into each other and into the lists between them. This is the
+   reading rhythm: a clear gap between paragraphs, more air around a list than
+   inside it, and a line length you can actually read. */
+.doc-prose {
+  max-width: 62ch;
+  margin: 0 0 40px;
+}
+.doc-prose p {
+  margin: 0 0 18px;
+  font-size: 1rem;
+  line-height: 1.7;
+  color: var(--mid);
+}
+.doc-prose p:last-child {
+  margin-bottom: 0;
+}
+.doc-prose > .ccl-checks {
+  margin: 26px 0;
+}
+.doc-prose strong {
+  color: var(--ink, #17150f);
+  font-weight: 600;
+}
+
+/* A heading needs more space above it than the paragraph it follows, or the
+   page reads as one undifferentiated block. */
+.ccl-section-head {
+  margin-top: 56px;
+}
+.ccl-main > .ccl-section-head:first-of-type {
+  margin-top: 0;
+}
+
 .ccl-stats {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -2089,6 +2124,175 @@ nav.nav--doc .nav-doc-brand img {
   .cost-calc-grid {
     grid-template-columns: 1fr;
   }
+}
+
+/* A shot row holding one wide desktop capture, rather than the usual pair.
+   Without this the single figure sits in one column of a two-column grid and
+   the screenshot is too small to read. */
+.ccl-shot-row--single {
+  grid-template-columns: 1fr;
+}
+
+/* TRUST: the five things the software gives a brand that is already going
+   live by itself. The letter replaces the usual dot marker on these cards, so
+   it reads down the grid without anyone having to be told it is an acronym. */
+.ccl-trust .ccl-card {
+  position: relative;
+}
+.trust-letter {
+  display: block;
+  font-family: var(--display);
+  font-size: 2.1rem;
+  line-height: 1;
+  color: var(--turquoise);
+  margin-bottom: 10px;
+}
+.ccl-trust .ccl-a-cast .trust-letter {
+  color: var(--purple, #7b5ea7);
+}
+.ccl-trust .ccl-a-commerce .trust-letter {
+  color: var(--pink, #e83e8c);
+}
+
+/* ClickClick Consult hero film.
+
+   The category presents itself with a square, silent, autoplaying loop and no
+   controls, and that is the right shape here: it reads as a window into the
+   thing rather than as a video you are being asked to watch. The client's
+   screen sits inset over the corner so both halves of an appointment are in
+   one image. */
+.ccl-hero-film {
+  position: relative;
+  display: flex;
+  justify-content: center;
+}
+
+.film {
+  margin: 0;
+  width: min(520px, 100%);
+  aspect-ratio: 1 / 1;
+  border-radius: var(--radius);
+  overflow: hidden;
+  background: #17140d;
+  box-shadow: 0 2px 4px rgba(23, 21, 15, 0.06), 0 30px 60px -28px rgba(23, 21, 15, 0.4);
+}
+
+.film-video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.film-inset {
+  position: absolute;
+  right: -8px;
+  bottom: -18px;
+  width: 30%;
+  max-width: 168px;
+  margin: 0;
+}
+
+.film-inset img {
+  width: 100%;
+  height: auto;
+  border-radius: var(--radius);
+  box-shadow: 0 2px 4px rgba(23, 21, 15, 0.08), 0 18px 36px -18px rgba(23, 21, 15, 0.45);
+}
+
+.film-inset figcaption {
+  margin-top: 8px;
+  font-size: 0.72rem;
+  letter-spacing: 1.4px;
+  text-transform: uppercase;
+  color: #5c584f;
+  text-align: center;
+}
+
+@media (max-width: 700px) {
+  .film-inset {
+    position: static;
+    width: 45%;
+    margin: 16px auto 0;
+  }
+  .ccl-hero-film {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+/* Sales estimator (ClickClick Consult). Three read-outs under the inputs,
+   the last one emphasised because it is the number that decides whether
+   putting a person on the rota is worth it. */
+.est-out {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+  gap: 16px;
+  margin-top: 24px;
+  padding-top: 24px;
+  border-top: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.est-row {
+  padding: 16px;
+  border-radius: var(--radius);
+  background: #f7f6f3;
+}
+
+.est-row-hero {
+  background: #e2f5f8;
+}
+
+.est-label {
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 1.6px;
+  font-weight: 600;
+  color: #5c584f;
+  margin: 0 0 8px;
+}
+
+.est-fig {
+  font-family: var(--display);
+  font-size: 1.9rem;
+  line-height: 1.1;
+  color: #17150f;
+  margin: 0;
+}
+
+.est-row-hero .est-fig {
+  color: var(--turquoise);
+}
+
+.est-note {
+  font-size: 0.8rem;
+  color: #5c584f;
+  margin: 8px 0 0;
+}
+
+.cost-calc-note {
+  font-size: 0.8rem;
+  line-height: 1.7;
+  color: #5c584f;
+  margin: 18px 0 0;
+  max-width: 64ch;
+}
+
+#est-verdict {
+  font-family: var(--display);
+  font-size: 1.3rem;
+  line-height: 1.35;
+  color: #17150f;
+  max-width: 60ch;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
 }
 
 @media (max-width: 600px) {

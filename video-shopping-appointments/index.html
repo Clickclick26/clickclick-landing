@@ -1,0 +1,881 @@
+<!DOCTYPE html>
+<!--
+  BEFORE THIS PAGE GOES LIVE, three things must be true. Checked 2026-09-06.
+
+  1. Booked appointments. This page describes clients picking a slot. Consult
+     has booked mode, opening hours and routing, but the client's slot
+     picker and the staff diary are NOT built yet. Either build them or cut
+     the "Pre-booked" H3 and the booking mentions before publishing.
+  2. Prices are deliberately NOT on this page. Kathryn's call, 2026-09-06:
+     no competitor publishes theirs, so neither do we. The real numbers live in
+     docs/pricing.md in clickclick-live. Do not put a figure back on this page
+     without checking with her, and if you ever do, it has to match that doc
+     and the FAQ schema here word for word.
+  3. Video. THE BIGGEST ONE. This page describes a live video call. The
+     streaming pipeline is not built yet, so in the running app both sides show
+     an honest placeholder where the picture goes. Do not publish this page
+     until video actually works. The screenshots below were taken with that
+     placeholder removed, so they show the tooling (which is real) and not the
+     video (which is not).
+  4. Screenshots. /assets/product/consult-shopper.png and consult-expert.png are
+     real captures of the running software, not mockups. Re-shoot them if the
+     UI changes.
+
+  Deliberately absent: any performance statistic. There are no ClickClick Consult customers
+  yet, so there are no numbers. See the "we would normally show you a graph"
+  section, which handles that on purpose rather than hiding it.
+-->
+<html lang="en-GB">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Private Video Shopping Appointments | ClickClick Consult</title>
+  <meta name="description" content="Private video appointments on your own website, for bridal, antiques, fine jewellery and small ateliers. Show a piece properly, to everyone she brings with her, and set it aside before she goes." />
+  <meta name="author" content="ClickClick" />
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+  <meta name="theme-color" content="#f3f4f4" />
+  <link rel="canonical" href="https://www.clickclick.video/video-shopping-appointments/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="en_GB" />
+  <meta property="og:site_name" content="ClickClick" />
+  <meta property="og:url" content="https://www.clickclick.video/video-shopping-appointments/" />
+  <meta property="og:title" content="Private Video Shopping Appointments | ClickClick Consult" />
+  <meta property="og:description" content="Private video appointments for pieces that have to be seen. Show her properly, with everyone she brings, and set it aside before she goes." />
+  <meta property="og:image" content="https://www.clickclick.video/assets/product/consult-shopper.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Private Video Shopping Appointments | ClickClick Consult" />
+  <meta name="twitter:description" content="Private video appointments for pieces that have to be seen. Show her properly, with everyone she brings, and set it aside before she goes." />
+  <meta name="twitter:image" content="https://www.clickclick.video/assets/product/consult-shopper.png" />
+  <link rel="icon" href="/favicon.svg?v=c3" type="image/svg+xml" />
+  <link rel="icon" href="/favicon.png?v=c3" type="image/png" sizes="32x32" />
+  <link rel="icon" href="/favicon.ico?v=c3" type="image/x-icon" sizes="any" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png?v=c3" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Poppins:wght@300;400;500;600;700&display=swap"
+    media="print"
+    onload="this.media='all'"
+  />
+  <noscript>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  </noscript>
+  <link rel="stylesheet" href="/styles.css?v=seo8" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": "https://www.clickclick.video/#organization",
+        "name": "ClickClick",
+        "url": "https://www.clickclick.video/",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://www.clickclick.video/assets/clickclick-logo-full-horizontal.png"
+        }
+      },
+      {
+        "@type": "WebPage",
+        "@id": "https://www.clickclick.video/video-shopping-appointments/#webpage",
+        "url": "https://www.clickclick.video/video-shopping-appointments/",
+        "name": "Private Video Shopping Appointments",
+        "inLanguage": "en-GB",
+        "breadcrumb": { "@id": "https://www.clickclick.video/video-shopping-appointments/#breadcrumb" },
+        "about": { "@id": "https://www.clickclick.video/video-shopping-appointments/#software" },
+        "publisher": { "@id": "https://www.clickclick.video/#organization" }
+      },
+      {
+        "@type": "BreadcrumbList",
+        "@id": "https://www.clickclick.video/video-shopping-appointments/#breadcrumb",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.clickclick.video/" },
+          { "@type": "ListItem", "position": 2, "name": "ClickClick Live", "item": "https://www.clickclick.video/clickclick-live/" },
+          { "@type": "ListItem", "position": 3, "name": "Video shopping appointments", "item": "https://www.clickclick.video/video-shopping-appointments/" }
+        ]
+      },
+      {
+        "@type": "SoftwareApplication",
+        "@id": "https://www.clickclick.video/video-shopping-appointments/#software",
+        "name": "ClickClick Consult",
+        "alternateName": [
+          "ClickClick Live: Consult",
+          "Virtual personal shopping software",
+          "Commerce consultation software"
+        ],
+        "keywords": "video shopping appointments, one to one video shopping, virtual personal shopping, personal shopping software, commerce consultation, luxury shopping appointments, video call software for retail website",
+        "applicationCategory": "BusinessApplication",
+        "applicationSubCategory": "One to one video shopping and video shopping appointment software for retail",
+        "operatingSystem": "Web",
+        "url": "https://www.clickclick.video/video-shopping-appointments/",
+        "image": "https://www.clickclick.video/assets/product/consult-shopper.png",
+        "publisher": { "@id": "https://www.clickclick.video/#organization" },
+        "isPartOf": { "@id": "https://www.clickclick.video/clickclick-live/#software" },
+        "description": "ClickClick Consult is video shopping appointment software. A client on a retailer's own website clicks talk to someone now, joins a queue or books a slot, and gets a private video call with that retailer's own staff, on her own or with the people she brings. During the call the expert pushes products onto the client's screen and sets items aside in the client's own order.",
+        "featureList": [
+          "Drop in queue: a client clicks talk to someone now and is answered by the next available expert",
+          "Pre booked appointment slots with opening hours, so the button is never a dead end",
+          "Topic routing that sends the call to the member of staff who knows the category",
+          "Product push: the expert puts a product on the client's screen mid call",
+          "Set a piece aside in the client's own order during the appointment, checked out by her in her own session",
+          "Entry page capture: the expert sees which page the client came in on",
+          "How each appointment was left, and the value set aside during it",
+          "Queue length, wait time and answer rate reporting",
+          "Browser based for the client, with no app download and camera off by default"
+        ],
+        "audience": {
+          "@type": "BusinessAudience",
+          "audienceType": "Retailers in the United Kingdom and Ireland",
+          "name": "Jewellers, bike and specialist sports retailers, furniture and interiors retailers, consumer electronics retailers"
+        },
+        "areaServed": [
+          { "@type": "Country", "name": "United Kingdom" },
+          { "@type": "Country", "name": "Ireland" }
+        ],
+        "offers": {
+          "@type": "Offer",
+          "priceCurrency": "GBP",
+          "availability": "https://schema.org/InStock",
+          "url": "https://www.clickclick.video/video-shopping-appointments/#estimator",
+          "description": "Priced per brand on a monthly licence. Tell us what you sell and your average order value and we will give you a figure."
+        },
+        "hasOfferCatalog": {
+          "@type": "OfferCatalog",
+          "name": "ClickClick Consult capabilities",
+          "itemListElement": [
+            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Video shopping appointments on request" } },
+            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Booked private video shopping appointments" } },
+            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Showing pieces and setting them aside during an appointment" } },
+            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "A record of how each appointment was left" } }
+          ]
+        }
+      },
+      {
+        "@type": "FAQPage",
+        "@id": "https://www.clickclick.video/video-shopping-appointments/#faq",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Is this the same as virtual personal shopping?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Yes, that is a fair description of it. Virtual personal shopping has meant a named associate, a client book and a salaried role, which only the biggest houses could staff. Consult gives a small or growing luxury business the same thing without the headcount: a client asks to see a piece, you take the appointment yourself, and everything you need to show it and set it aside is already in front of you." }
+          },
+          {
+            "@type": "Question",
+            "name": "How much does ClickClick Consult cost?",
+            "acceptedAnswer": { "@type": "Answer", "text": "It is a monthly licence, priced per brand, and there is no charge per call. What it costs depends on how many of your staff need to answer calls and whether you also run live shopping shows on the same platform. Tell us what you sell and your average order value and you will get a figure on the first call, not after three meetings." }
+          },
+          {
+            "@type": "Question",
+            "name": "What happens if nobody is free when a client clicks talk to someone now?",
+            "acceptedAnswer": { "@type": "Answer", "text": "The button only appears during the hours you set, and only when at least one of your experts is signed on. Outside those hours it is not on the page at all. When someone is on duty but busy, the client joins a queue and sees their position in it. If the call rings out without being answered, it stops ringing that person and moves on rather than ringing them twice for the same client. A button that rings out is worse for a retailer than no button, so the software is built to never leave one on the page." }
+          },
+          {
+            "@type": "Question",
+            "name": "Do I need to hire extra staff to offer video shopping appointments?",
+            "acceptedAnswer": { "@type": "Answer", "text": "No. ClickClick Consult is designed to be answered by the people who already handle your hard questions, between other work. Nobody sits waiting at a screen. You set the opening hours, you choose who is on the rota, and calls route by topic so a question goes to the person who knows that category. Most retailers start with two hours a day and widen the hours only if the calls turn out to be worth taking." }
+          },
+          {
+            "@type": "Question",
+            "name": "Does the client need to download an app or turn their camera on?",
+            "acceptedAnswer": { "@type": "Answer", "text": "No app. ClickClick Consult runs in the client's browser on the retailer's own website. The client's camera stays off by default, so the video runs one way from your expert to them. That removes the most common reason a client backs out of a video call with a shop." }
+          },
+          {
+            "@type": "Question",
+            "name": "Can staff set items aside in the client's own order during a video call?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Yes. Mid-call your expert pushes a product and it appears on the client's own screen, with no link to click and no email to find later. Your expert can then set it aside in her own order. The client checks out themselves, in their own session, on your own checkout. Nothing is bought on their behalf." }
+          },
+          {
+            "@type": "Question",
+            "name": "How do I know which sales came from a video shopping appointment?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Every call records the value of what was set aside during it, the page the client arrived from, and an outcome your expert marks at the end. The outcome options are bought on the call, going away to think, we were not right for them, and just browsing. There is no positive-sounding catch-all option, so staff cannot flatter the number." }
+          },
+          {
+            "@type": "Question",
+            "name": "Is a video shopping appointment the same as digital clienteling?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Not quite. Digital clienteling is an ongoing relationship programme: a named associate keeps a customer's history, preferences and past purchases, and works that relationship over years. A video shopping appointment is a single conversation, and it works with a first-time visitor who has no history at all. Clienteling needs a programme and the staff to run one. A video shopping appointment needs one member of staff and an hour in the afternoon." }
+          },
+          {
+            "@type": "Question",
+            "name": "What is the difference between a video shopping appointment and live shopping?",
+            "acceptedAnswer": { "@type": "Answer", "text": "A video shopping appointment is private: one client, or a small curated group of the people she brings and the people you invite, with one of your own staff. Live shopping is one to many: a host runs a scheduled show and hundreds of people watch and buy at once. An appointment needs no audience and no schedule, and it holds up to eight people, so a private event for a few invited clients is still an appointment. A show reaches far more people at once. Consult does the first, ClickClick Live does the second, and both run on the same platform." }
+          },
+          {
+            "@type": "Question",
+            "name": "Are video shopping appointments recorded, and is that GDPR compliant?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Calls are not recorded by default. What is kept is the written record: the products shown, the value set aside, the page the client arrived from, the outcome and a short note your expert writes. If you choose to turn recording on, you are responsible for telling clients before the call starts and for having a lawful basis to do it. We will help you set that up, but we will not tell you that switching a feature on makes you compliant." }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+</head>
+<body class="doc-page">
+  <nav id="navbar" class="scrolled nav--doc">
+    <a href="/" class="nav-doc-brand brand-live" aria-label="ClickClick home">
+      <img src="/assets/clickclick-logo-full-horizontal.png" alt="ClickClick" width="130" height="22" />
+      <span class="brand-live-sep" aria-hidden="true"></span>
+      <span class="brand-live-word">Live</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="/#solutions">Solutions</a></li>
+      <li><a href="/clickclick-live/">ClickClick Live</a></li>
+      <li><a href="/video-shopping-appointments/">ClickClick Consult</a></li>
+      <li><a href="/#contact" class="nav-cta">Let&rsquo;s Talk</a></li>
+    </ul>
+  </nav>
+
+  <main class="doc-main ccl-main">
+    <p class="doc-breadcrumb"><a href="/">Home</a> &rsaquo; <a href="/clickclick-live/">ClickClick Live</a> &rsaquo; Video shopping appointments</p>
+
+    <div class="ccl-hero">
+      <div>
+        <p class="doc-eyebrow">ClickClick Consult</p>
+        <h1 class="doc-title">Private appointments, on your own website</h1>
+
+        <p class="doc-lede">
+          A video shopping appointment is a private video call between a client, anyone she
+          brings with her, and the person who knows the piece. One to one, or a small curated
+          group of up to eight. ClickClick Consult holds them three ways: by appointment, where a
+          client takes a time that suits them; on request, where they ask to speak to someone and
+          are seen shortly after; or as a private event, where you invite a few people to view a
+          collection together. Everyone the client wants with them can join by link, and anything
+          you show can be set aside for them before you say goodbye.
+        </p>
+
+        <ul class="ccl-checks">
+          <li>Held by appointment, in your own hours</li>
+          <li>Everyone she brings with her, on the same call</li>
+          <li>No premises required, and none implied</li>
+        </ul>
+
+        <div class="ccl-hero-ctas">
+          <a href="https://clickclick-live.fly.dev/consult/shopper" class="btn-primary magnetic" target="_blank" rel="noopener"><span>See an appointment</span></a>
+          <a href="#estimator" class="btn-outline magnetic"><span>How many are you reaching?</span></a>
+        </div>
+        <p class="ccl-hero-note">By appointment or on request. Your hours, your people, your website.</p>
+      </div>
+
+      <div class="ccl-hero-film">
+        <figure class="film">
+          <video
+            class="film-video"
+            src="/assets/video/consult-hero.mp4"
+            poster="/assets/video/consult-hero-poster.png"
+            autoplay
+            loop
+            muted
+            playsinline
+            disableremoteplayback
+            aria-label="A shop owner in her own boutique, holding a piece up to the camera during a private appointment"
+            data-loop-end="3.0"
+          ></video>
+        </figure>
+        <figure class="doc-shot film-inset">
+          <img src="/assets/product/consult-shopper.png" alt="What the client sees during a private video shopping appointment: the person she is speaking to, and the pieces brought up on her screen, one of them marked as set aside for her" width="324" height="586" loading="eager" />
+          <figcaption>What she sees</figcaption>
+        </figure>
+      </div>
+    </div>
+
+    <div class="ccl-stats">
+      <div>
+        <p class="ccl-stat-fig">1 to 8</p>
+        <p class="ccl-stat-label">One to one, or a small private group</p>
+      </div>
+      <div>
+        <p class="ccl-stat-fig">Private</p>
+        <p class="ccl-stat-label">Held with the person who knows the piece</p>
+      </div>
+      <div>
+        <p class="ccl-stat-fig">None</p>
+        <p class="ccl-stat-label">Apps to download, and no premises needed</p>
+      </div>
+      <div>
+        <p class="ccl-stat-fig">One line</p>
+        <p class="ccl-stat-label">All the paperwork an appointment leaves</p>
+      </div>
+    </div>
+
+    <div class="ccl-section-head">
+      <h2>They are not hesitating over the price. They are hesitating over the piece.</h2>
+      <p>Nobody commits to a piece of this kind having only seen it photographed.</p>
+    </div>
+
+    <div class="doc-prose">
+      <p>
+        A photograph will not tell her how the leather takes a mark, or whether the ivory is the
+        one she has in her head. It will not show a collector the wear on a hallmark, or how the
+        light sits in a stone. So she does the only sensible thing. She waits, asks a question,
+        and waits again.
+      </p>
+      <p>
+        By the time the answer arrives, the moment has usually passed. Not because she found
+        somewhere cheaper. Because she never quite got close enough to be sure, and nobody buys a
+        piece they are unsure of.
+      </p>
+      <p>You will recognise the questions, because you answer them every week:</p>
+      <ul class="ccl-checks">
+        <li>Is that the colour in the photograph, or is it warmer than it looks</li>
+        <li>Will it need taking in, and can that be done in time</li>
+        <li>What is the condition really like, and what has been restored</li>
+        <li>Could I see it on, and could my mother see it too</li>
+      </ul>
+      <p>
+        None of that is answerable in writing. Twenty minutes with the person who knows the piece
+        settles all four, and a client who has been shown something properly rarely needs
+        persuading afterwards.
+      </p>
+    </div>
+
+    <div class="ccl-section-head">
+      <h2>Three ways an appointment happens</h2>
+      <p>All of them private, all of them in hours you choose. One client, or a few.</p>
+    </div>
+
+    <div class="ccl-grid">
+      <div class="ccl-card ccl-a-cast">
+        <span class="ccl-dot" aria-hidden="true"></span>
+        <h3>By appointment</h3>
+        <p>A client takes a time that suits her and it arrives in your diary. You know who is coming and what she wants to see, so the pieces are ready before she joins.</p>
+      </div>
+      <div class="ccl-card ccl-a-signal">
+        <span class="ccl-dot" aria-hidden="true"></span>
+        <h3>On request</h3>
+        <p>Someone already looking at a piece asks to speak to you. If you are free, you take it there and then. If you are not, they are offered a time rather than a form.</p>
+      </div>
+      <div class="ccl-card ccl-a-commerce">
+        <span class="ccl-dot" aria-hidden="true"></span>
+        <h3>Private events</h3>
+        <p>Choose a date, choose the pieces, and invite a handful of people to see them together. A first look at a collection, or a single lot shown to the three collectors who will care about it.</p>
+      </div>
+      <div class="ccl-card ccl-a-cast">
+        <span class="ccl-dot" aria-hidden="true"></span>
+        <h3>She will not come alone</h3>
+        <p>Her mother, a friend whose taste she trusts, a sister three time zones away. Up to eight people on one appointment, each joining by link, none of them needing an account.</p>
+      </div>
+      <div class="ccl-card ccl-a-signal">
+        <span class="ccl-dot" aria-hidden="true"></span>
+        <h3>Your hours, and only yours</h3>
+        <p>Nothing appears on your website outside the times you set. There is no button waiting to be pressed while you are at a fitting, and nothing rings when you are not there.</p>
+      </div>
+      <div class="ccl-card ccl-a-cast">
+        <span class="ccl-dot" aria-hidden="true"></span>
+        <h3>To the right person</h3>
+        <p>Alterations to whoever does the alterations, provenance to whoever knows the provenance. If they cannot take it, it moves on rather than ringing them twice.</p>
+      </div>
+    </div>
+
+    <div class="ccl-section-head">
+      <h2>What you can do while she is with you</h2>
+      <p>You begin knowing what she came to see, so you never open with &ldquo;how can I help&rdquo;.</p>
+    </div>
+
+    <div class="ccl-grid">
+      <div class="ccl-card ccl-a-commerce">
+        <span class="ccl-dot" aria-hidden="true"></span>
+        <h3>Bring a piece up on her screen</h3>
+        <p>Send it across mid-appointment and it appears in front of her, and in front of everyone she has brought with her. No link to follow, nothing to find in an inbox afterwards.</p>
+      </div>
+      <div class="ccl-card ccl-a-commerce">
+        <span class="ccl-dot" aria-hidden="true"></span>
+        <h3>Set it aside for her</h3>
+        <p>Anything she settles on goes into her own order while you are still speaking. She is never sent away to hunt for the thing she was just shown.</p>
+      </div>
+      <div class="ccl-card ccl-a-commerce">
+        <span class="ccl-dot" aria-hidden="true"></span>
+        <h3>See what she came in on</h3>
+        <p>The piece she was looking at, and anything already held for her, before the appointment begins. You are prepared without having to ask her to explain herself.</p>
+      </div>
+    </div>
+
+    <div class="ccl-shot-row ccl-shot-row--single">
+      <figure class="doc-shot">
+        <img src="/assets/product/consult-expert.png" alt="What the seller sees during a private video shopping appointment: the piece the client came in on, what is already held for her, the pieces available to bring up on her screen, the running total set aside, and the one-line note written at the end" width="1280" height="960" loading="lazy" />
+        <figcaption>Your expert&rsquo;s tools, mid-call. <a href="https://clickclick-live.fly.dev/consult/shopper" class="see-live-link" target="_blank" rel="noopener">See the client&rsquo;s side</a></figcaption>
+      </figure>
+    </div>
+
+    <div class="ccl-section-head">
+      <h2>What you are left with afterwards</h2>
+      <p>One line, written while it is fresh, and a record that means something next time.</p>
+    </div>
+
+    <div class="ccl-grid">
+      <div class="ccl-card ccl-a-cast">
+        <span class="ccl-dot" aria-hidden="true"></span>
+        <h3>A note for next time</h3>
+        <p>What she liked, what she ruled out, what her mother thought. It is there when she comes back, which is usually a fortnight later with two more questions.</p>
+      </div>
+      <div class="ccl-card ccl-a-cast">
+        <span class="ccl-dot" aria-hidden="true"></span>
+        <h3>How it was left</h3>
+        <p>Bought, thinking it over, not right for her, or only looking. Four honest endings and no vaguely positive one, so the record is worth reading a month later.</p>
+      </div>
+      <div class="ccl-card ccl-a-signal">
+        <span class="ccl-dot" aria-hidden="true"></span>
+        <h3>Who you reached, and who you did not</h3>
+        <p>How many asked, how long they waited, how many were seen. That is what tells you whether to keep another afternoon free, and it is the only thing worth judging this on.</p>
+      </div>
+    </div>
+
+    <div class="ccl-section-head">
+      <h2>&ldquo;There is only me, and I am usually with someone.&rdquo;</h2>
+      <p>Then this is built the right way round for you.</p>
+    </div>
+
+    <div class="doc-prose">
+      <p>
+        Nobody sits waiting at a screen. Appointments are the point: they sit in your diary the
+        way a fitting does, and outside the hours you set there is nothing on your website to
+        press. If you are with someone, it does not ring.
+      </p>
+      <p>
+        The number of people asking to see something properly is small. It is also, almost
+        without exception, the people who are furthest along. An afternoon a week is a serious
+        start, and if the diary fills you will know before we do.
+      </p>
+      <ul class="ccl-checks">
+        <li>Your hours, set by you, and invisible outside them</li>
+        <li>Sent to whoever knows that piece, not to whoever is nearest</li>
+        <li>Nothing rings twice for the same client</li>
+        <li>Working alone, from home, with no premises at all, is a supported way to use it and not a compromise</li>
+      </ul>
+      <p>
+        That last point is worth saying plainly. A good deal of the best work in this trade is
+        done by one person with an eye, a workroom and no shop front. Consult does not assume you
+        have a showroom, because for a great many of the people it was built for, the appointment
+        is the showroom.
+      </p>
+    </div>
+
+    <div class="ccl-section-head">
+      <h2>Who it is not for</h2>
+      <p>Better said here than a season into working together.</p>
+    </div>
+
+    <div class="doc-prose">
+      <p>
+        Consult is built for pieces that need to be seen: bridal and occasion wear, antiques and
+        period jewellery, designer boutiques, small ateliers, and the many people who sell
+        beautiful things from home without a shop front. Few items, considered slowly, chosen with
+        other people in the room.
+      </p>
+      <p>
+        It is the wrong tool for volume. If your work is many small orders that nobody deliberates
+        over, an appointment diary is an expensive answer to a question your customers are not
+        asking, and we would say so rather than take the work.
+      </p>
+      <p>
+        The biggest houses have done this for a century. They call it a private appointment, and
+        they staff it with people whose whole job is to remember what a client wore last time. What
+        none of them had until recently was a way to offer it to someone three hundred miles away
+        who found you on a Tuesday evening. That part is new, and it does not need their budget.
+      </p>
+    </div>
+
+    <div class="doc-cta">
+      <h2>Sit on both sides of an appointment</h2>
+      <p>Her screen and yours, both running. Nothing to sign up to.</p>
+      <a href="https://clickclick-live.fly.dev/consult/shopper" class="btn-primary btn-on-dark magnetic" target="_blank" rel="noopener"><span>See an appointment</span></a>
+    </div>
+
+    <div class="ccl-section-head" id="estimator">
+      <h2>How many of them are you actually reaching?</h2>
+      <p>
+        Not a projection, and not a figure in pounds. Two things you can check
+        against your own inbox: what share of the people who ask ever hear back
+        while they are still interested, and how long they wait to hear it.
+      </p>
+    </div>
+
+    <div class="cost-calc" id="sales-estimator">
+      <div class="cost-calc-grid">
+        <label for="est-asks">
+          <span>Enquiries in a week, before anyone commits</span>
+          <input type="number" id="est-asks" min="0" step="1" value="12" inputmode="numeric" />
+        </label>
+        <label for="est-lag">
+          <span>Hours before you normally reply</span>
+          <input type="number" id="est-lag" min="0" step="1" value="18" inputmode="numeric" />
+        </label>
+        <label for="est-cold">
+          <span>Out of ten who wait that long, how many drift away?</span>
+          <input type="number" id="est-cold" min="0" max="10" step="1" value="4" inputmode="numeric" />
+        </label>
+        <label for="est-hours">
+          <span>Hours a week you could keep for appointments</span>
+          <input type="number" id="est-hours" min="0" max="40" step="1" value="4" inputmode="numeric" />
+        </label>
+      </div>
+
+      <div class="est-out" id="est-out" aria-live="polite">
+        <div class="est-row">
+          <p class="est-label">Reached in time, as things stand</p>
+          <p class="est-fig" id="est-now">&nbsp;</p>
+          <p class="est-note" id="est-now-note">&nbsp;</p>
+        </div>
+        <div class="est-row est-row-hero">
+          <p class="est-label">Reached in time, by appointment</p>
+          <p class="est-fig" id="est-after">&nbsp;</p>
+          <p class="est-note" id="est-after-note">&nbsp;</p>
+        </div>
+        <div class="est-row">
+          <p class="est-label">What it asks of you</p>
+          <p class="est-fig" id="est-ask">&nbsp;</p>
+          <p class="est-note" id="est-ask-note">&nbsp;</p>
+        </div>
+      </div>
+
+      <p class="cost-calc-note" id="est-verdict"></p>
+
+      <p class="cost-calc-note">
+        One assumption, and you should know it: an appointment runs about twenty
+        minutes, so an hour holds three. Everything else above is your own
+        figure. Nothing here is a promise about what you will sell.
+      </p>
+      <p class="cost-calc-note">
+        Once ClickClick Consult is running you stop estimating. It keeps the
+        real record: who asked, how long they waited, who was seen, and what was
+        set aside for them.
+      </p>
+    </div>
+
+    <div class="ccl-section-head">
+      <h2>Appointments, live shopping and live chat</h2>
+      <p>Three different jobs, and worth knowing which one you actually need.</p>
+    </div>
+
+    <div class="table-wrap">
+      <table class="ccl-price-table">
+        <thead>
+          <tr>
+            <th scope="col"></th>
+            <th scope="col">Private appointment</th>
+            <th scope="col">Live shopping show</th>
+            <th scope="col">Live chat</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><th scope="row">Who is in it</th><td>A client, anyone she brings, anyone you invite, and you. Up to eight.</td><td>One host, hundreds of viewers</td><td>One person, typing</td></tr>
+          <tr><th scope="row">Do you need an audience</th><td>No</td><td>Yes</td><td>No</td></tr>
+          <tr><th scope="row">Do you need a schedule</th><td>No, or a diary if you prefer</td><td>Yes</td><td>No</td></tr>
+          <tr><th scope="row">Can they see the product</th><td>Yes, properly, from any angle</td><td>Yes, live</td><td>Only the photographs already on the page</td></tr>
+          <tr><th scope="row">Who puts it in the order</th><td>You, while she is still with you</td><td>The viewer, during the show</td><td>She does, afterwards, if she remembers</td></tr>
+          <tr><th scope="row">Best for</th><td>Pieces that must be seen: bridal, antiques, fine jewellery, commissions</td><td>Reach, launches, a great deal of stock at once</td><td>Delivery, order status, questions with short answers</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="ccl-section-head">
+      <h2>Consult is one part of ClickClick Live</h2>
+      <p>The same login, the same people, the same stock.</p>
+    </div>
+
+    <div class="doc-prose">
+      <p>
+        Consult is not a separate product with its own bill and its own login. It is the private
+        half of the <a href="/clickclick-live/">live shopping software</a> we already build, and it
+        is switched off until you ask for it. Plenty of the people who use Consult will never run a
+        live show, and there is no expectation that they should.
+      </p>
+      <p>
+        Most sellers should start with the appointments. A live show needs an audience, a schedule
+        and somebody willing to perform. An appointment needs one person and a button. If a season
+        of appointments shows you the same three questions coming up again and again, that is the
+        day a show starts to make sense, and everything you have paid towards Consult comes off it.
+      </p>
+      <p>
+        It is built and owned in house by <a href="/about/">a small team in Belfast</a>, not a
+        third-party tool with our name on the login screen. ClickClick has worked with brands
+        including L&rsquo;Occitane, Revoluci&oacute;n de Cuba and Astrid &amp; Miyu, and holds
+        TikTok and Amazon partnerships.
+      </p>
+    </div>
+
+    <section aria-label="Frequently asked questions">
+      <h2 class="faq-heading">Common questions about video shopping appointments</h2>
+      <div class="faq-list">
+        <details class="faq-item">
+          <summary><h3>Is this the same as virtual personal shopping?</h3></summary>
+          <p>
+            Yes, that is a fair description of it. Virtual personal shopping has meant a named
+            associate, a client book and a salaried role, which only the biggest houses could
+            staff. Consult gives a small or growing luxury business the same thing without the
+            headcount: a client asks to see a piece, you take the appointment yourself, and
+            everything you need to show it and set it aside is already in front of you.
+          </p>
+        </details>
+        <details class="faq-item">
+          <summary><h3>How much does ClickClick Consult cost?</h3></summary>
+          <p>
+            It is a monthly licence, priced per brand, and there is no charge per call. What it
+            costs depends on how many of your staff need to answer calls and whether you also
+            run live shopping shows on the same platform. Tell us what you sell and your average
+            order value and you will get a figure on the first call, not after three meetings.
+          </p>
+        </details>
+        <details class="faq-item">
+          <summary><h3>What happens if nobody is free when a client clicks talk to someone now?</h3></summary>
+          <p>
+            The button only appears during the hours you set, and only when at least one of your
+            experts is signed on. Outside those hours it is not on the page at all. When someone
+            is on duty but busy, the client joins a queue and sees their position in it. If the
+            call rings out without being answered, it stops ringing that person and moves on
+            rather than ringing them twice for the same client. A button that rings out is worse
+            for a retailer than no button, so the software is built to never leave one on the page.
+          </p>
+        </details>
+        <details class="faq-item">
+          <summary><h3>Do I need to hire extra staff to offer video shopping appointments?</h3></summary>
+          <p>
+            No. ClickClick Consult is designed to be answered by the people who already handle your hard
+            questions, between other work. Nobody sits waiting at a screen. You set the opening
+            hours, you choose who is on the rota, and calls route by topic so a question goes to
+            the person who knows that category. Most retailers start with two hours a day and
+            widen the hours only if the calls turn out to be worth taking.
+          </p>
+        </details>
+        <details class="faq-item">
+          <summary><h3>Does the client need to download an app or turn their camera on?</h3></summary>
+          <p>
+            No app. ClickClick Consult runs in the client&rsquo;s browser on the retailer&rsquo;s own website. The
+            client&rsquo;s camera stays off by default, so the video runs one way from your expert to
+            them. That removes the most common reason a client backs out of a video call with a
+            shop.
+          </p>
+        </details>
+        <details class="faq-item">
+          <summary><h3>Can staff set items aside in the client&rsquo;s own order during a video call?</h3></summary>
+          <p>
+            Yes. Mid-call your expert pushes a product and it appears on the client&rsquo;s own screen,
+            with no link to click and no email to find later. Your expert can then add it to the
+            client&rsquo;s own order. She checks out herself, in her own session, on your
+            own checkout. Nothing is bought on their behalf.
+          </p>
+        </details>
+        <details class="faq-item">
+          <summary><h3>How do I know which sales came from a video shopping appointment?</h3></summary>
+          <p>
+            Every call records the value of what was set aside during it, the page the client
+            arrived from, and an outcome your expert marks at the end. The outcome options are
+            bought on the call, going away to think, we were not right for them, and just
+            browsing. There is no positive-sounding catch-all option, so staff cannot flatter the
+            number.
+          </p>
+        </details>
+        <details class="faq-item">
+          <summary><h3>Is a video shopping appointment the same as digital clienteling?</h3></summary>
+          <p>
+            Not quite. Digital clienteling is an ongoing relationship programme: a named associate
+            keeps a customer&rsquo;s history, preferences and past purchases, and works that
+            relationship over years. A video shopping appointment is a single conversation, and it
+            works with a first-time visitor who has no history at all. Clienteling needs a
+            programme and the staff to run one. A video shopping appointment needs one member of
+            staff and an hour in the afternoon.
+          </p>
+        </details>
+        <details class="faq-item">
+          <summary><h3>What is the difference between a video shopping appointment and live shopping?</h3></summary>
+          <p>
+            A video shopping appointment is private: one client, or a small curated group of the
+            people she brings and the people you invite, with one of your own staff.
+            <a href="/clickclick-live/">Live shopping</a> is one to many: a host runs a scheduled
+            show and hundreds of people watch and buy at once. An appointment needs no audience and
+            no schedule, and it holds up to eight people, so a private event for a few invited
+            clients is still an appointment. A show reaches far more people at once. Consult does
+            the first, ClickClick Live does the second, and both run on the same platform.
+          </p>
+        </details>
+        <details class="faq-item">
+          <summary><h3>Are video shopping appointments recorded, and is that GDPR compliant?</h3></summary>
+          <p>
+            Calls are not recorded by default. What is kept is the written record: the products
+            shown, the value set aside, the page the client arrived from, the outcome and a
+            short note your expert writes. If you choose to turn recording on, you are responsible
+            for telling clients before the call starts and for having a lawful basis to do it. We
+            will help you set that up, but we will not tell you that switching a feature on makes
+            you compliant.
+          </p>
+        </details>
+      </div>
+    </section>
+
+    <div class="doc-cta">
+      <h2>Show them the piece</h2>
+      <p>
+        Tell us what you make or what you deal in. We will show you Consult working, say which of
+        your pieces it belongs on, and tell you honestly whether it is worth your while. If it is
+        not, we will say so, the same as we do everywhere else on this site.
+      </p>
+      <a href="/#contact" class="btn-primary btn-on-dark magnetic"><span>Arrange a look</span></a>
+    </div>
+
+    <div class="doc-related" aria-label="Related pages">
+      <p>More from ClickClick</p>
+      <ul>
+        <li><a href="/clickclick-live/">ClickClick Live: live shopping software</a></li>
+        <li><a href="/about/">About ClickClick</a></li>
+      </ul>
+    </div>
+  </main>
+
+  <footer>
+    <div class="footer-top">
+      <div class="footer-brand">
+        <img src="/assets/clickclick-logo-white.png" alt="ClickClick video marketing" class="footer-logo-img" width="280" height="40" />
+        <p class="footer-tagline">Video marketing software and strategy, exclusively developed and owned in house. TikTok &amp; Amazon Partners. Based in Belfast.</p>
+      </div>
+      <div>
+        <p class="footer-col-title">Explore</p>
+        <ul class="footer-links">
+          <li><a href="/#solutions">Solutions</a></li>
+          <li><a href="/clickclick-live/">ClickClick Live</a></li>
+          <li><a href="/video-shopping-appointments/">Video shopping appointments</a></li>
+          <li><a href="/about/">About</a></li>
+          <li><a href="/#faq">FAQ</a></li>
+          <li><a href="/#contact">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-contact">
+        <p class="footer-col-title">Contact our team</p>
+        <p><a href="mailto:hello@clickclick.video">hello@clickclick.video</a></p>
+        <address class="footer-address">
+          Glandore<br />
+          41 Arthur Street<br />
+          Belfast, BT1 4GB
+        </address>
+        <p class="footer-backed">Backed by InvestNI</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© <span id="year"></span> ClickClick. All rights reserved.</p>
+      <p class="footer-legal">
+        <a href="/cookies.html">Cookies</a>
+      </p>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    // Looping film.
+    //
+    // Two things the markup alone cannot do. First, the last couple of seconds
+    // of the source clip are dead air, so the loop restarts at data-loop-end
+    // rather than running to the end. Second, the file still carries an audio
+    // track, so the element is muted defensively at runtime as well as in the
+    // attribute: nothing on this page should ever make a sound.
+    (function () {
+      var films = document.querySelectorAll("video[data-loop-end]");
+      if (!films.length) return;
+
+      var still = window.matchMedia("(prefers-reduced-motion: reduce)");
+
+      films.forEach(function (v) {
+        v.muted = true;
+        v.volume = 0;
+        v.setAttribute("muted", "");
+
+        var end = parseFloat(v.getAttribute("data-loop-end"));
+        if (isFinite(end) && end > 0) {
+          v.addEventListener("timeupdate", function () {
+            if (v.currentTime >= end) v.currentTime = 0;
+          });
+        }
+
+        // Someone who has asked their machine to stop things moving gets the
+        // poster frame and nothing else.
+        if (still.matches) {
+          v.removeAttribute("autoplay");
+          v.pause();
+        } else {
+          var go = v.play();
+          if (go && go.catch) go.catch(function () { /* blocked, poster stands */ });
+        }
+      });
+    })();
+
+    // Appointment reach estimator.
+    //
+    // Deliberately in percentages and time rather than money. The people this
+    // is written for sell one piece at a time and do not talk about their work
+    // in pounds a month, so a cash read-out both misreads the room and implies
+    // a promise about revenue we are in no position to make.
+    (function () {
+      var PER_HOUR = 3;            // an appointment runs about twenty minutes
+      var WEEKS_PER_MONTH = 4.33;
+
+      var ids = ["est-asks", "est-lag", "est-cold", "est-hours"];
+      var inputs = {};
+      ids.forEach(function (id) { inputs[id] = document.getElementById(id); });
+      if (!inputs["est-asks"]) return;
+
+      function num(id, min, max) {
+        var v = Number(inputs[id].value);
+        if (!isFinite(v) || v < min) v = min;
+        if (max !== undefined && v > max) v = max;
+        return v;
+      }
+
+      function pct(n) { return Math.round(n * 100) + "%"; }
+
+      function hours(h) {
+        if (h < 1) return "under an hour";
+        if (h < 24) return Math.round(h) + (Math.round(h) === 1 ? " hour" : " hours");
+        var d = h / 24;
+        return d < 1.5 ? "about a day" : Math.round(d) + " days";
+      }
+
+      function set(id, text) { document.getElementById(id).textContent = text; }
+
+      function update() {
+        var asksWeek = num("est-asks", 0);
+        var lagHours = num("est-lag", 0);
+        var driftRate = num("est-cold", 0, 10) / 10;
+        var hoursWeek = num("est-hours", 0, 40);
+
+        var reachedNow = 1 - driftRate;
+        var capacity = hoursWeek * PER_HOUR;
+        var seen = Math.min(asksWeek, capacity);
+        var reachedAfter = asksWeek > 0 ? seen / asksWeek : 0;
+
+        set("est-now", pct(reachedNow));
+        set("est-now-note",
+          "They wait " + hours(lagHours) + " to hear from you, and " + Math.round(driftRate * 10) +
+          " in ten have moved on by then.");
+
+        set("est-after", pct(reachedAfter));
+        set("est-after-note",
+          reachedAfter >= 1
+            ? "Everyone who asks can be seen the same week, most of them the same day."
+            : "As many as your hours allow, seen the same week rather than eventually.");
+
+        set("est-ask", Math.round(seen) + (Math.round(seen) === 1 ? " appointment" : " appointments"));
+        set("est-ask-note",
+          hoursWeek > 0
+            ? "A week. About " + hoursWeek + (hoursWeek === 1 ? " hour" : " hours") + " of one person's time, roughly " +
+              Math.round(seen * WEEKS_PER_MONTH) + " appointments a month."
+            : "Nobody set aside any time, so nobody gets seen.");
+
+        var v = document.getElementById("est-verdict");
+        if (asksWeek <= 0) {
+          v.textContent = "Start with how many people ask you something in a normal week.";
+        } else if (hoursWeek <= 0) {
+          v.textContent = "Set aside an hour or two above and see what that reaches.";
+        } else if (reachedAfter <= reachedNow) {
+          v.textContent = "You are already reaching people faster than an appointment diary would. Genuinely, you do not need this.";
+        } else {
+          v.textContent =
+            "You would reach " + pct(reachedAfter) + " of the people who ask, rather than " + pct(reachedNow) +
+            ", and they would hear from you in minutes instead of " + hours(lagHours) + ".";
+        }
+      }
+
+      ids.forEach(function (id) { inputs[id].addEventListener("input", update); });
+      update();
+    })();
+  </script>
+</body>
+</html>
