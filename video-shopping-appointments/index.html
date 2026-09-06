@@ -269,7 +269,6 @@
             playsinline
             disableremoteplayback
             aria-label="A shop owner in her own boutique, holding a piece up to the camera during a private appointment"
-            data-loop-end="3.0"
           ></video>
         </figure>
         <figure class="doc-shot film-inset">
@@ -762,13 +761,14 @@
 
     // Looping film.
     //
-    // Two things the markup alone cannot do. First, the last couple of seconds
-    // of the source clip are dead air, so the loop restarts at data-loop-end
-    // rather than running to the end. Second, the file still carries an audio
+    // Two things the markup alone cannot do. The file may still carry an audio
     // track, so the element is muted defensively at runtime as well as in the
-    // attribute: nothing on this page should ever make a sound.
+    // attribute: nothing on this page should ever make a sound. And where a
+    // source clip has dead air on the end, data-loop-end restarts it early
+    // rather than letting it run out. The current clip needs no trim, so the
+    // attribute is absent and the whole thing loops.
     (function () {
-      var films = document.querySelectorAll("video[data-loop-end]");
+      var films = document.querySelectorAll(".film-video");
       if (!films.length) return;
 
       var still = window.matchMedia("(prefers-reduced-motion: reduce)");
