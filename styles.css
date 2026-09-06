@@ -2091,6 +2091,62 @@ nav.nav--doc .nav-doc-brand img {
   }
 }
 
+/* Read-outs under a calculator. Used by the hours calculator on the Live page
+   and by the reach estimator on the Consult page, so both read the same way. */
+.est-out {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+  gap: 16px;
+  margin-top: 24px;
+  padding-top: 24px;
+  border-top: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.est-row {
+  padding: 16px;
+  border-radius: var(--radius);
+  background: #f7f6f3;
+}
+
+.est-row-hero {
+  background: #e2f5f8;
+}
+
+.est-label {
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 1.6px;
+  font-weight: 600;
+  color: #5c584f;
+  margin: 0 0 8px;
+}
+
+.est-fig {
+  font-family: var(--display);
+  font-size: 1.9rem;
+  line-height: 1.1;
+  color: #17150f;
+  margin: 0;
+}
+
+.est-row-hero .est-fig {
+  color: var(--turquoise);
+}
+
+.est-note {
+  font-size: 0.8rem;
+  color: #5c584f;
+  margin: 8px 0 0;
+}
+
+.cost-calc-note {
+  font-size: 0.8rem;
+  line-height: 1.7;
+  color: #5c584f;
+  margin: 18px 0 0;
+  max-width: 64ch;
+}
+
 @media (max-width: 600px) {
   nav.nav--doc {
     padding: 10px 20px;

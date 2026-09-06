@@ -329,30 +329,64 @@
       </div>
     </div>
 
+    <div class="ccl-section-head">
+      <h2>What it gives you back</h2>
+      <p>Not a saving in pounds. The hours a show costs you now, and how many of them are the parts the software simply does instead.</p>
+    </div>
+
     <div class="cost-calc" id="calc">
-      <p class="cost-calc-kicker">Your numbers</p>
       <div class="cost-calc-grid">
-        <label>
-          What a senior production crew to run your shows costs you a year (£)
-          <input id="staff-cost" type="number" inputmode="numeric" min="0" step="1000" value="150000" />
+        <label for="calc-shows">
+          <span>Shows you want to run in a month</span>
+          <input id="calc-shows" type="number" inputmode="numeric" min="0" max="60" step="1" value="8" />
         </label>
-        <div class="cost-calc-fixed">
-          <span class="cost-calc-fixed-label">ClickClick Live + your part-time team</span>
-          <span class="cost-calc-fixed-fig">£54,000<span class="cost-calc-fixed-per"> a year</span></span>
-          <span class="cost-calc-fixed-sub">£17,400 software (Broadcast, £1,450/month +VAT) + about £36,600 for a part-time main host, standby host and moderator, 16 hours a week each. Smaller plans from £600/month.</span>
+        <label for="calc-platforms">
+          <span>Places you go live at once</span>
+          <input id="calc-platforms" type="number" inputmode="numeric" min="1" max="6" step="1" value="3" />
+        </label>
+        <label for="calc-prep">
+          <span>Hours checking and setting up, per show</span>
+          <input id="calc-prep" type="number" inputmode="numeric" min="0" max="12" step="0.5" value="2" />
+        </label>
+        <label for="calc-after">
+          <span>Hours afterwards working out how it went</span>
+          <input id="calc-after" type="number" inputmode="numeric" min="0" max="12" step="0.5" value="1.5" />
+        </label>
+      </div>
+
+      <div class="est-out" aria-live="polite">
+        <div class="est-row">
+          <p class="est-label">Your shows take you</p>
+          <p class="est-fig" id="calc-now">&nbsp;</p>
+          <p class="est-note" id="calc-now-note">&nbsp;</p>
+        </div>
+        <div class="est-row est-row-hero">
+          <p class="est-label">Handed back to you</p>
+          <p class="est-fig" id="calc-back">&nbsp;</p>
+          <p class="est-note" id="calc-back-note">&nbsp;</p>
+        </div>
+        <div class="est-row">
+          <p class="est-label">In your week again</p>
+          <p class="est-fig" id="calc-capacity">&nbsp;</p>
+          <p class="est-note" id="calc-capacity-note">&nbsp;</p>
         </div>
       </div>
-      <p class="cost-calc-hint">
-        We don&rsquo;t remove the people &mdash; a show still needs a host, cover, and someone on
-        comments. What our software removes is the need for them to be a senior crew. A
-        professional live-production crew (a director, a streaming engineer, a sound engineer)
-        runs roughly £1,500&ndash;£1,700 a day in the UK before equipment, which is upwards of
-        £150,000 a year at 8 shows a month. Our pre-show check does that crew&rsquo;s
-        quality-control job instead, so a part-time team of contractors can run the show safely.
-        Put in your own senior-crew figure and we&rsquo;ll do the rest. Selling into Ireland or
-        the EU too? Add £350 a month to the software side.
-      </p>
+
       <p class="cost-calc-result" id="calc-result"></p>
+
+      <p class="cost-calc-note">
+        Three jobs come off your plate, and they are the three the software actually does. The
+        pre-show check tests sound, connection, light and framing instead of you doing it. Every
+        comment lands in one feed, so going live in four places costs the same attention as going
+        live in one. And the show writes up its own numbers, so there is no evening spent working
+        out how it went.
+      </p>
+      <p class="cost-calc-note">
+        Checking does not go to nothing, and this does not pretend it does: the pre-show run
+        still takes about ninety seconds and you still have to set your own space up. Nor is any of
+        this a saving on wages. A show still needs a host, cover and somebody on comments. What
+        changes is that none of them has to be a senior crew, and none of it has to be you.
+      </p>
     </div>
 
     <section aria-label="Frequently asked questions">
@@ -486,37 +520,84 @@
   <script>
     document.getElementById("year").textContent = new Date().getFullYear();
 
-    function money(n) {
-      return "£" + Math.round(n).toLocaleString("en-GB");
-    }
+    // What the software hands back, in hours rather than pounds.
+    //
+    // No efficiency percentage is invented anywhere here. Every figure is built
+    // only out of the three jobs the software genuinely takes over: the pre-show
+    // check, watching each extra comment feed, and writing up afterwards.
+    // Running the show itself is untouched and stays in the total, so the
+    // number is honest rather than flattering.
+    (function () {
+      var ids = ["calc-shows", "calc-platforms", "calc-prep", "calc-after"];
+      var el = {};
+      ids.forEach(function (id) { el[id] = document.getElementById(id); });
+      if (!el["calc-shows"]) return;
 
-    // £1,450/month Broadcast plan (£17,400/yr) + about £36,600/yr for a
-    // part-time main host, standby host and moderator, 16 hrs/week each -
-    // the real total cost of running shows our way, not the software alone.
-    // Fixed, not user-editable.
-    var LIVE_PLUS_PART_TIME_TEAM_PER_YEAR = 54000;
+      var WATCH_PER_EXTRA_PLACE = 0.5; // attention per extra place you go live
+      var ON_AIR = 1;                  // the show itself, which nothing changes
+      // What checking still costs once the software does it: the 90-second
+      // Green Room run plus setting your own space up. Not zero, and pretending
+      // it is would make this read like a sales page.
+      var CHECK_AFTER = 0.25;
+      var WORKING_DAY = 7.5;
 
-    function updateCalc() {
-      var staff = Number(document.getElementById("staff-cost").value) || 0;
-      var live = LIVE_PLUS_PART_TIME_TEAM_PER_YEAR;
-      var el = document.getElementById("calc-result");
-      if (staff <= 0) {
-        el.textContent = "Type what a senior crew would cost you.";
-        return;
+      function num(id, min, max) {
+        var v = Number(el[id].value);
+        if (!isFinite(v) || v < min) v = min;
+        if (max !== undefined && v > max) v = max;
+        return v;
       }
-      var gap = staff - live;
-      var pct = Math.round((gap / staff) * 100);
-      if (gap > 0) {
-        el.textContent = "That's " + pct + "% less than a senior crew, still with a real host, cover and a moderator - just not a senior crew's price tag.";
-      } else if (gap === 0) {
-        el.textContent = "Same cost either way. The shows themselves are what tips it.";
-      } else {
-        el.textContent = "At these numbers, your senior crew costs " + Math.abs(pct) + "% less than ours plus a part-time team. Send us your figures anyway and we will tell you straight if we are not the right fit.";
-      }
-    }
 
-    document.getElementById("staff-cost").addEventListener("input", updateCalc);
-    updateCalc();
+      function hrs(n) {
+        var r = Math.round(n * 10) / 10;
+        return r + (r === 1 ? " hour" : " hours");
+      }
+
+      function set(id, text) { document.getElementById(id).textContent = text; }
+
+      function update() {
+        var shows = num("calc-shows", 0, 60);
+        var places = num("calc-platforms", 1, 6);
+        var prep = num("calc-prep", 0, 12);
+        var after = num("calc-after", 0, 12);
+
+        var watching = (places - 1) * WATCH_PER_EXTRA_PLACE;
+        var perShowNow = prep + ON_AIR + watching + after;
+        var perShowAfter = ON_AIR + CHECK_AFTER;
+        var handedBack = Math.max(0, perShowNow - perShowAfter);
+
+        var nowTotal = perShowNow * shows;
+        var backTotal = handedBack * shows;
+        var share = perShowNow > 0 ? Math.round((handedBack / perShowNow) * 100) : 0;
+        var daysBack = Math.round((backTotal / WORKING_DAY) * 10) / 10;
+
+        set("calc-now", hrs(nowTotal) + " a month");
+        set("calc-now-note",
+          shows + (shows === 1 ? " show" : " shows") + " at " + hrs(perShowNow) +
+          " each, counting the checking, the going live, the comments and the write-up.");
+
+        set("calc-back", share + "%");
+        set("calc-back-note", hrs(backTotal) + " a month, back in your week.");
+
+        set("calc-capacity", daysBack + (daysBack === 1 ? " day" : " days"));
+        set("calc-capacity-note",
+          "Working days a month, at seven and a half hours each. Yours to spend on the next collection, or not to spend at all.");
+
+        var v = document.getElementById("calc-result");
+        if (shows <= 0) {
+          v.textContent = "Put in how many shows you would like to run in a month.";
+        } else if (share <= 0) {
+          v.textContent = "On these numbers your shows already cost you nothing but the hour you are on air. Genuinely, you do not need us for this.";
+        } else {
+          v.textContent =
+            "You would get " + share + "% of your show time back, which is " + hrs(backTotal) +
+            " a month, or about " + daysBack + " working days.";
+        }
+      }
+
+      ids.forEach(function (id) { el[id].addEventListener("input", update); });
+      update();
+    })();
   </script>
 </body>
 </html>
