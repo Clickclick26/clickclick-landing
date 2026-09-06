@@ -1838,6 +1838,17 @@ nav.nav--doc .nav-doc-brand img {
 .ccl-shot-row .doc-shot {
   margin: 0;
 }
+/* The two screenshots come from different app screens with different
+   natural shapes (Green Room is wide and short, Moderation is tall), so
+   at a shared card width they rendered at different heights. Give both
+   images the same box and letterbox in the page's own cream instead of
+   cropping either one - no real UI gets cut off. */
+.ccl-shot-row .doc-shot img {
+  aspect-ratio: 16 / 11;
+  height: auto;
+  object-fit: contain;
+  background: var(--cream);
+}
 
 .doc-shot {
   margin: 28px 0;
