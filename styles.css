@@ -1854,29 +1854,30 @@ nav.nav--doc .nav-doc-brand img {
     grid-template-columns: 1fr;
   }
 }
-/* The two screenshots come from different app screens with different
-   natural shapes (Green Room is wide and short, Moderation is tall), so
-   at a shared card width they rendered at different heights. A fixed
-   aspect-ratio box made both match, but letterboxed the short one in
-   cream padding - it read as "smaller", not full-size, next to the tall
-   one that already filled its box edge to edge. Instead: let the row's
-   own grid stretch both cards to the height of the taller screenshot
-   (Moderation, shown at its real, uncropped size), and have the shorter
-   one (Green Room) stretch+crop to fill that same height instead of
-   padding out to it. */
+/* The two screenshots come from different app screens with genuinely
+   different shapes: Green Room is wide and short, Moderation is tall.
+
+   This used to force them to match, by stretching the short one to the tall
+   one's height and cropping the sides off to fill it. That was survivable
+   while the Green Room shot had empty margins to lose. Once it was re-shot
+   with the panel packed edge to edge, the same crop started slicing the
+   readings in half: "The sound is very lo", "About 48 Mbps up, 68 d". A
+   screenshot with its words cut off is worse than two cards of different
+   heights, so they are no longer forced to match.
+
+   Each shot is now shown whole, at its own shape, top-aligned so the row
+   still reads as a row. Do not reintroduce object-fit: cover here without
+   checking what it cuts off. */
+.ccl-shot-row {
+  align-items: start;
+}
 .ccl-shot-row .doc-shot {
   margin: 0;
-  display: flex;
-  flex-direction: column;
-  height: 100%;
 }
 .ccl-shot-row .doc-shot img {
-  flex: 1 1 auto;
-  min-height: 0;
   width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center top;
+  height: auto;
+  display: block;
 }
 
 .doc-shot {
