@@ -2221,9 +2221,10 @@ nav.nav--doc .nav-doc-brand img {
   }
 }
 
-/* Sales estimator (ClickClick Consult). Three read-outs under the inputs,
-   the last one emphasised because it is the number that decides whether
-   putting a person on the rota is worth it. */
+/* Read-outs under a calculator. Used by the hours calculator on the Live page
+   and by the reach estimator on the Consult page, so both read the same way.
+   The last read-out is emphasised because it is the number that decides
+   whether putting a person on the rota is worth it. */
 .est-out {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
