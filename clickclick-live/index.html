@@ -325,7 +325,7 @@
 
     <div class="ccl-section-head">
       <h2>What it gives you back</h2>
-      <p>Not a saving in pounds. The hours a show costs you now, and how many of them are the parts the software simply does instead.</p>
+      <p>Not money. Hours. This works out what a show costs you now, and how much of that the software does for you instead.</p>
     </div>
 
     <div class="cost-calc" id="calc">
@@ -574,7 +574,7 @@
 
         set("calc-capacity", daysBack + (daysBack === 1 ? " day" : " days"));
         set("calc-capacity-note",
-          "Working days a month, at seven and a half hours each. Yours to spend on the next collection, or not to spend at all.");
+          "A working day here is seven and a half hours. Yours to spend on the next collection, or not to spend at all.");
 
         var v = document.getElementById("calc-result");
         if (shows <= 0) {
@@ -583,8 +583,8 @@
           v.textContent = "On these numbers your shows already cost you nothing but the hour you are on air. Genuinely, you do not need us for this.";
         } else {
           v.textContent =
-            "You would get " + share + "% of your show time back, which is " + hrs(backTotal) +
-            " a month, or about " + daysBack + " working days.";
+            "You would get " + share + "% of your show time back. That is " + hrs(backTotal) +
+            " a month, or about " + daysBack + " working days at seven and a half hours each.";
         }
       }
 
