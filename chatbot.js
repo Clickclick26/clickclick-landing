@@ -10,7 +10,7 @@
   const RESPONSES = [
     {
       keys: ["hello", "hi ", "hey", "hiya", "howdy", "morning", "afternoon", "evening"],
-      reply: "Hi there — welcome. How can I help you today?",
+      reply: "Hi there, welcome. How can I help you today?",
     },
     {
       keys: [
@@ -29,24 +29,39 @@
         "corporate video",
       ],
       reply:
-        "Thanks for asking — we’re best placed on the software, platforms and strategy side of video marketing. If that’s useful, I’m happy to point you toward a short call with the team.",
+        "Thanks for asking. We’re best placed on the software, platforms and strategy side of video marketing. If that’s useful, I’m happy to point you toward a short call with the team.",
       book: true,
     },
     {
       keys: ["agency", "are you an agency"],
       reply:
-        "We’re a software company, not an agency — we build video marketing platforms (live commerce, social listening, influencer systems, signage) plus the strategy and custom builds around them. If you tell me what you’re hoping to achieve, I can steer you in the right direction.",
+        "We’re a software company, not an agency. We build video marketing platforms (live commerce, social listening, influencer systems, signage) plus the strategy and custom builds around them. If you tell me what you’re hoping to achieve, I can steer you in the right direction.",
     },
     {
-      keys: ["live commerce", "live stream", "live selling", "live shop", "shoppable", "social commerce"],
+      keys: [
+        "clickclick live",
+        "live commerce",
+        "live stream",
+        "live selling",
+        "live shop",
+        "shoppable",
+        "social commerce",
+        "sell live",
+      ],
       reply:
-        "Live and social commerce is one of our main areas. We help with the platforms and workflows that turn viewers into buyers — things like live commerce setups, influencer systems, creator workflows, shoppable video and sales tracking. A quick call is usually the easiest way to see what would fit your brand.",
+        "That’s ClickClick Live, our live shopping software. A pre-show check, one comment feed across your own site, YouTube, Instagram and Facebook, and a buy button that never leaves the screen, from £600 a month. You can try the real demo yourself: clickclick.video/clickclick-live/",
       book: true,
     },
     {
-      keys: ["tiktok shop", "tiktok", "amazon"],
+      keys: ["tiktok shop", "amazon"],
       reply:
-        "We’re official TikTok and Amazon Partners, so we spend a lot of time in those ecosystems. We help with the platforms and strategy around live and social commerce. Happy to talk through what you’re working on if you’d like.",
+        "We’re TikTok and Amazon Partners, so we spend a lot of time in those ecosystems. ClickClick Live can carry your stream to TikTok too, though reading TikTok’s own live comments isn’t something any platform can officially do yet, no public API exists for it. Happy to talk through what you’re working on if you’d like.",
+      book: true,
+    },
+    {
+      keys: ["tiktok"],
+      reply:
+        "We’re a TikTok Partner and ClickClick Live can simulcast a show to your TikTok account alongside your own site, YouTube, Instagram and Facebook. Happy to talk through what you’re working on if you’d like.",
       book: true,
     },
     {
@@ -58,13 +73,13 @@
     {
       keys: ["social listening", "signals", "social noise", "listening"],
       reply:
-        "Yes — social listening is part of what we do. The idea is to cut through the noise and surface the signals worth acting on, so campaigns and content decisions feel clearer. If you’d like, we can book a short call to see whether it’s a fit for your team.",
+        "Yes, social listening is part of what we do. The idea is to cut through the noise and surface the signals worth acting on, so campaigns and content decisions feel clearer. If you’d like, we can book a short call to see whether it’s a fit for your team.",
       book: true,
     },
     {
       keys: ["tv", "television", "connected tv", "ctv", "broadcast ad"],
       reply:
-        "On the TV side, we help with platforms and distribution — getting video onto the right screens through advertising tech. If you’re exploring connected TV or broader screen placement, I’m happy to connect you with the team for a proper chat.",
+        "On the TV side, we help with platforms and distribution, getting video onto the right screens through advertising tech. If you’re exploring connected TV or broader screen placement, I’m happy to connect you with the team for a proper chat.",
       book: true,
     },
     {
@@ -82,19 +97,25 @@
         "integration",
       ],
       reply:
-        "Custom software is a big part of ClickClick — especially when off-the-shelf tools don’t quite match how your team works. That includes things like video asset management, so the right cuts are easy to find, version and share. Tell me a little about the problem and I can suggest next steps.",
+        "Custom software is a big part of ClickClick, especially when off-the-shelf tools don’t quite match how your team works. That includes things like video asset management, so the right cuts are easy to find, version and share. Tell me a little about the problem and I can suggest next steps.",
       book: true,
     },
     {
       keys: ["strategy", "planning", "consultation", "roadmap", "workshop"],
       reply:
-        "Strategy and planning is absolutely something we help with. We work with teams on how to scale video output thoughtfully — with roadmaps, guidance, and the right software alongside, including AI-powered creative and campaign tools where they’re useful. What’s the main goal you’re aiming for?",
+        "Strategy and planning is absolutely something we help with. We work with teams on how to scale video output thoughtfully, with roadmaps, guidance, and the right software alongside, including AI-powered creative and campaign tools where they’re useful. What’s the main goal you’re aiming for?",
       book: true,
     },
     {
       keys: ["ai", "artificial intelligence"],
       reply:
-        "We use AI where it genuinely helps — mostly in creative and campaign tools, and in smarter planning. It’s always paired with strategy and software rather than being a gimmick. If you share what you’re hoping AI might unlock, I can point you the right way.",
+        "We use AI where it genuinely helps, mostly in creative and campaign tools, and in smarter planning. It’s always paired with strategy and software rather than being a gimmick. If you share what you’re hoping AI might unlock, I can point you the right way.",
+      book: true,
+    },
+    {
+      keys: ["clickclick live price", "live commerce price", "live commerce cost", "how much is clickclick live"],
+      reply:
+        "ClickClick Live starts from £600 a month. What you pay depends on how many shows a month and how many places you go live at once, and you’ll get your exact figure on the first call, not after three meetings.",
       book: true,
     },
     {
@@ -112,19 +133,19 @@
         "£",
       ],
       reply:
-        "Pricing depends on what you need, but we work across a wide range — from around £50 through to much larger projects in the tens of thousands. Once we understand the problem and timeframe, we can recommend something sensible. A short call or an email to hello@clickclick.video is the easiest next step.",
+        "It depends on what you need. ClickClick Live starts from £600 a month, and everything else (strategy, custom builds, signage) is scoped to the project. Once we understand the problem and timeframe, we can recommend something sensible. A short call or an email to hello@clickclick.video is the easiest next step.",
       book: true,
     },
     {
       keys: ["book", "call", "meeting", "speak", "talk", "appointment", "schedule", "discovery", "calendly"],
       reply:
-        "Of course — you can book a time with the button below, or email hello@clickclick.video if you prefer to write first. There’s no pressure; it’s just a chance to talk through what you need.",
+        "Of course, you can book a time with the button below, or email hello@clickclick.video if you prefer to write first. There’s no pressure, it’s just a chance to talk through what you need.",
       book: true,
     },
     {
       keys: ["contact", "email", "reach", "get in touch", "hello@"],
       reply:
-        "You can reach us anytime at hello@clickclick.video. If you’d rather speak live, you’re also welcome to book a call using the button below — we’ll get back to you promptly either way.",
+        "You can reach us anytime at hello@clickclick.video. If you’d rather speak live, you’re also welcome to book a call using the button below, and we’ll get back to you promptly either way.",
       book: true,
     },
     {
@@ -139,24 +160,24 @@
         "offer",
       ],
       reply:
-        "ClickClick helps brands with video marketing software and strategy. That covers consultations and planning, live and social commerce platforms, and media tech like social listening, TV platforms, motion/video signage and performance data — plus custom builds when you need something tailored. What area are you most interested in?",
+        "ClickClick helps brands with video marketing software and strategy. That covers consultations and planning, live and social commerce platforms, and media tech like social listening, TV platforms, motion/video signage and performance data, plus custom builds when you need something tailored. What area are you most interested in?",
     },
     {
       keys: ["belfast", "northern ireland", "ni ", "glandore", "arthur", "address", "based", "where are you", "location", "office"],
       reply:
-        "We’re based at Glandore, 41 Arthur Street, Belfast, BT1 4GB — and we’re proudly backed by InvestNI. You’re welcome to get in touch by email or book a call anytime.",
+        "We’re based at Glandore, 41 Arthur Street, Belfast, BT1 4GB, and proudly backed by InvestNI. You’re welcome to get in touch by email or book a call anytime.",
       book: true,
     },
     {
       keys: ["investni", "invest ni", "backed by"],
       reply:
-        "Yes — ClickClick is backed by InvestNI. We’re building video marketing software and strategy from Belfast, and that support has been a real part of the journey.",
+        "Yes, ClickClick is backed by InvestNI. We’re building video marketing software and strategy from Belfast, and that support has been a real part of the journey.",
       book: true,
     },
     {
       keys: ["award", "start up", "startup", "winner"],
       reply:
-        "Thank you for asking — we won the 2026 UK Start Up Awards for Marketing & Advertising, and we’re also TikTok and Amazon Partners. It’s something the team is genuinely proud of, and it shows up in how we build platforms and strategy for clients.",
+        "Thank you for asking. We won the 2026 UK Start Up Awards for Marketing & Advertising, and we’re also TikTok and Amazon Partners. It’s something the team is genuinely proud of, and it shows up in how we build platforms and strategy for clients.",
       book: true,
     },
     {
@@ -168,12 +189,12 @@
     {
       keys: ["thank", "thanks", "cheers", "great", "brilliant", "perfect", "awesome", "helpful"],
       reply:
-        "You’re very welcome. If there’s anything else you’d like to know, just ask — or I can help you book a quick call with the team.",
+        "You’re very welcome. If there’s anything else you’d like to know, just ask, or I can help you book a quick call with the team.",
       book: true,
     },
     {
       keys: ["bye", "goodbye", "see you", "later", "take care"],
-      reply: "Thanks for chatting — take care, and feel free to come back anytime.",
+      reply: "Thanks for chatting. Take care, and feel free to come back anytime.",
     },
     {
       keys: ["human", "real person", "speak to someone", "actual person", "member of staff"],
@@ -188,9 +209,9 @@
   ];
 
   const FALLBACKS = [
-    "I’m not quite sure I caught that — could you rephrase, or would you rather book a short call with the team?",
+    "I’m not quite sure I caught that. Could you rephrase, or would you rather book a short call with the team?",
     "Happy to help if you can share a bit more. You can also tap Get started and I’ll ask a few simple questions for the team.",
-    "No problem — you’re always welcome to email hello@clickclick.video, or book a call if that’s easier.",
+    "No problem, you’re always welcome to email hello@clickclick.video, or book a call if that’s easier.",
   ];
   let fallbackIndex = 0;
 
@@ -216,7 +237,7 @@
     },
     {
       key: "timeframe",
-      prompt: "Last one — is there a timeframe you’re working toward?",
+      prompt: "Last one, is there a timeframe you’re working toward?",
     },
   ];
 
@@ -391,10 +412,10 @@
       "Hi ClickClick,",
       "",
       "Chatbot lead notes:",
-      `Problem: ${lead.problem || "—"}`,
-      `Budget: ${lead.budget || "—"}`,
-      `Decision maker: ${lead.decision || "—"}`,
-      `Timeframe: ${lead.timeframe || "—"}`,
+      `Problem: ${lead.problem || "Not given"}`,
+      `Budget: ${lead.budget || "Not given"}`,
+      `Decision maker: ${lead.decision || "Not given"}`,
+      `Timeframe: ${lead.timeframe || "Not given"}`,
       "",
       "Sent from the website chatbot.",
     ].join("\n");
@@ -461,14 +482,14 @@
 
   function startQualify() {
     qualifyIndex = 0;
-    addMsg("Of course — just a few quick questions so the team can help properly. You can say “skip” on any of them.", "bot");
+    addMsg("Of course, just a few quick questions so the team can help properly. You can say “skip” on any of them.", "bot");
     setTimeout(() => addMsg(QUALIFY_STEPS[0].prompt, "bot"), 350);
   }
 
   function finishQualify() {
     qualifyIndex = -1;
     addMsg(
-      "Thank you — that’s really helpful. You can book a call below, or email us and I’ll include these notes so the team has the context.",
+      "Thank you, that’s really helpful. You can book a call below, or email us and I’ll include these notes so the team has the context.",
       "bot"
     );
     showActions(true);
@@ -530,7 +551,7 @@
     label.classList.toggle("hidden", open);
     if (open && msgs.children.length === 0) {
       setTimeout(() => {
-        addMsg("Hi there — how can I help today?", "bot");
+        addMsg("Hi there, how can I help today?", "bot");
         setTimeout(showQR, 400);
       }, 200);
     }
