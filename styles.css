@@ -3384,3 +3384,23 @@ body.lead-open #cc-label {
     transition: none;
   }
 }
+
+/* The Priority tier's button. It was a hollow outline on a white card,
+   so it disappeared next to the black one on the £149 card and read as
+   a cancel button rather than a second way to buy. Filled in the brand
+   purple-to-pink so it stands out on its own terms, and stays clearly
+   the other option rather than competing with the black primary. */
+.btn-priority {
+  background: linear-gradient(135deg, #7b5ea7 0%, #c2185b 100%);
+  color: #fff;
+}
+
+.btn-priority:hover {
+  background: linear-gradient(135deg, #8c6dbb 0%, #d81b60 100%);
+  box-shadow: 0 10px 28px rgba(123, 94, 167, 0.32);
+}
+
+body.has-fine-pointer .btn-priority.magnetic:hover {
+  background: linear-gradient(135deg, #8c6dbb 0%, #d81b60 100%);
+  color: #fff;
+}
