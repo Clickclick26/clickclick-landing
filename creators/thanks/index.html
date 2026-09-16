@@ -146,7 +146,16 @@
         // Never show the server's own wording here. Some of these are notes to
         // ourselves about missing configuration, and a buyer who has just paid
         // should not be reading them. The status is enough to say the right thing.
-        if (out.status === 402) {
+        if (out.data && out.data.held) {
+          // They kept the 14-day cancellation right at checkout, so the course
+          // cannot be handed over yet. Say so plainly rather than looking broken.
+          var when = new Date(out.data.availableFrom);
+          var nice = isNaN(when) ? 'in 14 days' : 'on ' + when.toLocaleDateString('en-GB',
+            { day: 'numeric', month: 'long' });
+          fail('Your payment went through.',
+            'At checkout you chose to keep your 14-day cancellation right, so we cannot open the course yet. Your code is ready and we will send it ' + nice +
+            '. Changed your mind and want it now? Reply to your receipt and say so, and we will send it straight over.');
+        } else if (out.status === 402) {
           fail('That payment has not gone through.',
             'Nothing has been taken. If you think it has, email us and we will check.');
         } else if (out.data && out.data.revoked) {
