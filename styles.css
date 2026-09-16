@@ -3338,3 +3338,94 @@ body.lead-open #cc-label {
     gap: 0;
   }
 }
+
+/* ── ClickClick Creators: icons, demo clip, diagrams, scroll reveal ──
+   The page was ~30KB of unbroken prose. These break it up at the points
+   where people are actually deciding. ── */
+
+.ccc-get-icon {
+  width: 30px;
+  height: 30px;
+  display: block;
+  margin: 0 0 0.6rem;
+  color: var(--turquoise, #0aa8b4);
+  stroke-linecap: round;
+}
+
+.ccc-demo {
+  margin: 2.6rem auto;
+  max-width: 860px;
+  padding: 0 1rem;
+}
+
+.ccc-demo video {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 18px;
+  background: #f0ead6;
+  box-shadow: 0 18px 44px rgba(0, 0, 0, 0.1);
+}
+
+.ccc-demo figcaption,
+.ccc-shots figcaption {
+  font-size: 0.86rem;
+  line-height: 1.55;
+  color: #5c5c5c;
+  margin-top: 0.8rem;
+  max-width: 62ch;
+}
+
+.ccc-shots {
+  margin: 2.6rem auto;
+  max-width: 980px;
+  padding: 0 1rem;
+  display: grid;
+  gap: 1.8rem;
+}
+
+.ccc-shots figure {
+  margin: 0;
+}
+
+.ccc-shots img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 16px;
+  background: #fff;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.07);
+}
+
+@media (min-width: 900px) {
+  .ccc-shots {
+    grid-template-columns: 1fr 1fr;
+    align-items: start;
+  }
+}
+
+/* Fade and lift as each block arrives. Starts visible, so if the script never
+   runs the content is still there rather than a blank page. */
+.reveal {
+  opacity: 1;
+}
+
+.js-reveal .reveal {
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity 0.7s ease, transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: opacity, transform;
+}
+
+.js-reveal .reveal.is-in {
+  opacity: 1;
+  transform: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .js-reveal .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
