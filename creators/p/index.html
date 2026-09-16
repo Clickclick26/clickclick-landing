@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Creator portfolio | ClickClick</title>
+<!-- Each creator's page is drawn client-side from their slug, so there is no
+     per-creator HTML to index and nothing useful for a crawler to read here. -->
+<meta name="robots" content="noindex" />
+<meta name="theme-color" content="#14130f" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<style>
+  /* Four backgrounds the creator picks between, plus their highlight colour.
+     Everything else is fixed, so a page cannot be made to look unlike a
+     ClickClick one no matter what is typed into the editor. */
+  :root {
+    --bg: #14130f;
+    --ink: #f6f2e8;
+    --muted: #a8a294;
+    --line: rgba(246, 242, 232, .16);
+    --card: rgba(246, 242, 232, .05);
+    --accent: #d9f125;
+    --on-accent: #14130f;
+  }
+  body[data-theme="sand"] {
+    --bg: #efe9da; --ink: #14130f; --muted: #6b6559;
+    --line: rgba(20, 19, 15, .14); --card: rgba(255, 253, 247, .7);
+  }
+  body[data-theme="mono"] {
+    --bg: #ffffff; --ink: #14130f; --muted: #6b6559;
+    --line: rgba(20, 19, 15, .12); --card: #fafaf8;
+  }
+  body[data-theme="signal"] {
+    --bg: #1c1f3b; --ink: #f2f3ff; --muted: #a3a7cc;
+    --line: rgba(242, 243, 255, .18); --card: rgba(242, 243, 255, .06);
+  }
+
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: Poppins, system-ui, -apple-system, "Segoe UI", sans-serif;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+  a { color: inherit; }
+  img, video { max-width: 100%; display: block; }
+
+  .wrap { max-width: 880px; margin: 0 auto; padding: 56px 22px 90px; }
+
+  .state { padding: 90px 22px; text-align: center; color: var(--muted); }
+  .state h1 { color: var(--ink); font-size: 24px; margin: 0 0 10px; }
+
+  .head { display: flex; gap: 22px; align-items: flex-start; flex-wrap: wrap; }
+  .avatar {
+    width: 104px; height: 104px; flex: 0 0 104px;
+    border-radius: 50%; border: 1px solid var(--line);
+    background: var(--card) center/cover no-repeat;
+  }
+  .head-text { flex: 1 1 320px; min-width: 0; }
+  h1 { font-size: clamp(28px, 5vw, 40px); line-height: 1.12; margin: 0 0 8px; letter-spacing: -.01em; }
+  .headline { font-size: 17px; color: var(--muted); margin: 0 0 12px; }
+  .meta { display: flex; gap: 8px 16px; flex-wrap: wrap; font-size: 14px; color: var(--muted); margin: 0 0 16px; }
+
+  .cred {
+    display: inline-flex; align-items: center; gap: 9px;
+    border: 1px solid var(--line); border-radius: 999px;
+    padding: 6px 14px 6px 8px; font-size: 13px; color: var(--muted);
+  }
+  .cred b { color: var(--ink); font-weight: 600; }
+  .cred-dot {
+    width: 20px; height: 20px; border-radius: 50%;
+    background: var(--accent); color: var(--on-accent);
+    display: grid; place-items: center; font-size: 11px; font-weight: 700;
+  }
+
+  .bio { font-size: 16px; margin: 26px 0 0; max-width: 62ch; }
+  .rates { font-size: 15px; color: var(--muted); margin: 10px 0 0; }
+
+  .links { display: flex; gap: 10px; flex-wrap: wrap; margin: 24px 0 0; }
+  .btn {
+    display: inline-block; padding: 10px 18px; border-radius: 999px;
+    border: 1px solid var(--line); text-decoration: none; font-size: 14px; font-weight: 500;
+  }
+  .btn-main { background: var(--accent); color: var(--on-accent); border-color: var(--accent); }
+  .btn:hover { opacity: .88; }
+
+  h2 { font-size: 13px; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); margin: 54px 0 18px; font-weight: 600; }
+
+  .works { display: grid; gap: 18px; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); }
+  .work {
+    border: 1px solid var(--line); border-radius: 14px; overflow: hidden;
+    background: var(--card); display: flex; flex-direction: column;
+  }
+  .work-media { background: rgba(0, 0, 0, .18); }
+  .work-media img { width: 100%; aspect-ratio: 4 / 5; object-fit: cover; }
+  .work-media video { width: 100%; }
+  .work-body { padding: 15px 16px 17px; }
+  .work-title { font-size: 16px; font-weight: 600; margin: 0 0 5px; }
+  .work-label { font-size: 14px; color: var(--muted); margin: 0; }
+  .work-link { font-size: 13px; margin: 10px 0 0; display: inline-block; }
+
+  footer {
+    margin-top: 64px; padding-top: 22px; border-top: 1px solid var(--line);
+    font-size: 13px; color: var(--muted);
+  }
+  footer a { text-decoration: underline; }
+</style>
+</head>
+<body data-theme="ink">
+  <div id="state" class="state"><p>Loading&hellip;</p></div>
+  <main id="page" class="wrap" hidden></main>
+
+<script>
+(function () {
+  var API = 'https://gapybapywpdogexibtgj.supabase.co/functions/v1/academy-progress';
+  var ANON = 'sb_publishable_H6AqSkDWFjR42ff7YE1MIw_-qU2z0OT';
+  var THEMES = { ink: 1, sand: 1, mono: 1, signal: 1 };
+
+  // Every value below was typed by a creator, so nothing is ever assigned with
+  // innerHTML. The server sanitises on the way in; this escapes on the way out.
+  function esc(value) {
+    return String(value == null ? '' : value)
+      .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
+      .replace(/"/g, '&quot;').replace(/'/g, '&#39;');
+  }
+
+  function safeUrl(value) {
+    var raw = String(value || '').trim();
+    return /^https?:\/\//i.test(raw) ? raw : '';
+  }
+
+  function slugFromLocation() {
+    var qs = new URLSearchParams(window.location.search);
+    var slug = qs.get('c') || window.location.hash.replace(/^#/, '');
+    return String(slug || '').toLowerCase().replace(/[^a-z0-9-]/g, '').slice(0, 40);
+  }
+
+  function fail(title, note) {
+    var el = document.getElementById('state');
+    el.innerHTML = '<h1></h1><p></p>';
+    el.querySelector('h1').textContent = title;
+    el.querySelector('p').textContent = note;
+    el.hidden = false;
+    document.getElementById('page').hidden = true;
+  }
+
+  function render(res) {
+    var p = res.portfolio || {};
+    var works = Array.isArray(p.works) ? p.works : [];
+
+    document.body.setAttribute('data-theme', THEMES[p.theme] ? p.theme : 'ink');
+    if (p.accent) {
+      document.documentElement.style.setProperty('--accent', p.accent);
+      // Dark text on a pale highlight, pale text on a dark one, so the button
+      // stays readable whichever colour was picked.
+      var pale = ['#d9f125', '#ffffff', '#12b886'].indexOf(String(p.accent).toLowerCase()) > -1;
+      document.documentElement.style.setProperty('--on-accent', pale ? '#14130f' : '#ffffff');
+    }
+
+    var name = p.name || 'Creator';
+    document.title = name + ' | UGC creator';
+
+    var meta = [];
+    if (p.location) meta.push(esc(p.location));
+    if (p.instagram) meta.push('Instagram @' + esc(p.instagram));
+    if (p.tiktok) meta.push('TikTok @' + esc(p.tiktok));
+
+    var links = [];
+    if (p.email) {
+      links.push('<a class="btn btn-main" href="mailto:' + esc(p.email) +
+        '?subject=' + encodeURIComponent('Filming enquiry') + '">Get in touch</a>');
+    }
+    var site = safeUrl(p.website);
+    if (site) links.push('<a class="btn" href="' + esc(site) + '" target="_blank" rel="noopener nofollow">Website</a>');
+    if (p.instagram) links.push('<a class="btn" href="https://instagram.com/' + encodeURIComponent(p.instagram) + '" target="_blank" rel="noopener nofollow">Instagram</a>');
+    if (p.tiktok) links.push('<a class="btn" href="https://tiktok.com/@' + encodeURIComponent(p.tiktok) + '" target="_blank" rel="noopener nofollow">TikTok</a>');
+
+    var cred = '';
+    if (res.credentialId) {
+      cred = '<span class="cred"><span class="cred-dot">&#10003;</span>' +
+        'ClickClick certified &middot; <b>' + esc(res.credentialId) + '</b></span>';
+    }
+
+    var workHtml = works.map(function (w) {
+      var media = '';
+      var video = safeUrl(w.video);
+      var image = safeUrl(w.image);
+      if (video) {
+        media = '<div class="work-media"><video controls preload="metadata"' +
+          (image ? ' poster="' + esc(image) + '"' : '') +
+          '><source src="' + esc(video) + '" /></video></div>';
+      } else if (image) {
+        media = '<div class="work-media"><img loading="lazy" alt="' + esc(w.title || 'Portfolio piece') +
+          '" src="' + esc(image) + '" /></div>';
+      }
+      var link = safeUrl(w.link);
+      return '<article class="work">' + media + '<div class="work-body">' +
+        '<p class="work-title">' + esc(w.title) + '</p>' +
+        (w.label ? '<p class="work-label">' + esc(w.label) + '</p>' : '') +
+        (link ? '<a class="work-link" href="' + esc(link) + '" target="_blank" rel="noopener nofollow">Watch it &rarr;</a>' : '') +
+        '</div></article>';
+    }).join('');
+
+    document.getElementById('page').innerHTML =
+      '<header class="head">' +
+        (safeUrl(p.avatar) ? '<div class="avatar" style="background-image:url(&quot;' + esc(p.avatar) + '&quot;)"></div>' : '') +
+        '<div class="head-text">' +
+          '<h1>' + esc(name) + '</h1>' +
+          (p.headline ? '<p class="headline">' + esc(p.headline) + '</p>' : '') +
+          (meta.length ? '<p class="meta">' + meta.join(' &middot; ') + '</p>' : '') +
+          cred +
+        '</div>' +
+      '</header>' +
+      (p.bio ? '<p class="bio">' + esc(p.bio) + '</p>' : '') +
+      (p.rates ? '<p class="rates">' + esc(p.rates) + '</p>' : '') +
+      (links.length ? '<div class="links">' + links.join('') + '</div>' : '') +
+      (workHtml ? '<h2>Work</h2><div class="works">' + workHtml + '</div>' : '') +
+      '<footer>' +
+        'Certified through the <a href="https://www.clickclick.video/creators/">ClickClick UGC Content Creator Certification</a>. ' +
+        'Brands looking for creators can email <a href="mailto:hello@clickclick.video">hello@clickclick.video</a>.' +
+      '</footer>';
+
+    document.getElementById('state').hidden = true;
+    document.getElementById('page').hidden = false;
+  }
+
+  var slug = slugFromLocation();
+  if (!slug) {
+    fail('No page asked for', 'This link is missing the creator it belongs to. Ask them to send it again.');
+    return;
+  }
+
+  fetch(API, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json', apikey: ANON, Authorization: 'Bearer ' + ANON },
+    body: JSON.stringify({ type: 'portfolioPublic', slug: slug })
+  })
+    .then(function (r) { return r.json().then(function (d) { return { ok: r.ok, data: d }; }); })
+    .then(function (out) {
+      if (!out.ok) {
+        fail('Nothing here', 'This portfolio page has not been published, or the address is wrong.');
+        return;
+      }
+      render(out.data);
+    })
+    .catch(function () {
+      fail('Could not load that', 'Something went wrong fetching this page. Try again in a minute.');
+    });
+
+  window.addEventListener('hashchange', function () { window.location.reload(); });
+})();
+</script>
+</body>
+</html>
