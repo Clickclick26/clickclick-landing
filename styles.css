@@ -2691,3 +2691,605 @@ body.lead-open #cc-label {
     transform: none !important;
   }
 }
+
+/* ── CLICKCLICK CREATORS ──────────────────────────────────────────────
+   The creator-facing arm gets its own lockup, the same way ClickClick
+   Live does: the parent wordmark, a separator, then the word. Live uses
+   a straight serif and the full brand gradient because it is sold to
+   brand teams. Creators is set in serif italic with a pink-to-purple
+   hairline, because the people reading it are choosing whether this
+   looks like somewhere they want their name listed. Editorial, not
+   corporate. Same family, different room. */
+.brand-creators-sep {
+  width: 1px;
+  align-self: stretch;
+  margin: 2px 12px;
+  background: linear-gradient(180deg, #e83e8c 0%, #7b5ea7 100%);
+}
+
+.brand-creators-word {
+  font-family: var(--display);
+  font-style: italic;
+  font-size: 1.3rem;
+  color: var(--dark);
+  line-height: 1;
+  letter-spacing: 0.01em;
+}
+
+.ccc-main {
+  max-width: 900px;
+}
+
+/* The hero lockup. Small tracked-out parent name, huge serif italic
+   word, hairline under it. Stacked rather than side by side, so the
+   word "Creators" is the biggest thing on the page. */
+.ccc-lockup {
+  margin: 8px 0 26px;
+}
+
+.ccc-lockup-top {
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.42em;
+  font-weight: 500;
+  color: var(--mid);
+  margin-bottom: 2px;
+}
+
+.ccc-lockup-word {
+  font-family: var(--display);
+  font-style: italic;
+  font-weight: 400;
+  font-size: clamp(3.2rem, 11vw, 6.2rem);
+  line-height: 0.95;
+  letter-spacing: -0.015em;
+  color: var(--dark);
+}
+
+.ccc-lockup-rule {
+  height: 2px;
+  width: min(100%, 420px);
+  margin-top: 14px;
+  border-radius: 2px;
+  background: linear-gradient(90deg, #e83e8c 0%, #7b5ea7 60%, rgba(123, 94, 167, 0) 100%);
+}
+
+.ccc-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  font-weight: 600;
+  color: var(--dark);
+  border: 1px solid rgba(20, 20, 20, 0.16);
+  border-radius: var(--radius-pill);
+  padding: 7px 15px;
+  background: rgba(255, 255, 255, 0.55);
+}
+
+.ccc-lede {
+  font-size: 1.15rem;
+  line-height: 1.6;
+  color: var(--mid);
+  max-width: 600px;
+  margin: 22px 0 8px;
+}
+
+.ccc-lede strong {
+  color: var(--dark);
+  font-weight: 600;
+}
+
+.ccc-hero-ctas {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin: 30px 0 10px;
+}
+
+.ccc-hero-note {
+  font-size: 0.85rem;
+  color: var(--light);
+}
+
+/* Three numbered parts. The numerals are the design: big serif figures
+   in the brand pink, so the page reads as a path with an order to it
+   rather than three features sitting in a row. */
+.ccc-three {
+  display: grid;
+  gap: 2px;
+  margin: 44px 0;
+  border-top: 1px solid rgba(20, 20, 20, 0.12);
+}
+
+.ccc-step {
+  display: grid;
+  grid-template-columns: 62px 1fr;
+  gap: 18px;
+  padding: 26px 0;
+  border-bottom: 1px solid rgba(20, 20, 20, 0.12);
+  align-items: start;
+}
+
+.ccc-step-num {
+  font-family: var(--display);
+  font-style: italic;
+  font-size: 2.6rem;
+  line-height: 0.9;
+  color: var(--pink);
+}
+
+.ccc-step h3 {
+  font-family: var(--display);
+  font-weight: 400;
+  font-size: 1.5rem;
+  line-height: 1.15;
+  margin-bottom: 8px;
+}
+
+.ccc-step p {
+  color: var(--mid);
+  line-height: 1.6;
+}
+
+.ccc-step p + p {
+  margin-top: 10px;
+}
+
+.ccc-step-tag {
+  display: inline-block;
+  font-size: 0.68rem;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  font-weight: 600;
+  color: var(--purple);
+  margin-bottom: 8px;
+}
+
+.ccc-head {
+  margin: 56px 0 8px;
+}
+
+.ccc-head h2 {
+  font-family: var(--display);
+  font-weight: 400;
+  font-size: clamp(1.7rem, 3.4vw, 2.4rem);
+  line-height: 1.12;
+  margin-bottom: 10px;
+}
+
+.ccc-head p {
+  color: var(--mid);
+  line-height: 1.6;
+  max-width: 620px;
+}
+
+/* Module list. Numbered, hairline-separated, no boxes. Reads like a
+   contents page, which is what makes eight modules feel like a body of
+   work instead of a feature list. */
+.ccc-mods {
+  list-style: none;
+  margin: 26px 0 0;
+  counter-reset: mod;
+}
+
+.ccc-mods li {
+  counter-increment: mod;
+  display: grid;
+  grid-template-columns: 44px 1fr;
+  gap: 14px;
+  padding: 18px 0;
+  border-bottom: 1px solid rgba(20, 20, 20, 0.1);
+}
+
+.ccc-mods li::before {
+  content: "0" counter(mod);
+  font-family: var(--display);
+  font-size: 1.05rem;
+  color: var(--light);
+  line-height: 1.5;
+}
+
+.ccc-mods h3 {
+  font-size: 1.02rem;
+  font-weight: 600;
+  line-height: 1.35;
+  margin-bottom: 4px;
+}
+
+.ccc-mods p {
+  color: var(--mid);
+  font-size: 0.92rem;
+  line-height: 1.55;
+}
+
+/* Two prices. The left one is the real product. The right one is the
+   upgrade, so it is deliberately quieter: no border glow, no badge. */
+.ccc-prices {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 18px;
+  margin: 30px 0 14px;
+}
+
+.ccc-price {
+  background: var(--surface);
+  border: 1px solid rgba(20, 20, 20, 0.1);
+  border-radius: 18px;
+  padding: 28px 26px;
+  display: flex;
+  flex-direction: column;
+}
+
+.ccc-price--main {
+  border-color: rgba(232, 62, 140, 0.4);
+  box-shadow: 0 24px 50px -30px rgba(123, 94, 167, 0.55);
+}
+
+.ccc-price-badge {
+  font-size: 0.65rem;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  font-weight: 700;
+  color: var(--pink);
+  margin-bottom: 10px;
+}
+
+.ccc-price-name {
+  font-family: var(--display);
+  font-size: 1.35rem;
+  font-weight: 400;
+  margin-bottom: 4px;
+}
+
+.ccc-price-fig {
+  font-family: var(--display);
+  font-size: 3rem;
+  line-height: 1;
+  margin: 10px 0 4px;
+}
+
+.ccc-price-sub {
+  font-size: 0.82rem;
+  color: var(--light);
+  margin-bottom: 18px;
+}
+
+.ccc-price ul {
+  list-style: none;
+  margin: 0 0 22px;
+  display: grid;
+  gap: 9px;
+}
+
+.ccc-price li {
+  font-size: 0.92rem;
+  line-height: 1.5;
+  color: var(--mid);
+  padding-left: 20px;
+  position: relative;
+}
+
+.ccc-price li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 9px;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #e83e8c, #7b5ea7);
+}
+
+.ccc-price .btn-primary,
+.ccc-price .btn-outline {
+  margin-top: auto;
+  text-align: center;
+}
+
+.ccc-vat {
+  font-size: 0.82rem;
+  color: var(--light);
+  margin-bottom: 8px;
+}
+
+/* The straight-talking box. A page selling creators a certificate has
+   to say out loud what it is not, or the people worth having on the
+   roster will assume the worst and leave. */
+.ccc-real {
+  background: #141414;
+  color: #f4f1e9;
+  border-radius: 20px;
+  padding: 34px 30px;
+  margin: 50px 0;
+}
+
+.ccc-real h2 {
+  font-family: var(--display);
+  font-style: italic;
+  font-weight: 400;
+  font-size: clamp(1.6rem, 3.2vw, 2.1rem);
+  margin-bottom: 16px;
+  color: #fff;
+}
+
+.ccc-real ul {
+  list-style: none;
+  display: grid;
+  gap: 12px;
+}
+
+.ccc-real li {
+  line-height: 1.6;
+  color: rgba(244, 241, 233, 0.82);
+  padding-left: 22px;
+  position: relative;
+}
+
+.ccc-real li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 11px;
+  width: 10px;
+  height: 1px;
+  background: var(--pink);
+}
+
+.ccc-real strong {
+  color: #fff;
+  font-weight: 600;
+}
+
+.ccc-faq {
+  margin: 44px 0 10px;
+}
+
+.ccc-faq details {
+  border-bottom: 1px solid rgba(20, 20, 20, 0.12);
+  padding: 18px 0;
+}
+
+.ccc-faq summary {
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 1.02rem;
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  align-items: center;
+}
+
+.ccc-faq summary::-webkit-details-marker {
+  display: none;
+}
+
+.ccc-faq summary::after {
+  content: "+";
+  font-family: var(--display);
+  font-size: 1.3rem;
+  color: var(--pink);
+  line-height: 1;
+}
+
+.ccc-faq details[open] summary::after {
+  content: "\2013";
+}
+
+.ccc-faq p {
+  color: var(--mid);
+  line-height: 1.65;
+  margin-top: 12px;
+  max-width: 640px;
+}
+
+@media (max-width: 560px) {
+  .ccc-step {
+    grid-template-columns: 44px 1fr;
+    gap: 12px;
+  }
+
+  .ccc-step-num {
+    font-size: 2rem;
+  }
+
+  .ccc-real {
+    padding: 28px 22px;
+  }
+}
+
+/* The Creators intake form. Same field treatment as the lead modal so it
+   is recognisably the same company, but sitting in the page rather than
+   in a popup, because a creator deciding whether to hand over an email
+   should not have a modal thrown at them. */
+.creators-form {
+  background: var(--surface);
+  border: 1px solid rgba(20, 20, 20, 0.1);
+  border-radius: 18px;
+  padding: 26px 24px;
+  margin: 26px 0 10px;
+}
+
+.creators-form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+  margin-bottom: 18px;
+}
+
+.creators-form label {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: #444;
+}
+
+.creators-form input {
+  font-family: var(--font);
+  font-size: 0.9rem;
+  font-weight: 400;
+  color: var(--dark);
+  background: #fff;
+  border: 1.5px solid rgba(0, 0, 0, 0.12);
+  border-radius: 10px;
+  padding: 11px 12px;
+  outline: none;
+  transition: border-color 0.15s;
+  width: 100%;
+}
+
+.creators-form input:focus {
+  border-color: var(--pink);
+}
+
+.creators-honey {
+  position: absolute;
+  left: -9999px;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.creators-submit {
+  width: 100%;
+}
+
+.creators-note {
+  font-size: 0.78rem;
+  color: var(--light);
+  line-height: 1.55;
+  margin-top: 14px;
+}
+
+.creators-note a {
+  color: var(--mid);
+  text-decoration: underline;
+}
+
+.creators-msg {
+  margin-top: 14px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  line-height: 1.5;
+}
+
+.creators-msg.is-ok {
+  color: #0f7b57;
+}
+
+.creators-msg.is-bad {
+  color: #b3225a;
+}
+
+@media (max-width: 560px) {
+  .creators-form-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* The product-page nav on a phone. At 375px the parent wordmark, the
+   product word and the full link list do not fit, so the logo and the
+   CTA were sitting on top of each other on both ClickClick Live and
+   ClickClick Creators. On a narrow screen the section links go (the
+   page is a single scroll anyway) and the lockup shrinks, leaving the
+   brand and one action. */
+@media (max-width: 600px) {
+  nav.nav--doc .nav-links li:not(:last-child) {
+    display: none;
+  }
+
+  nav.nav--doc .nav-doc-brand img {
+    height: 18px;
+  }
+
+  /* The button was wrapping to two lines and growing taller than the
+     bar it sits in, which is what made it look like it was sitting on
+     top of the logo. */
+  nav.nav--doc .nav-cta {
+    white-space: nowrap;
+    padding: 9px 14px;
+    font-size: 0.72rem;
+  }
+
+  .brand-live-word,
+  .brand-creators-word {
+    font-size: 0.95rem;
+  }
+
+  .brand-live-sep {
+    margin: 2px 6px;
+  }
+
+  .brand-creators-sep {
+    margin: 2px 7px;
+  }
+}
+
+/* The keyword line under the headline. The h1 is written for the person
+   reading it, so the plain description of what the thing actually is
+   sits just underneath rather than being forced into the headline. */
+.ccc-sub {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--dark);
+  line-height: 1.5;
+  max-width: 560px;
+  margin: 0 0 22px;
+  padding-bottom: 18px;
+  border-bottom: 1px solid rgba(20, 20, 20, 0.12);
+}
+
+/* The four things that cost creators money. Cards rather than a list,
+   because each one is a small story and needs room to land. Warm ground
+   and a pink label, not a red warning box: the point is "this happened
+   to nearly everyone", not "you have done something wrong". */
+.ccc-costs {
+  display: grid;
+  /* Fixed at two columns rather than auto-fit: there are four of these,
+     and auto-fit put three on one row and left the fourth stranded. */
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+  margin: 28px 0 10px;
+}
+
+@media (max-width: 640px) {
+  .ccc-costs {
+    grid-template-columns: 1fr;
+  }
+}
+
+.ccc-cost {
+  background: var(--surface);
+  border: 1px solid rgba(20, 20, 20, 0.09);
+  border-radius: 16px;
+  padding: 24px 22px;
+}
+
+/* Written as p.ccc-cost-label so it outranks the .ccc-cost p rule
+   further down, which was otherwise repainting the label grey. */
+.ccc-cost p.ccc-cost-label {
+  font-size: 0.66rem;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  font-weight: 700;
+  color: var(--pink);
+  margin-bottom: 10px;
+}
+
+.ccc-cost h3 {
+  font-family: var(--display);
+  font-weight: 400;
+  font-size: 1.25rem;
+  line-height: 1.2;
+  margin-bottom: 10px;
+}
+
+.ccc-cost p {
+  color: var(--mid);
+  font-size: 0.93rem;
+  line-height: 1.6;
+}
