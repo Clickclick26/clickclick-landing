@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Thanks, here is your access code | ClickClick</title>
+<!-- Nobody should reach this page except by paying, and there is nothing on
+     it worth indexing. -->
+<meta name="robots" content="noindex,nofollow" />
+<meta name="theme-color" content="#F0EAD6" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --cream: #F0EAD6; --surface: #fff; --dark: #141414; --mid: #5c5c5c;
+    --line: #e2dcc9; --turquoise: #00bcd4; --purple: #7b5ea7; --pink: #e83e8c;
+    --gradient: linear-gradient(135deg, #00bcd4 0%, #7b5ea7 55%, #c2185b 100%);
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; background: var(--cream); color: var(--dark);
+    font-family: Poppins, system-ui, sans-serif; line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+  .wrap { max-width: 640px; margin: 0 auto; padding: 60px 22px 90px; }
+  h1 { font-family: "DM Serif Display", Georgia, serif; font-size: clamp(30px, 6vw, 44px); line-height: 1.1; margin: 0 0 12px; }
+  .lead { font-size: 17px; color: var(--mid); margin: 0 0 30px; }
+
+  .card { background: var(--surface); border: 1px solid var(--line); border-radius: 14px; padding: 26px; margin: 0 0 20px; }
+  .card h2 { font-size: 15px; letter-spacing: .1em; text-transform: uppercase; color: var(--mid); margin: 0 0 14px; font-weight: 600; }
+
+  .code {
+    font-size: clamp(26px, 7vw, 38px); font-weight: 700; letter-spacing: .06em;
+    background: var(--gradient); -webkit-background-clip: text; background-clip: text;
+    color: transparent; margin: 0 0 6px; word-break: break-all;
+  }
+  .code-note { font-size: 14px; color: var(--mid); margin: 0 0 18px; }
+
+  .btn {
+    display: inline-block; padding: 13px 24px; border-radius: 999px;
+    background: var(--dark); color: var(--cream); text-decoration: none;
+    font-weight: 500; font-size: 15px; border: 1px solid var(--dark); cursor: pointer;
+    font-family: inherit;
+  }
+  .btn:hover { opacity: .88; }
+  .btn-quiet { background: none; color: var(--dark); }
+  .btns { display: flex; gap: 10px; flex-wrap: wrap; }
+
+  ol { margin: 0; padding-left: 20px; }
+  ol li { margin-bottom: 10px; }
+  .foot { font-size: 14px; color: var(--mid); margin-top: 26px; }
+  a { color: var(--dark); }
+  .err { background: #fdecea; border: 1px solid #f0b8b0; color: #a12b1a; }
+  .hidden { display: none; }
+  .copied { color: #2f7d54; font-size: 14px; font-weight: 500; }
+</style>
+</head>
+<body>
+  <main class="wrap">
+    <div id="loading">
+      <h1>One second.</h1>
+      <p class="lead">Checking the payment and getting your code.</p>
+    </div>
+
+    <div id="done" class="hidden">
+      <h1>That is you paid.</h1>
+      <p class="lead" id="lead">Here is the code that opens your course. It is yours alone, so keep it to yourself.</p>
+
+      <div class="card">
+        <h2>Your access code</h2>
+        <p class="code" id="code">&nbsp;</p>
+        <p class="code-note">Write this down somewhere before you close the tab.</p>
+        <div class="btns">
+          <button class="btn" type="button" id="copy">Copy the code</button>
+          <a class="btn btn-quiet" href="https://academy.clickclick.video/" id="open">Open the Academy</a>
+        </div>
+        <p class="copied hidden" id="copied">Copied.</p>
+      </div>
+
+      <div class="card">
+        <h2>What to do now</h2>
+        <ol id="steps">
+          <li>Open the Academy and put that code in.</li>
+          <li>Put your name and email in once. That is what saves your progress, so use the same email every time.</li>
+          <li>Start anywhere. Lessons are short and nothing has to be done in order.</li>
+        </ol>
+      </div>
+
+      <p class="foot">
+        Lost the code, or the page is asking for it again? Email
+        <a href="mailto:hello@clickclick.video?subject=Lost%20my%20access%20code">hello@clickclick.video</a>
+        from the address you paid with and we will find it. Your progress is saved to your
+        email, not to this phone or computer, so nothing is lost if you clear your browser
+        or move to a different device.
+      </p>
+    </div>
+
+    <div id="failed" class="hidden">
+      <h1 id="fail-title">We could not find that payment.</h1>
+      <p class="lead" id="fail-note">
+        If money has left your account, nothing is wrong at your end and nothing is lost.
+      </p>
+      <div class="card err">
+        <p style="margin:0">
+          Email <a href="mailto:hello@clickclick.video?subject=Paid%20but%20no%20code">hello@clickclick.video</a>
+          from the address you paid with. Your code already exists against that payment and
+          we can send it straight over.
+        </p>
+      </div>
+    </div>
+  </main>
+
+<script>
+(function () {
+  var API = 'https://gapybapywpdogexibtgj.supabase.co/functions/v1/academy-stripe';
+  var ANON = 'sb_publishable_H6AqSkDWFjR42ff7YE1MIw_-qU2z0OT';
+
+  function show(id) {
+    ['loading', 'done', 'failed'].forEach(function (key) {
+      document.getElementById(key).classList.toggle('hidden', key !== id);
+    });
+  }
+
+  function fail(title, note) {
+    if (title) document.getElementById('fail-title').textContent = title;
+    if (note) document.getElementById('fail-note').textContent = note;
+    show('failed');
+  }
+
+  var sessionId = new URLSearchParams(window.location.search).get('session_id') || '';
+  if (!sessionId) {
+    fail('This page needs to be opened from the checkout.',
+      'Stripe sends you here with your payment attached. Opening it on its own gives us nothing to look up.');
+    return;
+  }
+
+  fetch(API, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json', apikey: ANON, Authorization: 'Bearer ' + ANON },
+    body: JSON.stringify({ type: 'claim', sessionId: sessionId })
+  })
+    .then(function (r) { return r.json().then(function (d) { return { ok: r.ok, data: d }; }); })
+    .then(function (out) {
+      if (!out.ok || !out.data.code) {
+        fail(null, (out.data && out.data.error) || null);
+        return;
+      }
+      document.getElementById('code').textContent = out.data.code;
+      if (out.data.portfolio) {
+        document.getElementById('lead').textContent =
+          'Here is the code that opens your course and your portfolio page. It is yours alone, so keep it to yourself.';
+        var li = document.createElement('li');
+        li.textContent = 'Your portfolio page is in there too, under "Your portfolio page". Fill it in whenever you have something worth showing.';
+        document.getElementById('steps').appendChild(li);
+      }
+      show('done');
+    })
+    .catch(function () {
+      fail('Something went wrong at our end.', 'Your payment is fine. We just could not finish this page.');
+    });
+
+  document.getElementById('copy').addEventListener('click', function () {
+    var code = document.getElementById('code').textContent.trim();
+    var done = function () { document.getElementById('copied').classList.remove('hidden'); };
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(code).then(done, done);
+    } else {
+      done();
+    }
+  });
+})();
+</script>
+</body>
+</html>
