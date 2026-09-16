@@ -140,10 +140,21 @@
     headers: { 'Content-Type': 'application/json', apikey: ANON, Authorization: 'Bearer ' + ANON },
     body: JSON.stringify({ type: 'claim', sessionId: sessionId })
   })
-    .then(function (r) { return r.json().then(function (d) { return { ok: r.ok, data: d }; }); })
+    .then(function (r) { return r.json().then(function (d) { return { ok: r.ok, status: r.status, data: d }; }); })
     .then(function (out) {
       if (!out.ok || !out.data.code) {
-        fail(null, (out.data && out.data.error) || null);
+        // Never show the server's own wording here. Some of these are notes to
+        // ourselves about missing configuration, and a buyer who has just paid
+        // should not be reading them. The status is enough to say the right thing.
+        if (out.status === 402) {
+          fail('That payment has not gone through.',
+            'Nothing has been taken. If you think it has, email us and we will check.');
+        } else if (out.data && out.data.revoked) {
+          fail('This one has been refunded.',
+            'The code that came with this payment was cancelled when the refund went through.');
+        } else {
+          fail(null, null);
+        }
         return;
       }
       document.getElementById('code').textContent = out.data.code;
