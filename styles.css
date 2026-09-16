@@ -2724,7 +2724,7 @@ body.lead-open #cc-label {
    word, hairline under it. Stacked rather than side by side, so the
    word "Creators" is the biggest thing on the page. */
 .ccc-lockup {
-  margin: 8px 0 26px;
+  margin: 14px 0 30px;
 }
 
 .ccc-lockup-top {
@@ -2754,19 +2754,17 @@ body.lead-open #cc-label {
   background: linear-gradient(90deg, #e83e8c 0%, #7b5ea7 60%, rgba(123, 94, 167, 0) 100%);
 }
 
-.ccc-chip {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  font-size: 0.7rem;
+/* Sits under the lockup rule, flush to the same left edge as the
+   wordmark and the headline. It was a bordered pill above the lockup,
+   and its own padding pushed the text in further than everything under
+   it, which read as misaligned however carefully it was styled. */
+.ccc-lockup-for {
+  font-size: 0.68rem;
   text-transform: uppercase;
-  letter-spacing: 0.18em;
+  letter-spacing: 0.22em;
   font-weight: 600;
-  color: var(--dark);
-  border: 1px solid rgba(20, 20, 20, 0.16);
-  border-radius: var(--radius-pill);
-  padding: 7px 15px;
-  background: rgba(255, 255, 255, 0.55);
+  color: var(--mid);
+  margin-top: 12px;
 }
 
 .ccc-lede {
@@ -3292,4 +3290,51 @@ body.lead-open #cc-label {
   color: var(--mid);
   font-size: 0.93rem;
   line-height: 1.6;
+}
+
+/* What you walk away holding. Two columns of plain blocks separated by
+   hairlines rather than cards: these are the four things she is actually
+   buying, and boxing them made them read as features again. */
+.ccc-gets {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0 40px;
+  margin: 30px 0 8px;
+  border-top: 1px solid rgba(20, 20, 20, 0.12);
+}
+
+.ccc-get {
+  padding: 24px 0;
+  border-bottom: 1px solid rgba(20, 20, 20, 0.12);
+}
+
+.ccc-get h3 {
+  font-family: var(--display);
+  font-weight: 400;
+  font-size: 1.3rem;
+  line-height: 1.18;
+  margin-bottom: 9px;
+}
+
+.ccc-get h3::before {
+  content: "";
+  display: block;
+  width: 26px;
+  height: 2px;
+  border-radius: 2px;
+  margin-bottom: 12px;
+  background: linear-gradient(90deg, #e83e8c, #7b5ea7);
+}
+
+.ccc-get p {
+  color: var(--mid);
+  font-size: 0.95rem;
+  line-height: 1.62;
+}
+
+@media (max-width: 640px) {
+  .ccc-gets {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
 }
