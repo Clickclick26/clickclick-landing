@@ -1735,7 +1735,7 @@ nav.nav--doc .nav-doc-brand img {
 
 .ccl-video {
   max-width: 720px;
-  margin: 64px auto 44px;
+  margin: 0 auto 48px;
 }
 /* The rounding lives on this wrapper, not the <video> itself. Safari
    doesn't clip its own native controls (the play button / scrubber bar)
@@ -1756,12 +1756,6 @@ nav.nav--doc .nav-doc-brand img {
   height: 100%;
   display: block;
   background: #000;
-}
-.ccl-video-caption {
-  text-align: center;
-  font-size: 0.85rem;
-  color: var(--light);
-  margin: 12px 0 0;
 }
 
 .ccl-stats {
