@@ -3439,3 +3439,10 @@ body.has-fine-pointer .btn-priority.magnetic:hover {
   background: linear-gradient(135deg, #8c6dbb 0%, #d81b60 100%);
   color: #fff;
 }
+
+/* The creators page drops the same video frame between the hero CTAs and
+   the four routes, so it needs breathing room above that the ClickClick Live
+   page (where the video is the first thing on the page) does not. */
+.ccc-video {
+  margin-top: 40px;
+}
