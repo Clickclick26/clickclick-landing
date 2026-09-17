@@ -18,9 +18,6 @@ const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").match
     });
   });
 
-  window.setTimeout(() => {
-    hero.classList.add("is-ready");
-  }, 1500);
 })();
 
 /* Title mask reveals */

@@ -260,12 +260,15 @@ nav.scrolled {
 #hero {
   min-height: 100vh;
   display: grid;
-  grid-template-columns: 1.2fr 0.8fr;
+  /* Even columns. The right side used to hold a portrait phone mock, which
+     is happy in a narrow strip; it now holds a 16:9 sales letter, which is
+     not. 1.2/0.8 left the video too small to read the words in it. */
+  grid-template-columns: 1fr 1fr;
   align-items: center;
   padding: 120px 60px 80px;
   position: relative;
   z-index: 1;
-  gap: 32px;
+  gap: 48px;
   background: #F0EAD6;
 }
 
@@ -434,7 +437,65 @@ body.has-fine-pointer .btn-on-dark.magnetic:hover {
   justify-content: center;
   align-items: center;
   position: relative;
+}
+
+/* ── HERO VIDEO SALES LETTER ──
+   The rounding lives on the wrapper, not the <video>, for the same reason
+   it does on .ccl-video-frame: Safari will not clip its own native controls
+   to a radius set on the video element. */
+.hero-vsl {
+  width: 100%;
+  max-width: 640px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.hero-vsl-frame {
+  aspect-ratio: 16 / 9;
+  border-radius: 16px;
+  overflow: hidden;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  box-shadow:
+    0 1px 2px rgba(0, 0, 0, 0.06),
+    0 24px 48px -24px rgba(0, 0, 0, 0.3);
+  background: #000;
+}
+
+.hero-vsl-frame video {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+  background: #000;
+}
+
+.hero-vsl-caption {
+  font-size: 0.78rem;
+  color: var(--light);
+  line-height: 1.5;
+  max-width: 46ch;
+}
+
+/* ── ABOUT PAGE SHOWCASE ──
+   The polaroid stack and the showreel phone, moved off the homepage hero
+   on 17 Sep 2026. Same stage the hero used to give them: a positioned box
+   tall enough for the polaroids to sit around the phone. */
+.about-showcase {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
   min-height: 520px;
+  margin: 8px 0 12px;
+}
+
+.about-showcase-caption {
+  font-size: 0.82rem;
+  color: var(--light);
+  line-height: 1.5;
+  text-align: center;
+  margin: 0 0 36px;
 }
 
 .polaroid-stack {
@@ -554,8 +615,7 @@ body.has-fine-pointer .btn-on-dark.magnetic:hover {
 
 /* ── HERO ENTRANCE (revert: remove this block + heroEntrance in script.js + hero-reveal/hero-line classes) ── */
 #hero.hero-entrance:not(.is-in) .hero-reveal,
-#hero.hero-entrance:not(.is-in) .polaroid,
-#hero.hero-entrance:not(.is-in) .phone-shell {
+#hero.hero-entrance:not(.is-in) .hero-vsl {
   opacity: 0;
 }
 
@@ -563,26 +623,19 @@ body.has-fine-pointer .btn-on-dark.magnetic:hover {
   transform: translateY(18px);
 }
 
-#hero.hero-entrance:not(.is-in) .polaroid {
-  translate: 0 32px;
-}
-
-#hero.hero-entrance:not(.is-in) .phone-shell {
+#hero.hero-entrance:not(.is-in) .hero-vsl {
   transform: translateY(28px);
 }
 
 #hero.hero-entrance .hero-reveal,
-#hero.hero-entrance .polaroid,
-#hero.hero-entrance .phone-shell {
+#hero.hero-entrance .hero-vsl {
   transition:
     opacity 0.5s cubic-bezier(0.22, 1, 0.36, 1),
-    transform 0.55s cubic-bezier(0.22, 1, 0.36, 1),
-    translate 0.55s cubic-bezier(0.22, 1, 0.36, 1);
+    transform 0.55s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 #hero.hero-entrance.is-in .hero-reveal,
-#hero.hero-entrance.is-in .polaroid,
-#hero.hero-entrance.is-in .phone-shell {
+#hero.hero-entrance.is-in .hero-vsl {
   opacity: 1;
 }
 
@@ -590,11 +643,7 @@ body.has-fine-pointer .btn-on-dark.magnetic:hover {
   transform: translateY(0);
 }
 
-#hero.hero-entrance.is-in .polaroid {
-  translate: 0 0;
-}
-
-#hero.hero-entrance.is-in .phone-shell {
+#hero.hero-entrance.is-in .hero-vsl {
   transform: translateY(0);
 }
 
@@ -622,29 +671,8 @@ body.has-fine-pointer .btn-on-dark.magnetic:hover {
   transition-delay: 0.4s;
 }
 
-#hero.hero-entrance.is-in .polaroid-1 {
+#hero.hero-entrance.is-in .hero-vsl {
   transition-delay: 0.52s;
-}
-
-#hero.hero-entrance.is-in .polaroid-2 {
-  transition-delay: 0.6s;
-}
-
-#hero.hero-entrance.is-in .polaroid-3 {
-  transition-delay: 0.68s;
-}
-
-#hero.hero-entrance.is-in .polaroid-4 {
-  transition-delay: 0.76s;
-}
-
-#hero.hero-entrance.is-in .phone-shell {
-  transition-delay: 0.88s;
-}
-
-#hero.hero-entrance:not(.is-ready) .polaroid,
-#hero.hero-entrance:not(.is-ready) .phone-shell {
-  animation: none;
 }
 
 /* ── MARQUEE ── */
@@ -2535,6 +2563,33 @@ body.lead-open #cc-label {
     gap: 22px;
   }
 
+  /* The 9:16 cut plays here (see heroVslOrientation in index.html), so
+     the frame has to be portrait too or object-fit crops the words off
+     the sides. */
+  .hero-vsl {
+    max-width: 320px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .hero-vsl-frame {
+    aspect-ratio: 9 / 16;
+  }
+
+  .hero-vsl-caption {
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .about-showcase {
+    min-height: 0;
+    flex-direction: column;
+    align-items: center;
+    gap: 22px;
+    margin-bottom: 8px;
+  }
+
   .hero-sub {
     order: 4;
     margin: 28px auto 0;
@@ -2693,8 +2748,7 @@ body.lead-open #cc-label {
   }
 
   #hero.hero-entrance:not(.is-in) .hero-reveal,
-  #hero.hero-entrance:not(.is-in) .polaroid,
-  #hero.hero-entrance:not(.is-in) .phone-shell {
+  #hero.hero-entrance:not(.is-in) .hero-vsl {
     opacity: 1;
     transform: none;
     translate: none;

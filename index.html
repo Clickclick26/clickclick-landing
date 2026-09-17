@@ -43,7 +43,7 @@
   <noscript>
     <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
   </noscript>
-  <link rel="stylesheet" href="/styles.css?v=seo7" />
+  <link rel="stylesheet" href="/styles.css?v=seo8" />
   <link rel="stylesheet" href="/cookie-consent.css?v=1" />
   <script type="application/ld+json">
   {
@@ -273,31 +273,48 @@
         </div>
       </div>
 
+      <!-- The video sales letter, made in Remotion. Source lives in
+           clickclick-videos (src/HomeVsl.tsx + src/homeVslScript.ts); the
+           file here is the 720p web copy, not the 1080p master, because
+           this one autoplays for every visitor. It plays muted and loops,
+           so the words on screen carry the whole argument, and the
+           controls are there for anyone who wants sound or a scrub. -->
       <div class="hero-right">
-        <div class="polaroid-stack" aria-hidden="true">
-          <figure class="polaroid polaroid-1">
-            <img src="assets/bts/bts-mall.jpg" alt="" width="720" height="960" loading="lazy" />
-          </figure>
-          <figure class="polaroid polaroid-2">
-            <img src="assets/bts/bts-team.jpg" alt="" width="720" height="900" loading="lazy" />
-          </figure>
-          <figure class="polaroid polaroid-3">
-            <img src="assets/bts/bts-basket.jpg" alt="" width="800" height="940" loading="lazy" />
-          </figure>
-          <figure class="polaroid polaroid-4">
-            <img src="assets/bts/bts-astrid.jpg" alt="" width="800" height="1000" loading="lazy" />
-          </figure>
-        </div>
-        <div class="phone-shell">
-          <div class="phone-screen" id="showreel">
-            <iframe
-              src="https://www.youtube-nocookie.com/embed/uGo14WQWrGI?autoplay=1&amp;mute=1&amp;loop=1&amp;playlist=uGo14WQWrGI&amp;controls=0"
-              title="ClickClick showreel"
-              allow="autoplay; encrypted-media"
-              allowfullscreen
-            ></iframe>
+        <div class="hero-vsl">
+          <div class="hero-vsl-frame">
+            <video
+              id="hero-vsl-video"
+              autoplay
+              muted
+              loop
+              playsinline
+              controls
+              poster="/assets/product/clickclick-vsl-poster.jpg"
+              width="1920"
+              height="1080"
+              aria-label="Just over a minute on what ClickClick builds"
+              data-portrait-src="/assets/product/clickclick-vsl-mobile.mp4"
+              data-portrait-poster="/assets/product/clickclick-vsl-mobile-poster.jpg"
+            >
+              <source src="/assets/product/clickclick-vsl.mp4" type="video/mp4" />
+            </video>
           </div>
+          <p class="hero-vsl-caption">Just over a minute on what we build. Nobody talks, so it reads fine on mute.</p>
         </div>
+        <!-- Swap to the 9:16 cut on narrow screens, inline so it happens
+             before the wide file gets far. The words are the whole script
+             here, and at phone width the 16:9 frame shrinks them past
+             reading. The landscape file stays the markup default so this
+             still plays with JavaScript off. -->
+        <script>
+          (function heroVslOrientation() {
+            var v = document.getElementById("hero-vsl-video");
+            if (!v || !window.matchMedia("(max-width: 900px)").matches) return;
+            v.querySelector("source").src = v.dataset.portraitSrc;
+            v.poster = v.dataset.portraitPoster;
+            v.load();
+          })();
+        </script>
       </div>
     </section>
 
