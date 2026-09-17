@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Shopping day readiness score | ClickClick</title>
+  <meta name="description" content="Ten questions, a score out of 100, and a dated plan counted back from the next big shopping day." />
+  <!-- Noindex: this is what the lead ad hands over. Search traffic to it would
+       give away the reason to fill the form in. -->
+  <meta name="robots" content="noindex, follow" />
+  <link rel="canonical" href="https://www.clickclick.video/readiness/" />
+  <link rel="icon" href="/favicon.ico?v=c2" type="image/x-icon" sizes="any" />
+  <link rel="icon" href="/favicon.svg?v=c2" type="image/svg+xml" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png?v=c2" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/styles.css?v=seo16" />
+  <link rel="stylesheet" href="/cookie-consent.css?v=1" />
+  <style>
+    .rd-count { background: #fff; border: 1px solid rgba(20,20,20,0.08); border-radius: 18px; padding: 34px 24px 28px; text-align: center; margin: 0 0 18px; }
+    .rd-num { font-family: var(--display); font-size: clamp(4rem, 12vw, 6rem); line-height: 1; color: var(--dark); }
+    .rd-unit { font-size: 1.05rem; color: var(--mid); margin-top: 6px; }
+    .rd-line { height: 5px; max-width: 180px; margin: 18px auto 0; border-radius: 99px; background: linear-gradient(90deg, #0AA8B4, #7b5ea7, #e83e8c); }
+    .rd-events { display: flex; gap: 8px; flex-wrap: wrap; justify-content: center; margin: 0 0 44px; }
+    .rd-events button { font: inherit; font-size: 0.82rem; background: transparent; border: 1px solid rgba(20,20,20,0.14); border-radius: 99px; padding: 7px 14px; cursor: pointer; color: var(--mid); }
+    .rd-events button[aria-pressed="true"] { border-color: var(--dark); color: var(--dark); font-weight: 500; }
+    .rd-q { display: flex; align-items: center; gap: 16px; padding: 16px 0; border-bottom: 1px solid rgba(20,20,20,0.08); }
+    .rd-q p { margin: 0; flex: 1; line-height: 1.5; }
+    .rd-yn { display: flex; gap: 6px; flex: 0 0 auto; }
+    .rd-yn button { font: inherit; font-size: 0.85rem; min-width: 56px; padding: 8px 12px; border-radius: 10px; border: 1px solid rgba(20,20,20,0.14); background: transparent; cursor: pointer; color: var(--mid); }
+    .rd-yn button[aria-pressed="true"][data-v="yes"] { background: rgba(10,168,180,0.12); border-color: #0AA8B4; color: #075f66; font-weight: 500; }
+    .rd-yn button[aria-pressed="true"][data-v="no"] { background: rgba(232,62,140,0.10); border-color: #e83e8c; color: #8c1f52; font-weight: 500; }
+    .rd-score { display: flex; align-items: baseline; gap: 12px; flex-wrap: wrap; margin: 36px 0 8px; }
+    .rd-score-n { font-family: var(--display); font-size: 3.4rem; line-height: 1; }
+    .rd-verdict { font-weight: 500; }
+    .rd-sheet { background: #fff; border: 1px solid rgba(20,20,20,0.08); border-radius: 18px; padding: 8px 22px; margin: 20px 0 28px; }
+    .rd-row { display: flex; gap: 16px; padding: 14px 0; border-bottom: 1px solid rgba(20,20,20,0.08); }
+    .rd-row:last-child { border-bottom: 0; }
+    .rd-date { flex: 0 0 118px; font-size: 0.85rem; color: var(--mid); padding-top: 2px; }
+    .rd-date.late { color: #8c1f52; font-weight: 500; }
+    .rd-task strong { display: block; font-weight: 500; margin-bottom: 2px; }
+    .rd-task span { font-size: 0.9rem; color: var(--mid); line-height: 1.55; }
+    .rd-hint { font-size: 0.9rem; color: var(--light); }
+    .rd-actions { display: flex; gap: 12px; flex-wrap: wrap; align-items: center; margin: 8px 0 40px; }
+    @media (max-width: 560px) {
+      .rd-q { flex-direction: column; align-items: flex-start; gap: 10px; }
+      .rd-date { flex-basis: 92px; }
+    }
+    @media print {
+      #navbar, .rd-events, .rd-actions, .rd-noprint, .cookie-banner { display: none !important; }
+      .doc-main { padding-top: 20px; }
+    }
+  </style>
+</head>
+<body>
+  <nav id="navbar" class="scrolled nav--doc">
+    <a href="/" class="nav-doc-brand" aria-label="ClickClick home">
+      <img src="/assets/clickclick-logo-full-horizontal.png" alt="ClickClick" width="130" height="22" />
+    </a>
+    <ul class="nav-links">
+      <li><a href="/clickclick-live/">ClickClick Live</a></li>
+      <li><a href="/#contact" class="nav-cta">Let’s Talk</a></li>
+    </ul>
+  </nav>
+
+  <main class="doc-main">
+    <p class="doc-eyebrow">Readiness score</p>
+    <h1 class="doc-title">How ready are you for the next big shopping day?</h1>
+    <p class="doc-lede">
+      Ten questions, yes or no. You get a score out of 100 and a plan with real dates on
+      it, counted back from the day you pick. Nothing to download, nothing to type.
+    </p>
+
+    <div class="rd-count" aria-live="polite">
+      <div class="rd-num" id="rd-num">&nbsp;</div>
+      <div class="rd-unit" id="rd-unit">&nbsp;</div>
+      <div class="rd-line" aria-hidden="true"></div>
+    </div>
+    <div class="rd-events" id="rd-events" role="group" aria-label="Plan for"></div>
+
+    <div id="rd-questions"></div>
+
+    <div class="rd-score" aria-live="polite">
+      <span class="rd-score-n" id="rd-score">0</span>
+      <span>out of 100</span>
+      <span class="rd-verdict" id="rd-verdict"></span>
+    </div>
+    <p class="rd-hint" id="rd-progress"></p>
+
+    <h2 class="doc-eyebrow" style="margin-top:36px;">Your plan</h2>
+    <div class="rd-sheet" id="rd-sheet"></div>
+
+    <div class="rd-actions">
+      <a href="/#contact" class="btn-primary magnetic"><span>Talk to us about your show</span></a>
+      <button type="button" class="btn-outline" id="rd-print"><span>Save as PDF</span></button>
+    </div>
+
+    <p class="rd-hint rd-noprint">
+      Dates are worked out from today, so this plan is correct whenever you open it. It is a
+      starting point for planning, not a guarantee of results.
+    </p>
+  </main>
+
+  <script>
+  (function () {
+    var DAY = 864e5;
+
+    // Dates are computed, never typed in, so the page does not go stale.
+    function easter(y) {
+      var a = y % 19, b = Math.floor(y / 100), c = y % 100, d = Math.floor(b / 4), e = b % 4,
+          f = Math.floor((b + 8) / 25), g = Math.floor((b - f + 1) / 3), h = (19 * a + b - d - g + 15) % 30,
+          i = Math.floor(c / 4), k = c % 4, l = (32 + 2 * e + 2 * i - h - k) % 7,
+          m = Math.floor((a + 11 * h + 22 * l) / 451),
+          mo = Math.floor((h + l - 7 * m + 114) / 31), da = ((h + l - 7 * m + 114) % 31) + 1;
+      return new Date(y, mo - 1, da);
+    }
+    function blackFriday(y) {
+      var count = 0;
+      for (var d = 1; d <= 30; d++) {
+        var x = new Date(y, 10, d);
+        if (x.getDay() === 4 && ++count === 4) return new Date(y, 10, d + 1);
+      }
+    }
+    function eventsFor(y) {
+      var bf = blackFriday(y), e = easter(y + 1);
+      return [
+        { name: 'Black Friday', date: bf, fridays: true },
+        { name: 'Cyber Monday', date: new Date(y, 10, bf.getDate() + 3) },
+        { name: 'the last Christmas posting day', date: new Date(y, 11, 18) },
+        { name: 'Christmas', date: new Date(y, 11, 25) },
+        { name: 'the Boxing Day sales', date: new Date(y, 11, 26) },
+        { name: 'the January sales', date: new Date(y + 1, 0, 1) },
+        { name: "Valentine's Day", date: new Date(y + 1, 1, 14) },
+        { name: "Mother's Day", date: new Date(y + 1, e.getMonth(), e.getDate() - 21) },
+        { name: 'Easter', date: e }
+      ];
+    }
+
+    var today = new Date(); today.setHours(0, 0, 0, 0);
+    var y = today.getFullYear();
+    var upcoming = eventsFor(y - 1).concat(eventsFor(y), eventsFor(y + 1))
+      .filter(function (ev) { return ev.date >= today; })
+      .sort(function (a, b) { return a.date - b.date; })
+      .slice(0, 3);
+
+    // Each question carries how far ahead of the day it needs to be sorted.
+    // The lead times are planning judgements, not statistics.
+    var QUESTIONS = [
+      { q: 'Someone in the business owns this and has time set aside for it', task: 'Name one owner', why: 'Shows without an owner get planned by committee and launched late.', lead: 63 },
+      { q: 'You know what you are putting on offer', task: 'Decide the offer', why: 'Everything else, from the script to the stock, depends on this.', lead: 56 },
+      { q: 'You know how last year’s version of this day went, in numbers', task: 'Pull last year’s figures', why: 'Without a baseline there is no way to tell afterwards whether it worked.', lead: 56 },
+      { q: 'Creators or a host are booked', task: 'Book creators and a host', why: 'Good people are booked weeks ahead of the big days.', lead: 49 },
+      { q: 'The ad creative is made', task: 'Finish the ad creative', why: 'Ads need time to be tested before the expensive days arrive.', lead: 35 },
+      { q: 'You have run a live shopping show before', task: 'Run an internal test show', why: 'The first show always finds problems. Better in a rehearsal than on the day.', lead: 28 },
+      { q: 'Someone is lined up to handle comments while you are live', task: 'Assign a comment moderator', why: 'Questions left unanswered in a live show are sales that do not happen.', lead: 14 },
+      { q: 'Stock levels and prices on the day are confirmed', task: 'Confirm stock and prices', why: 'Selling something that has sold out is worse than not selling it.', lead: 14 },
+      { q: 'There is a plan to cut the show into short clips afterwards', task: 'Plan the clips', why: 'One show can feed a fortnight of short videos if it is planned for.', lead: 7 },
+      { q: 'There is a follow-up planned for people who watched but did not buy', task: 'Plan the follow-up', why: 'A lot of buying happens in the days after, from people who were not ready yet.', lead: 3 }
+    ];
+
+    var STORE = 'cc_readiness_v1';
+    var answers = {};
+    var chosen = 0;
+    try { var saved = JSON.parse(localStorage.getItem(STORE) || '{}'); answers = saved.answers || {}; } catch (e) {}
+
+    function save() { try { localStorage.setItem(STORE, JSON.stringify({ answers: answers })); } catch (e) {} }
+
+    var fmt = function (d) { return d.toLocaleDateString('en-GB', { weekday: 'short', day: 'numeric', month: 'short' }); };
+
+    function renderCount() {
+      var ev = upcoming[chosen];
+      var days = Math.round((ev.date - today) / DAY);
+      var n = ev.fridays ? Math.ceil(days / 7) : days;
+      var unit = ev.fridays ? (n === 1 ? 'Friday' : 'Fridays') : (n === 1 ? 'day' : 'days');
+      document.getElementById('rd-num').textContent = days === 0 ? 'Today' : n;
+      document.getElementById('rd-unit').textContent = days === 0 ? 'It is ' + ev.name : unit + ' to ' + ev.name;
+    }
+
+    function renderEvents() {
+      var wrap = document.getElementById('rd-events');
+      wrap.innerHTML = '';
+      upcoming.forEach(function (ev, i) {
+        var b = document.createElement('button');
+        b.type = 'button';
+        b.setAttribute('aria-pressed', i === chosen ? 'true' : 'false');
+        b.textContent = 'Plan for ' + ev.name.replace(/^the /, '') + ', ' + fmt(ev.date);
+        b.addEventListener('click', function () { chosen = i; renderEvents(); renderCount(); renderSheet(); });
+        wrap.appendChild(b);
+      });
+    }
+
+    function renderQuestions() {
+      var wrap = document.getElementById('rd-questions');
+      QUESTIONS.forEach(function (item, i) {
+        var row = document.createElement('div');
+        row.className = 'rd-q';
+        var p = document.createElement('p');
+        p.id = 'rd-q' + i;
+        p.textContent = item.q;
+        var yn = document.createElement('div');
+        yn.className = 'rd-yn';
+        yn.setAttribute('role', 'group');
+        yn.setAttribute('aria-labelledby', p.id);
+        ['yes', 'no'].forEach(function (v) {
+          var b = document.createElement('button');
+          b.type = 'button';
+          b.dataset.v = v;
+          b.textContent = v === 'yes' ? 'Yes' : 'No';
+          b.setAttribute('aria-pressed', answers[i] === v ? 'true' : 'false');
+          b.addEventListener('click', function () {
+            answers[i] = v;
+            yn.querySelectorAll('button').forEach(function (x) { x.setAttribute('aria-pressed', x.dataset.v === v ? 'true' : 'false'); });
+            save(); renderScore(); renderSheet();
+          });
+          yn.appendChild(b);
+        });
+        row.appendChild(p); row.appendChild(yn);
+        wrap.appendChild(row);
+      });
+    }
+
+    function renderScore() {
+      var answered = Object.keys(answers).length;
+      var yes = Object.keys(answers).filter(function (k) { return answers[k] === 'yes'; }).length;
+      var score = yes * 10;
+      document.getElementById('rd-score').textContent = score;
+      var v = document.getElementById('rd-verdict');
+      if (answered < QUESTIONS.length) { v.textContent = ''; }
+      else if (score < 40) { v.textContent = 'Behind, but there is still time'; v.style.color = '#8c1f52'; }
+      else if (score < 70) { v.textContent = 'Getting there'; v.style.color = '#7a5a00'; }
+      else { v.textContent = 'In good shape'; v.style.color = '#075f66'; }
+      document.getElementById('rd-progress').textContent = answered < QUESTIONS.length
+        ? answered + ' of ' + QUESTIONS.length + ' answered'
+        : '';
+    }
+
+    function renderSheet() {
+      var ev = upcoming[chosen];
+      var sheet = document.getElementById('rd-sheet');
+      var gaps = QUESTIONS.map(function (item, i) { return { item: item, i: i }; })
+        .filter(function (g) { return answers[g.i] === 'no'; })
+        .map(function (g) { return { item: g.item, due: new Date(ev.date.getTime() - g.item.lead * DAY) }; })
+        .sort(function (a, b) { return a.due - b.due; });
+
+      if (!Object.keys(answers).length) {
+        sheet.innerHTML = '<div class="rd-row"><div class="rd-task"><span>Answer the questions above and your plan builds itself here.</span></div></div>';
+        return;
+      }
+      if (!gaps.length) {
+        sheet.innerHTML = '<div class="rd-row"><div class="rd-task"><strong>Nothing missing so far</strong><span>Every question you have answered is already sorted.</span></div></div>';
+        return;
+      }
+      sheet.innerHTML = '';
+      gaps.concat([{ item: { task: ev.name.charAt(0).toUpperCase() + ev.name.slice(1), why: 'The day itself.' }, due: ev.date, end: true }])
+        .forEach(function (g) {
+          var late = !g.end && g.due < today;
+          var row = document.createElement('div');
+          row.className = 'rd-row';
+          var d = document.createElement('div');
+          d.className = 'rd-date' + (late ? ' late' : '');
+          d.textContent = late ? 'Overdue, this week' : fmt(g.due);
+          var t = document.createElement('div');
+          t.className = 'rd-task';
+          var s = document.createElement('strong'); s.textContent = g.item.task;
+          var w = document.createElement('span'); w.textContent = g.item.why;
+          t.appendChild(s); t.appendChild(w);
+          row.appendChild(d); row.appendChild(t);
+          sheet.appendChild(row);
+        });
+    }
+
+    document.getElementById('rd-print').addEventListener('click', function () { window.print(); });
+
+    renderEvents(); renderCount(); renderQuestions(); renderScore(); renderSheet();
+  })();
+  </script>
+  <script src="/cookies.js?v=4"></script>
+  <script src="/analytics.js?v=1"></script>
+</body>
+</html>
