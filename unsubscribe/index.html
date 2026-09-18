@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Unsubscribe | ClickClick</title>
+  <meta name="robots" content="noindex, nofollow" />
+  <link rel="icon" href="/favicon.ico?v=c2" type="image/x-icon" sizes="any" />
+  <link rel="icon" href="/favicon.png?v=c2" type="image/png" sizes="32x32" />
+  <link rel="icon" href="/favicon.svg?v=c2" type="image/svg+xml" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/styles.css?v=cookies7" />
+</head>
+<body class="legal-page">
+  <nav id="navbar" class="scrolled">
+    <a href="/" class="nav-brand-mobile" aria-label="ClickClick home">
+      <img src="/assets/clickclick-logo-stacked-black.png" alt="ClickClick" width="72" height="50" />
+    </a>
+  </nav>
+
+  <main class="legal-main">
+    <p class="section-eyebrow">Emails</p>
+    <h1 class="section-title" id="un-title">Stop our emails</h1>
+    <div class="cookies-copy">
+      <p id="un-text">Press the button and we will not email you again about this.</p>
+      <!-- A button rather than doing it on load: some email systems open every
+           link in a message to scan it, and that would unsubscribe people who
+           never asked to be. -->
+      <p><button class="btn-primary" id="un-go" type="button"><span>Unsubscribe</span></button></p>
+    </div>
+  </main>
+
+  <script>
+    (function () {
+      var q = new URLSearchParams(location.search);
+      var u = q.get("u"), s = q.get("s");
+      var title = document.getElementById("un-title");
+      var text = document.getElementById("un-text");
+      var go = document.getElementById("un-go");
+
+      if (!u || !s) {
+        text.textContent = "This link is missing a part. Reply to any of our emails with the word unsubscribe and we will take you off by hand.";
+        go.style.display = "none";
+        return;
+      }
+
+      go.addEventListener("click", function () {
+        go.disabled = true;
+        fetch("https://gapybapywpdogexibtgj.supabase.co/functions/v1/meta-leads", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ type: "unsubscribe", u: u, s: s })
+        }).then(function (r) {
+          if (!r.ok) throw new Error(r.status);
+          title.textContent = "Done";
+          text.textContent = "You will not get any more emails from us about this.";
+          go.style.display = "none";
+        }).catch(function () {
+          go.disabled = false;
+          text.textContent = "That did not work. Reply to any of our emails with the word unsubscribe and we will take you off by hand.";
+        });
+      });
+    })();
+  </script>
+</body>
+</html>
