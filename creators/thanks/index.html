@@ -150,7 +150,11 @@
           // They kept the 14-day cancellation right at checkout, so the course
           // cannot be handed over yet. Say so plainly rather than looking broken.
           var when = new Date(out.data.availableFrom);
-          var nice = isNaN(when) ? 'in 14 days' : 'on ' + when.toLocaleDateString('en-GB',
+          // "on or just after": the release job runs twice a day, so a code
+          // that comes due in the evening goes out within hours rather than
+          // at the exact minute. Promising the minute would be a promise the
+          // schedule does not keep.
+          var nice = isNaN(when) ? 'in 14 days' : 'on or just after ' + when.toLocaleDateString('en-GB',
             { day: 'numeric', month: 'long' });
           fail('Your payment went through.',
             'At checkout you chose to keep your 14-day cancellation right, so we cannot open the course yet. Your code is ready and we will send it ' + nice +
