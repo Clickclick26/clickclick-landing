@@ -147,16 +147,16 @@
     // Each question carries how far ahead of the day it needs to be sorted.
     // The lead times are planning judgements, not statistics.
     var QUESTIONS = [
-      { q: 'Someone in the business owns this and has time set aside for it', task: 'Name one owner', why: 'Shows without an owner get planned by committee and launched late.', lead: 63 },
-      { q: 'You know what you are putting on offer', task: 'Decide the offer', why: 'Everything else, from the script to the stock, depends on this.', lead: 56 },
-      { q: 'You know how last year’s version of this day went, in numbers', task: 'Pull last year’s figures', why: 'Without a baseline there is no way to tell afterwards whether it worked.', lead: 56 },
-      { q: 'Creators or a host are booked', task: 'Book creators and a host', why: 'Good people are booked weeks ahead of the big days.', lead: 49 },
-      { q: 'The ad creative is made', task: 'Finish the ad creative', why: 'Ads need time to be tested before the expensive days arrive.', lead: 35 },
-      { q: 'You have run a live shopping show before', task: 'Run an internal test show', why: 'The first show always finds problems. Better in a rehearsal than on the day.', lead: 28 },
-      { q: 'Someone is lined up to handle comments while you are live', task: 'Assign a comment moderator', why: 'Questions left unanswered in a live show are sales that do not happen.', lead: 14 },
-      { q: 'Stock levels and prices on the day are confirmed', task: 'Confirm stock and prices', why: 'Selling something that has sold out is worse than not selling it.', lead: 14 },
-      { q: 'There is a plan to cut the show into short clips afterwards', task: 'Plan the clips', why: 'One show can feed a fortnight of short videos if it is planned for.', lead: 7 },
-      { q: 'There is a follow-up planned for people who watched but did not buy', task: 'Plan the follow-up', why: 'A lot of buying happens in the days after, from people who were not ready yet.', lead: 3 }
+      { q: 'One person is in charge of this and has time for it', task: 'Put one person in charge', why: 'If nobody is in charge, everyone waits for someone else and it happens late.', lead: 63 },
+      { q: 'You know what you are selling and what the deal is', task: 'Decide what you are selling and the deal', why: 'Everything else depends on this: the script, the stock and the ads.', lead: 56 },
+      { q: 'You know how much you sold on this day last year', task: 'Find last year’s sales for this day', why: 'Otherwise there is no way to tell if this year went better or worse.', lead: 56 },
+      { q: 'You have booked people to be on camera', task: 'Book people to be on camera', why: 'The good ones get booked up weeks before the big days.', lead: 49 },
+      { q: 'Your ads are already made', task: 'Get your ads made', why: 'Ads need a few weeks running first to find out which ones work.', lead: 35 },
+      { q: 'You have done a live shopping show before', task: 'Do a practice show', why: 'Something always goes wrong the first time. Better in practice than on the day.', lead: 28 },
+      { q: 'Someone is lined up to answer comments during the show', task: 'Pick someone to answer comments', why: 'People ask questions while you are live. Unanswered ones are lost sales.', lead: 14 },
+      { q: 'You have checked stock and prices for the day', task: 'Check stock and prices', why: 'Selling something that has sold out annoys people more than not selling it.', lead: 14 },
+      { q: 'You have a plan to cut the show into short clips afterwards', task: 'Plan clips from the show', why: 'One show can give you two weeks of short videos to post.', lead: 7 },
+      { q: 'You have a plan to follow up with people who watched but did not buy', task: 'Plan a follow-up', why: 'Lots of people buy in the days after, once they have had a think.', lead: 3 }
     ];
 
     var STORE = 'cc_readiness_v1';
