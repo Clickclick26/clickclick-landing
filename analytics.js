@@ -4,7 +4,7 @@
    Set CLARITY_PROJECT_ID to the project id from clarity.microsoft.com.
    While it is empty nothing loads, so the site is safe to ship either way. */
 (function () {
-  const CLARITY_PROJECT_ID = "";
+  const CLARITY_PROJECT_ID = "ylc6v3exh7";
 
   if (!CLARITY_PROJECT_ID) return;
 
