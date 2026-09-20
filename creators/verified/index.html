@@ -208,16 +208,27 @@
         (c.paid ? 'Certified' : 'Verified') + '</span>');
       if (c.niche) tags.push('<span class="cvl-tag">' + esc(c.niche) + '</span>');
 
-      return '<a class="cvl-card" href="/creators/p/?c=' + encodeURIComponent(c.slug) + '">' +
+      var inner =
         (c.avatar
           ? '<img class="cvl-avatar" src="' + esc(c.avatar) + '" alt="" loading="lazy" width="56" height="56" />'
           : '<span class="cvl-avatar" aria-hidden="true"></span>') +
         '<p class="cvl-name">' + esc(c.name || 'Creator') + '</p>' +
         (c.tagline ? '<p class="cvl-meta">' + esc(c.tagline) + '</p>' : '') +
         (c.location ? '<p class="cvl-meta">' + esc(c.location) + '</p>' : '') +
+        (c.handle ? '<p class="cvl-meta">@' + esc(c.handle) + '</p>' : '') +
         '<div class="cvl-tags">' + tags.join('') + '</div>' +
-        '<p class="cvl-cred">' + esc(c.credentialId) + '</p>' +
-        '</a>';
+        '<p class="cvl-cred">' + esc(c.credentialId) + '</p>';
+
+      // A paid creator has a portfolio page to open. A free certified one has
+      // four boxes and a handle, so the card is a card, not a dead link.
+      if (c.slug) {
+        return '<a class="cvl-card" href="/creators/p/?c=' + encodeURIComponent(c.slug) + '">' + inner + '</a>';
+      }
+      if (c.handle) {
+        return '<a class="cvl-card" href="https://www.instagram.com/' + encodeURIComponent(c.handle) +
+          '/" target="_blank" rel="noopener nofollow ugc">' + inner + '</a>';
+      }
+      return '<div class="cvl-card">' + inner + '</div>';
     }
 
     // An empty list is a real answer, not an error: say so plainly rather than
