@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Verified creators | ClickClick</title>
+  <meta name="description" content="UGC creators certified by ClickClick, with a credential ID any brand can check. Tell us what you need filmed and we send you names." />
+  <!-- noindex until there are enough creators on it to be worth reading. A
+       near-empty directory that Google has already crawled is worse than one
+       nobody has seen yet. Swap to "index, follow" when the list is live. -->
+  <meta name="robots" content="noindex, follow" />
+  <meta name="theme-color" content="#f3f4f4" />
+  <link rel="canonical" href="https://www.clickclick.video/creators/verified/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="en_GB" />
+  <meta property="og:site_name" content="ClickClick" />
+  <meta property="og:url" content="https://www.clickclick.video/creators/verified/" />
+  <meta property="og:title" content="Verified creators" />
+  <meta property="og:description" content="UGC creators certified by ClickClick, with a credential ID any brand can check." />
+  <meta property="og:image" content="https://www.clickclick.video/assets/og-image.png" />
+  <link rel="icon" href="/favicon.svg?v=c3" type="image/svg+xml" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/styles.css?v=seo16" />
+  <style>
+    /* Additive only. Nothing here overrides a site-wide rule: the page is the
+       standard doc-page shell with a grid and a form dropped into it. */
+    .cvl-intro { max-width: 46rem; }
+    .cvl-badge-key {
+      display: flex; flex-wrap: wrap; gap: 1.25rem;
+      margin: 1.75rem 0 0; padding: 1.1rem 1.25rem;
+      border: 1px solid rgba(20, 19, 15, .12); border-radius: 14px;
+      background: rgba(255, 255, 255, .6);
+      font-size: .95rem;
+    }
+    .cvl-badge-key p { margin: 0; }
+    .cvl-grid {
+      display: grid; gap: 1.1rem; margin: 2.5rem 0 0;
+      grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+    }
+    .cvl-card {
+      display: flex; flex-direction: column; gap: .55rem;
+      padding: 1.15rem; border-radius: 16px;
+      border: 1px solid rgba(20, 19, 15, .12);
+      background: #fff; text-decoration: none; color: inherit;
+    }
+    .cvl-card:hover { border-color: rgba(20, 19, 15, .3); }
+    .cvl-avatar {
+      width: 56px; height: 56px; border-radius: 50%; object-fit: cover;
+      background: #e8e6df;
+    }
+    .cvl-name { margin: 0; font-weight: 600; font-size: 1.05rem; }
+    .cvl-meta { margin: 0; font-size: .9rem; color: #5f5a51; }
+    .cvl-tags { display: flex; flex-wrap: wrap; gap: .4rem; margin-top: .2rem; }
+    .cvl-tag {
+      font-size: .74rem; letter-spacing: .04em; text-transform: uppercase;
+      padding: .25rem .5rem; border-radius: 999px;
+      background: rgba(20, 19, 15, .07);
+    }
+    .cvl-tag--paid { background: #d9f125; }
+    .cvl-cred { margin: 0; font-size: .78rem; color: #78736a; letter-spacing: .03em; }
+    .cvl-empty {
+      margin: 2.5rem 0 0; padding: 1.5rem;
+      border: 1px dashed rgba(20, 19, 15, .25); border-radius: 16px;
+      background: rgba(255, 255, 255, .5);
+    }
+    .cvl-empty p { margin: 0 0 .6rem; }
+    .cvl-empty p:last-child { margin-bottom: 0; }
+    .cvl-form { margin: 3rem 0 0; max-width: 34rem; }
+    .cvl-form label { display: block; margin: 0 0 1rem; font-size: .95rem; font-weight: 500; }
+    .cvl-form input, .cvl-form textarea, .cvl-form select {
+      display: block; width: 100%; margin-top: .35rem;
+      padding: .7rem .8rem; font: inherit; font-size: 1rem;
+      border: 1px solid rgba(20, 19, 15, .22); border-radius: 10px;
+      background: #fff; color: inherit;
+    }
+    .cvl-form textarea { min-height: 7.5rem; resize: vertical; }
+    .cvl-hp { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
+    .cvl-note { font-size: .88rem; color: #5f5a51; }
+    .cvl-msg { margin-top: 1rem; font-weight: 500; }
+    .cvl-msg[data-kind="bad"] { color: #b3261e; }
+    @media (prefers-color-scheme: dark) {
+      /* The site itself is light-only, so this just stops a dark-mode browser
+         painting the cards' white against its own dark form controls. */
+      .cvl-card, .cvl-form input, .cvl-form textarea, .cvl-form select { color: #14130f; }
+    }
+  </style>
+</head>
+<body class="doc-page">
+  <nav id="navbar" class="scrolled nav--doc">
+    <a href="/" class="nav-doc-brand brand-live" aria-label="ClickClick home">
+      <img src="/assets/clickclick-logo-full-horizontal.png" alt="ClickClick" width="130" height="22" />
+      <span class="brand-creators-sep" aria-hidden="true"></span>
+      <span class="brand-creators-word">Creators</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="/creators/">For creators</a></li>
+      <li><a href="#brief" class="nav-cta">Tell us what you need</a></li>
+    </ul>
+  </nav>
+
+  <main class="doc-main">
+    <p class="doc-breadcrumb"><a href="/">Home</a> &rsaquo; <a href="/creators/">Creators</a> &rsaquo; Verified</p>
+
+    <h1 class="doc-title">Verified creators.</h1>
+
+    <div class="cvl-intro">
+      <p>
+        Everyone here has finished the ClickClick certification and has a credential ID you can
+        check. We look at every page before it goes on this list, so a badge means a person we
+        have actually looked at, not a form someone filled in.
+      </p>
+      <p>
+        Browsing is free. Tell us what you need filmed and we send you names, usually the same day.
+        You deal with the creator directly.
+      </p>
+    </div>
+
+    <div class="cvl-badge-key">
+      <p><span class="cvl-tag cvl-tag--paid">Certified</span> Finished the paid programme, works to a signed brief.</p>
+      <p><span class="cvl-tag">Verified</span> Certificate checked, portfolio checked by us.</p>
+    </div>
+
+    <div id="grid" class="cvl-grid" hidden></div>
+
+    <div id="empty" class="cvl-empty" hidden>
+      <p><strong>The first creators are being certified now.</strong></p>
+      <p>
+        If you need someone filming before this page fills up, send the brief below and we will
+        go and find you the right person.
+      </p>
+    </div>
+
+    <h2 id="brief">Tell us what you need.</h2>
+    <p class="cvl-note">
+      No account, no dashboard. A real person reads this and replies with names.
+    </p>
+
+    <form id="brief-form" class="cvl-form" novalidate>
+      <label>
+        Brand or company
+        <input type="text" name="brand" maxlength="120" required autocomplete="organization" />
+      </label>
+      <label>
+        Your email
+        <input type="email" name="email" maxlength="200" required autocomplete="email" />
+      </label>
+      <label>
+        Website or shop (optional)
+        <input type="url" name="website" maxlength="300" autocomplete="url" placeholder="https://" />
+      </label>
+      <label>
+        Rough budget (optional)
+        <select name="budget">
+          <option value="">Rather not say yet</option>
+          <option>Under £500</option>
+          <option>£500 to £1,500</option>
+          <option>£1,500 to £5,000</option>
+          <option>Over £5,000</option>
+        </select>
+      </label>
+      <label>
+        What do you need filmed?
+        <textarea name="brief" maxlength="4000" required placeholder="What the product is, how many videos, and when you need them."></textarea>
+      </label>
+      <div class="cvl-hp" aria-hidden="true">
+        <label>Leave this empty<input type="text" name="hp" tabindex="-1" autocomplete="off" /></label>
+      </div>
+      <button type="submit" class="btn-primary magnetic"><span>Send it</span></button>
+      <p id="brief-msg" class="cvl-msg" hidden></p>
+    </form>
+
+    <p class="cvl-note" style="margin-top:2.5rem">
+      Are you a creator? <a href="/creators/">Start here</a>.
+    </p>
+  </main>
+
+  <script>
+  (function () {
+    var API = 'https://gapybapywpdogexibtgj.supabase.co/functions/v1/academy-progress';
+    var ANON = 'sb_publishable_H6AqSkDWFjR42ff7YE1MIw_-qU2z0OT';
+
+    // Every value below was typed by a creator or a brand, so nothing is ever
+    // assigned with innerHTML without going through here first.
+    function esc(value) {
+      return String(value == null ? '' : value)
+        .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;');
+    }
+
+    function api(payload) {
+      return fetch(API, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', apikey: ANON, Authorization: 'Bearer ' + ANON },
+        body: JSON.stringify(payload)
+      }).then(function (r) {
+        return r.json().then(function (d) { return { ok: r.ok, data: d }; });
+      });
+    }
+
+    var grid = document.getElementById('grid');
+    var empty = document.getElementById('empty');
+
+    function cardHtml(c) {
+      var tags = [];
+      tags.push('<span class="cvl-tag' + (c.paid ? ' cvl-tag--paid' : '') + '">' +
+        (c.paid ? 'Certified' : 'Verified') + '</span>');
+      if (c.niche) tags.push('<span class="cvl-tag">' + esc(c.niche) + '</span>');
+
+      return '<a class="cvl-card" href="/creators/p/?c=' + encodeURIComponent(c.slug) + '">' +
+        (c.avatar
+          ? '<img class="cvl-avatar" src="' + esc(c.avatar) + '" alt="" loading="lazy" width="56" height="56" />'
+          : '<span class="cvl-avatar" aria-hidden="true"></span>') +
+        '<p class="cvl-name">' + esc(c.name || 'Creator') + '</p>' +
+        (c.tagline ? '<p class="cvl-meta">' + esc(c.tagline) + '</p>' : '') +
+        (c.location ? '<p class="cvl-meta">' + esc(c.location) + '</p>' : '') +
+        '<div class="cvl-tags">' + tags.join('') + '</div>' +
+        '<p class="cvl-cred">' + esc(c.credentialId) + '</p>' +
+        '</a>';
+    }
+
+    // An empty list is a real answer, not an error: say so plainly rather than
+    // leaving a blank page or pretending there are people on it.
+    api({ type: 'creatorList' })
+      .then(function (out) {
+        var list = (out.ok && out.data && out.data.creators) || [];
+        if (!list.length) { empty.hidden = false; return; }
+        grid.innerHTML = list.map(cardHtml).join('');
+        grid.hidden = false;
+      })
+      .catch(function () { empty.hidden = false; });
+
+    var form = document.getElementById('brief-form');
+    var msg = document.getElementById('brief-msg');
+    var sending = false;
+
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      if (sending) return;
+
+      var data = {};
+      ['brand', 'email', 'website', 'budget', 'brief', 'hp'].forEach(function (k) {
+        data[k] = (form.elements[k] && form.elements[k].value || '').trim();
+      });
+
+      if (!data.brand || !data.brief || !data.email) {
+        msg.textContent = 'Fill in your name, your email and what you need.';
+        msg.setAttribute('data-kind', 'bad');
+        msg.hidden = false;
+        return;
+      }
+
+      sending = true;
+      var btn = form.querySelector('button[type="submit"]');
+      if (btn) btn.disabled = true;
+      msg.hidden = true;
+
+      api({ type: 'brief', brand: data.brand, email: data.email, website: data.website,
+            budget: data.budget, brief: data.brief, hp: data.hp })
+        .then(function (out) {
+          if (!out.ok) throw new Error((out.data && out.data.error) || 'failed');
+          form.reset();
+          msg.textContent = 'Got it. We will come back to you with names, usually the same day.';
+          msg.removeAttribute('data-kind');
+          msg.hidden = false;
+        })
+        .catch(function (err) {
+          msg.textContent = (err && err.message && err.message !== 'failed')
+            ? err.message
+            : 'That did not send. Email hello@clickclick.video and we will pick it up.';
+          msg.setAttribute('data-kind', 'bad');
+          msg.hidden = false;
+        })
+        .then(function () {
+          sending = false;
+          if (btn) btn.disabled = false;
+        });
+    });
+  })();
+  </script>
+</body>
+</html>
