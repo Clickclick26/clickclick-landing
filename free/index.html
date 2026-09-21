@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Golden Quarter, free course | ClickClick</title>
+  <!-- A short address to type from a TikTok or Instagram bio, where links are
+       not clickable until the account is a business account. It forwards
+       straight into the free course with the code already in, so nobody has
+       to find a code or fill in a lead form first. Not a page anyone should
+       land on from search, so it stays out of the index. -->
+  <meta name="robots" content="noindex, follow" />
+  <meta name="theme-color" content="#f3f4f4" />
+  <link rel="icon" href="/favicon.svg?v=c3" type="image/svg+xml" />
+  <style>
+    body { margin: 0; font-family: system-ui, -apple-system, "Segoe UI", sans-serif; background: #efe9da; color: #14130f; }
+    main { max-width: 32rem; margin: 18vh auto 0; padding: 0 1.25rem; }
+    h1 { font-size: 1.6rem; margin: 0 0 .6rem; }
+    p { line-height: 1.55; }
+    a.btn { display: inline-block; margin: .4rem .6rem .4rem 0; padding: .75rem 1.2rem; border-radius: 999px; background: #14130f; color: #efe9da; text-decoration: none; font-weight: 600; }
+  </style>
+</head>
+<body>
+  <main>
+    <h1>Opening The Golden Quarter&hellip;</h1>
+    <p>A free five-lesson course for UGC creators on how Black Friday and Christmas work is actually booked.</p>
+    <p>If nothing happens, pick yours:</p>
+    <p>
+      <a class="btn" id="uk" href="https://academy.clickclick.video/?k=GOLDENQUARTER&amp;c=golden-quarter-ugc">UK and Ireland</a>
+      <a class="btn" id="us" href="https://academy.clickclick.video/?k=GOLDENQUARTERUS&amp;c=golden-quarter-ugc-us">United States</a>
+    </p>
+  </main>
+  <script>
+    // The two courses differ in prices, currency and the contract, so an
+    // American landing in the UK one would read dollars as pounds. The
+    // browser's own time zone is the least intrusive way to guess; the buttons
+    // above cover anyone it guesses wrong for.
+    (function () {
+      var zone = '';
+      try { zone = Intl.DateTimeFormat().resolvedOptions().timeZone || ''; } catch (e) {}
+      var us = /^America\//.test(zone) && !/^America\/(Argentina|Sao_Paulo|Bogota|Lima|Santiago|Caracas|Mexico_City)/.test(zone);
+      window.location.replace(document.getElementById(us ? 'us' : 'uk').href);
+    })();
+  </script>
+</body>
+</html>
