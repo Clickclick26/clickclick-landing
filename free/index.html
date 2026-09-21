@@ -43,7 +43,7 @@
       // ?src= on this link wins, then the app that opened it, else "direct"
       // (someone typed the address out of a bio).
       var src = '';
-      try { src = (new URLSearchParams(location.search).get('src') || '').toLowerCase().replace(/[^a-z0-9_-]/g, '').slice(0, 30); } catch (e) {}
+      try { var q = new URLSearchParams(location.search); src = (q.get('src') || q.get('utm_source') || '').toLowerCase().replace(/[^a-z0-9_-]/g, '').slice(0, 30); } catch (e) {}
       if (!src) {
         var ref = document.referrer;
         src = /tiktok\./.test(ref) ? 'tiktok' : /instagram\./.test(ref) ? 'instagram' : /facebook\.|fb\./.test(ref) ? 'facebook' : 'direct';
