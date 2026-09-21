@@ -39,7 +39,18 @@
       var zone = '';
       try { zone = Intl.DateTimeFormat().resolvedOptions().timeZone || ''; } catch (e) {}
       var us = /^America\//.test(zone) && !/^America\/(Argentina|Sao_Paulo|Bogota|Lima|Santiago|Caracas|Mexico_City)/.test(zone);
-      window.location.replace(document.getElementById(us ? 'us' : 'uk').href);
+      // Where they came from, passed on so the Academy can record it: a
+      // ?src= on this link wins, then the app that opened it, else "direct"
+      // (someone typed the address out of a bio).
+      var src = '';
+      try { src = (new URLSearchParams(location.search).get('src') || '').toLowerCase().replace(/[^a-z0-9_-]/g, '').slice(0, 30); } catch (e) {}
+      if (!src) {
+        var ref = document.referrer;
+        src = /tiktok\./.test(ref) ? 'tiktok' : /instagram\./.test(ref) ? 'instagram' : /facebook\.|fb\./.test(ref) ? 'facebook' : 'direct';
+      }
+      var links = [document.getElementById('uk'), document.getElementById('us')];
+      for (var i = 0; i < links.length; i++) links[i].href += '&src=' + encodeURIComponent(src);
+      window.location.replace(links[us ? 1 : 0].href);
     })();
   </script>
 </body>
