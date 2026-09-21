@@ -119,14 +119,53 @@
     @media (max-width: 760px) { .mvm-stats { grid-template-columns: repeat(2, 1fr); padding: 44px 20px; row-gap: 36px; } }
 
     /* The four parts, each shown rather than described */
-    .mvm-modules { display: grid; grid-template-columns: repeat(2, 1fr); gap: 28px; margin-top: 56px; }
+    /* align-items: start, not the default stretch: the wheel card grows when
+       its question appears, and stretching made the quiz card beside it
+       grow an empty block to match. */
+    .mvm-modules { display: grid; grid-template-columns: repeat(2, 1fr); gap: 28px; margin-top: 56px; align-items: start; }
     @media (max-width: 860px) { .mvm-modules { grid-template-columns: 1fr; } }
-    .mvm-module { background: #fff; border-radius: 22px; overflow: hidden; box-shadow: 0 30px 60px -40px rgba(0,0,0,.35); }
+    .mvm-module { background: #fff; border-radius: 22px; overflow: hidden; box-shadow: 0 30px 60px -40px rgba(0,0,0,.35); display: flex; flex-direction: column; }
     .mvm-module video { width: 100%; aspect-ratio: 16 / 9; object-fit: cover; display: block; background: #F0EAD6; }
-    .mvm-module div { padding: 24px 28px 30px; }
-    .mvm-module small { font-size: .75rem; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; color: var(--mid); }
-    .mvm-module h3 { font-family: var(--display); font-weight: 400; font-size: 1.9rem; margin: 6px 0 8px; line-height: 1.1; }
-    .mvm-module p { margin: 0; color: var(--mid); line-height: 1.55; }
+    .mvm-module .mvm-body { padding: 24px 28px 30px; }
+    .mvm-module .mvm-body small { font-size: .75rem; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; color: var(--mid); }
+    .mvm-module .mvm-body h3 { font-family: var(--display); font-weight: 400; font-size: 1.9rem; margin: 6px 0 8px; line-height: 1.1; }
+    .mvm-module .mvm-body p { margin: 0; color: var(--mid); line-height: 1.55; }
+
+    /* Live copies of the Academy's own activities, not pictures of them.
+       Colours, radii, badge and button styles are lifted from
+       clickclick-academy/styles.css (.activity, .activity-quiz-*, .wheel-*)
+       so this is what a student actually sees, and it works. */
+    .mvm-try { background: #F0EAD6; padding: 22px; display: flex; align-items: flex-start; justify-content: center; flex: 1; box-sizing: border-box; }
+    .act { width: 100%; background: #F7F4EC; border-radius: 16px; padding: 16px 18px 18px; display: grid; gap: 12px; box-shadow: inset 0 0 0 1.5px rgba(20,20,20,.06); font-family: var(--font); }
+    .act-head { display: flex; align-items: center; gap: 8px; }
+    .act-badge { font-size: .68rem; font-weight: 700; letter-spacing: .04em; text-transform: uppercase; color: #7b5ea7; background: rgba(123,94,167,.12); padding: 4px 9px; border-radius: 999px; }
+    .act-done { font-size: .72rem; font-weight: 700; color: #1c9d5f; }
+    .act-prompt { margin: 0; font-size: .88rem; font-weight: 600; line-height: 1.4; color: #141414; }
+    .act-q { display: grid; gap: 8px; }
+    .act-q + .act-q { padding-top: 12px; border-top: 1px solid rgba(20,20,20,.08); }
+    .act-q-text { margin: 0; font-size: .85rem; line-height: 1.45; color: #141414; }
+    .act-opts { display: flex; flex-wrap: wrap; gap: 8px; }
+    .act-opt { border: 0; border-radius: 999px; padding: 8px 16px; background: #fff; font: inherit; font-size: .82rem; font-weight: 600; cursor: pointer;
+      box-shadow: inset 0 0 0 1.5px rgba(20,20,20,.08); transition: transform .12s ease; color: #141414; }
+    .act-opt:hover:not(:disabled) { transform: translateY(-1px); }
+    .act-opt:disabled { cursor: default; }
+    .act-opt.is-correct { background: rgba(28,157,95,.14); box-shadow: inset 0 0 0 1.5px rgba(28,157,95,.5); color: #1c9d5f; }
+    .act-opt.is-wrong { background: rgba(232,62,140,.1); box-shadow: inset 0 0 0 1.5px rgba(232,62,140,.45); color: #e83e8c; }
+    .act-explain { margin: 0; font-size: .82rem; line-height: 1.45; color: #5c5c5c; }
+    .act-wheel { justify-items: center; text-align: center; }
+    .wheel-stage { position: relative; width: 264px; height: 264px; max-width: 100%; }
+    .wheel-dial { position: absolute; inset: 0; border-radius: 50%; transition: transform 3.2s cubic-bezier(.17,.67,.12,.99);
+      background: conic-gradient(#00bcd4 0deg 90deg, #7b5ea7 90deg 180deg, #e83e8c 180deg 270deg, #f5a623 270deg 360deg);
+      box-shadow: 0 8px 24px rgba(20,20,20,.18), inset 0 0 0 5px #fff; }
+    .wheel-label { position: absolute; left: 50%; top: 50%; font-size: .62rem; font-weight: 700; color: #fff; white-space: nowrap; text-shadow: 0 1px 2px rgba(0,0,0,.25); }
+    .wheel-label span { display: inline-block; transition: transform 3.2s cubic-bezier(.17,.67,.12,.99); }
+    .wheel-pointer { position: absolute; top: -6px; left: 50%; transform: translateX(-50%); border-left: 10px solid transparent; border-right: 10px solid transparent;
+      border-top: 16px solid #141414; z-index: 2; filter: drop-shadow(0 2px 2px rgba(0,0,0,.2)); }
+    .wheel-spin { border: 0; border-radius: 999px; background: #141414; color: #fff; font: inherit; font-size: .85rem; font-weight: 600; padding: 12px 26px; cursor: pointer; min-width: 170px; }
+    .wheel-spin:disabled { opacity: .5; cursor: default; }
+    .wheel-q { width: 100%; text-align: left; display: grid; gap: 8px; padding-top: 12px; border-top: 1px solid rgba(20,20,20,.08); }
+    .wheel-q-label { margin: 0; font-size: .7rem; font-weight: 700; letter-spacing: .04em; text-transform: uppercase; color: #7b5ea7; }
+    @media (prefers-reduced-motion: reduce) { .wheel-dial, .wheel-label span { transition: none; } }
 
     /* The one full-width moment */
     .mvm-wide { margin-top: 48px; border-radius: 24px; overflow: hidden; box-shadow: 0 40px 80px -50px rgba(0,0,0,.5); }
@@ -251,58 +290,73 @@
           <video muted loop playsinline preload="none" data-autoplay poster="/assets/academy/jump-cut-poster.jpg" aria-label="Cutting out the pauses">
             <source src="/assets/academy/jump-cut.mp4" type="video/mp4" />
           </video>
-          <div>
+          <div class="mvm-body">
             <small>Part one</small>
             <h3>What a video is for</h3>
             <p>Not going viral. Getting someone to walk in.</p>
           </div>
         </article>
         <article class="mvm-module">
-          <video muted loop playsinline preload="none" data-autoplay poster="/assets/academy/pushin-poster.jpg" aria-label="A still shot next to a slow push in">
-            <source src="/assets/academy/pushin.mp4" type="video/mp4" />
+          <video muted loop playsinline preload="none" data-autoplay poster="/assets/academy/lighting-poster.jpg"
+                 aria-label="The same kind of shot lit three ways: window behind, a lamp above at night, and a window beside">
+            <source src="/assets/academy/lighting.mp4" type="video/mp4" />
           </video>
-          <div>
+          <div class="mvm-body">
             <small>Part two</small>
             <h3>Filming it</h3>
-            <p>Light, sound, and holding the phone still.</p>
+            <p>It is never the camera. It is where the light is.</p>
           </div>
         </article>
         <article class="mvm-module">
-          <video muted loop playsinline preload="none" data-autoplay poster="/assets/academy/cutonmotion-poster.jpg" aria-label="Cutting in the middle of a movement">
-            <source src="/assets/academy/cutonmotion.mp4" type="video/mp4" />
-          </video>
-          <div>
+          <div class="mvm-try">
+            <div class="act" data-quiz>
+              <div class="act-head"><span class="act-badge">Try it</span><span class="act-done" hidden>&#10003; done</span></div>
+              <p class="act-prompt">Pick the better cut, then see why.</p>
+                <div class="act-q" data-correct="1">
+                  <p class="act-q-text">A: 45 seconds showing the whole process  vs  B: 18 seconds showing the three best moments</p>
+                  <div class="act-opts"><button type="button" class="act-opt">A</button><button type="button" class="act-opt">B</button></div>
+                  <p class="act-explain" hidden>B. Nobody needs the whole process. They need to believe you can do it. Three good moments does that faster and people watch to the end, which the algorithm notices.</p>
+                </div>
+                <div class="act-q" data-correct="0">
+                  <p class="act-q-text">A: keeping the bit where you fumble slightly and laugh  vs  B: cutting it out for a clean take</p>
+                  <div class="act-opts"><button type="button" class="act-opt">A</button><button type="button" class="act-opt">B</button></div>
+                  <p class="act-explain" hidden>A, usually. A small genuine moment is the thing that makes a business feel like people rather than a brand. Cut the boring parts, not the human ones.</p>
+                </div>
+                <div class="act-q" data-correct="0">
+                  <p class="act-q-text">A: ending on the finished product  vs  B: ending with three seconds of the shop front and the opening hours</p>
+                  <div class="act-opts"><button type="button" class="act-opt">A</button><button type="button" class="act-opt">B</button></div>
+                  <p class="act-explain" hidden>A. Ending on the good bit means people rewatch, which counts for you. Hours and address belong in the caption, where they are also readable and searchable.</p>
+                </div>
+            </div>
+          </div>
+          <div class="mvm-body">
             <small>Part three</small>
             <h3>Making it watchable</h3>
-            <p>Shorter than you think. Captions people can read.</p>
+            <p>A real question from the course. Every lesson has one.</p>
           </div>
         </article>
         <article class="mvm-module">
-          <video muted loop playsinline preload="none" data-autoplay poster="/assets/academy/sixshots-poster.jpg" aria-label="Six shots of one thing">
-            <source src="/assets/academy/sixshots.mp4" type="video/mp4" />
-          </video>
-          <div>
+          <div class="mvm-try">
+            <div class="act act-wheel" data-wheel='[[&quot;What it is for&quot;, &quot;Which is worth more to a cafe?&quot;, [&quot;20,000 views spread across the country&quot;, &quot;200 views from people who live nearby&quot;, &quot;They are the same&quot;], 1, &quot;The 200. Nobody in the 20,000 can walk in. Your catchment is small and that is fine.&quot;], [&quot;Filming&quot;, &quot;You are filming somebody talking. Where should the window be?&quot;, [&quot;Behind them&quot;, &quot;In front of them, lighting their face&quot;, &quot;It does not matter&quot;], 1, &quot;In front. A window behind turns them into a silhouette, because the phone exposes for the bright part.&quot;], [&quot;Editing and posting&quot;, &quot;Your video is 45 seconds. What usually helps most?&quot;, [&quot;Add music&quot;, &quot;Cut it to about 20&quot;, &quot;Add transitions&quot;], 1, &quot;Cut it. Three good moments held together beats a complete process nobody finishes watching.&quot;], [&quot;Keeping it going&quot;, &quot;How often should you film?&quot;, [&quot;Every week&quot;, &quot;Once a month, in one block&quot;, &quot;Whenever you feel inspired&quot;], 1, &quot;One block a month. Weekly filming is fifty-two decisions a year and it dies in the first busy fortnight.&quot;]]'>
+              <div class="act-head" style="width:100%"><span class="act-badge">Try it</span></div>
+              <p class="act-prompt">Spin the wheel. Answer what it lands on.</p>
+              <div class="wheel-stage">
+                <div class="wheel-pointer"></div>
+                <div class="wheel-dial"><span class="wheel-label" style="transform:translate(-50%,-50%) rotate(45deg) translateY(-80px)"><span style="transform:rotate(-45deg)">What it is for</span></span><span class="wheel-label" style="transform:translate(-50%,-50%) rotate(135deg) translateY(-80px)"><span style="transform:rotate(-135deg)">Filming</span></span><span class="wheel-label" style="transform:translate(-50%,-50%) rotate(225deg) translateY(-80px)"><span style="transform:rotate(-225deg)">Editing and posting</span></span><span class="wheel-label" style="transform:translate(-50%,-50%) rotate(315deg) translateY(-80px)"><span style="transform:rotate(-315deg)">Keeping it going</span></span></div>
+              </div>
+              <button type="button" class="wheel-spin">Spin the wheel</button>
+              <div class="wheel-q" hidden></div>
+            </div>
+          </div>
+          <div class="mvm-body">
             <small>Part four</small>
             <h3>Keeping it going</h3>
-            <p>A month of videos, filmed in one afternoon.</p>
+            <p>The recap wheel from the last lesson. The real one has thirteen questions.</p>
           </div>
         </article>
       </div>
     </section>
 
-    <section class="section mvm-alt mvm-center">
-      <p class="section-eyebrow">The biggest fix is free</p>
-      <h2 class="section-title title-reveal">
-        <span class="title-mask"><span class="title-mask-inner">It’s never the camera.</span></span>
-        <span class="title-mask"><span class="title-mask-inner"><em>It’s where the light is.</em></span></span>
-      </h2>
-      <div class="mvm-wide">
-        <video muted loop playsinline preload="none" data-autoplay poster="/assets/academy/lighting-poster.jpg"
-               aria-label="The same kind of shot lit three ways: window behind, a lamp above at night, and a window beside">
-          <source src="/assets/academy/lighting.mp4" type="video/mp4" />
-        </video>
-      </div>
-    </section>
 
     <section class="section">
       <div class="mvm-tool">
@@ -443,6 +497,63 @@
         });
       }, { threshold: 0.35 });
       vids.forEach(function (v) { io.observe(v); });
+    })();
+  </script>
+  <script>
+    // Live copies of the Academy's quiz and wheel. Same rules as the real
+    // thing: pick once, see whether you were right and why.
+    (function () {
+      document.querySelectorAll('[data-quiz]').forEach(function (box) {
+        var qs = box.querySelectorAll('.act-q'), done = 0;
+        qs.forEach(function (q) {
+          var right = +q.dataset.correct, btns = q.querySelectorAll('.act-opt');
+          btns.forEach(function (b, i) {
+            b.addEventListener('click', function () {
+              btns.forEach(function (x, j) {
+                x.disabled = true;
+                if (j === right) x.classList.add('is-correct');
+                else if (j === i) x.classList.add('is-wrong');
+              });
+              q.querySelector('.act-explain').hidden = false;
+              if (++done === qs.length) box.querySelector('.act-done').hidden = false;
+            });
+          });
+        });
+      });
+
+      document.querySelectorAll('[data-wheel]').forEach(function (box) {
+        var segs = JSON.parse(box.dataset.wheel), n = segs.length, seg = 360 / n;
+        var dial = box.querySelector('.wheel-dial'), spin = box.querySelector('.wheel-spin');
+        var out = box.querySelector('.wheel-q'), inner = dial.querySelectorAll('.wheel-label span');
+        var rot = 0;
+        function esc(s) { var d = document.createElement('div'); d.textContent = s; return d.innerHTML; }
+        spin.addEventListener('click', function () {
+          var i = Math.floor(Math.random() * n), centre = i * seg + seg / 2;
+          // Land segment i's centre under the pointer at the top, after a
+          // few full turns so it reads as a spin rather than a nudge.
+          rot += 1440 + ((360 - centre - (rot % 360)) % 360 + 360) % 360;
+          dial.style.transform = 'rotate(' + rot + 'deg)';
+          // Labels turn the other way at the same speed so they stay upright.
+          inner.forEach(function (sp, k) { sp.style.transform = 'rotate(' + (-(k * seg + seg / 2) - rot) + 'deg)'; });
+          spin.disabled = true; out.hidden = true;
+          var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+          setTimeout(function () {
+            var s = segs[i], right = s[3];
+            out.innerHTML = '<p class="wheel-q-label">' + esc(s[0]) + '</p><p class="act-q-text">' + esc(s[1]) + '</p><div class="act-opts">' +
+              s[2].map(function (o, k) { return '<button type="button" class="act-opt" data-k="' + k + '">' + esc(o) + '</button>'; }).join('') +
+              '</div><p class="act-explain" hidden>' + esc(s[4]) + '</p>';
+            out.hidden = false;
+            var btns = out.querySelectorAll('.act-opt');
+            btns.forEach(function (b, k) {
+              b.addEventListener('click', function () {
+                btns.forEach(function (x, j) { x.disabled = true; if (j === right) x.classList.add('is-correct'); else if (j === k) x.classList.add('is-wrong'); });
+                out.querySelector('.act-explain').hidden = false;
+                spin.disabled = false; spin.textContent = 'Spin again';
+              });
+            });
+          }, reduce ? 0 : 3300);
+        });
+      });
     })();
   </script>
   <script src="/script.js?v=micro2"></script>
