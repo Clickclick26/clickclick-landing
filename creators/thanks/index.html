@@ -70,7 +70,7 @@
       <div class="card">
         <h2>Your access code</h2>
         <p class="code" id="code">&nbsp;</p>
-        <p class="code-note">Write this down somewhere before you close the tab.</p>
+        <p class="code-note">Write this down somewhere before you close the tab. We have emailed you a copy from hello@clickclick.video: if it is not in your inbox, check Spam or Promotions.</p>
         <div class="btns">
           <button class="btn" type="button" id="copy">Copy the code</button>
           <a class="btn btn-quiet" href="https://academy.clickclick.video/" id="open">Open the Academy</a>
@@ -179,6 +179,9 @@
         document.getElementById('steps').appendChild(li);
       }
       show('done');
+      // A copy of the code is emailed too, and first emails from a new
+      // sender often land in spam or Promotions.
+      if (window.ccCheckSpam) window.ccCheckSpam('A copy of your code');
     })
     .catch(function () {
       fail('Something went wrong at our end.', 'Your payment is fine. We just could not finish this page.');
@@ -195,5 +198,6 @@
   });
 })();
 </script>
+<script src="/check-spam.js?v=1"></script>
 </body>
 </html>

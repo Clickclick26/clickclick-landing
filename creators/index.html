@@ -764,7 +764,8 @@
           .then(function (r) {
             if (!r.ok) throw new Error("bad response");
             form.reset();
-            say("You are on the list. We will email you the moment the intake opens.", true);
+            say("You are on the list. We will email you the moment the intake opens, from hello@clickclick.video. If it is not in your inbox, check Spam or Promotions.", true);
+            if (window.ccCheckSpam) window.ccCheckSpam("Our email");
           })
           .catch(function () {
             say("That did not send. Email hello@clickclick.video and we will add you by hand.", false);
@@ -776,6 +777,7 @@
       });
     })();
   </script>
+  <script src="/check-spam.js?v=1"></script>
   <script src="/cookies.js?v=5"></script>
   <script src="/analytics.js?v=2"></script>
   <script src="/pixel.js?v=1"></script>
