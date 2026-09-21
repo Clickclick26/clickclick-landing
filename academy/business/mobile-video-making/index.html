@@ -193,7 +193,9 @@
     .mvm-buy li { padding: 11px 0 11px 30px; border-top: 1px solid rgba(20,20,20,.08); position: relative; }
     .mvm-buy li::before { content: "\2713"; position: absolute; left: 0; color: #0AA8B4; font-weight: 700; }
     .mvm-buy .small { font-size: .85rem; color: var(--mid); margin: 18px 0 0; line-height: 1.55; }
-    .mvm-buy .small a { color: inherit; }
+    /* Was colour: inherit with no underline, so the Ireland/EU link read as
+       plain grey text and nobody could see it was clickable. */
+    .mvm-buy .small a { color: var(--dark); font-weight: 600; text-decoration: underline; text-underline-offset: 3px; }
 
     .mvm-center { text-align: center; }
     .mvm-center .section-sub { margin-left: auto; margin-right: auto; }
@@ -402,7 +404,7 @@
              owns the VAT. A UK seller has no threshold on B2C digital sales
              into the EU, so this link is not optional for those buyers. -->
         <p class="small">
-          In Ireland or the EU? <a href="https://buy.stripe.com/00wcMY6C8fqSaVreKJ0Ny0e">Use this link</a> &mdash; same price, VAT handled for you.
+          In Ireland or the EU? <a href="https://buy.stripe.com/00wcMY6C8fqSaVreKJ0Ny0e">Buy here instead</a> &mdash; same price, VAT handled for you.
         </p>
         <p class="small">
           Buying seats for your members? <a href="mailto:hello@clickclick.video?subject=Course%20seats%20for%20our%20members">Email us</a>.
