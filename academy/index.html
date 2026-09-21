@@ -91,8 +91,15 @@
     .acad-card .foot { margin-top: auto; display: flex; justify-content: space-between; align-items: center; font-weight: 600; }
     .acad-card .foot span:last-child { color: var(--turquoise); }
     .acad-tool .media { display: flex; align-items: center; justify-content: center; background: #2F4A3A; }
-    .acad-tool .mini { width: 34%; aspect-ratio: 9/16; border-radius: 12px; background: #F7F3E8; display: flex; align-items: center; justify-content: center;
-      font-family: var(--display); font-size: 1.1rem; text-align: center; padding: 8px; color: #2F4A3A; transform: rotate(-4deg); box-shadow: 0 20px 40px -20px rgba(0,0,0,.6); }
+    .acad-tool .mini { width: 30%; aspect-ratio: 9/16; border-radius: 16px; background: #F7F3E8; border: 5px solid #141414;
+      display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 7px; padding: 10px;
+      transform: rotate(-4deg); box-shadow: 0 24px 44px -20px rgba(0,0,0,.65); }
+    .acad-tool .ec-logo { width: 46%; aspect-ratio: 1; border-radius: 50%; border: 1.5px solid #2F4A3A; display: flex; align-items: center; justify-content: center;
+      font-family: var(--sans, inherit); font-size: .58rem; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: #2F4A3A; margin-bottom: 4px; }
+    .acad-tool .ec-line { display: block; width: 52%; height: 4px; border-radius: 4px; background: rgba(47,74,58,.28); }
+    .acad-tool .ec-line-lg { width: 70%; height: 6px; background: #2F4A3A; }
+    .acad-tool .ec-cta { margin-top: 6px; padding: 4px 10px; border-radius: 999px; background: #2F4A3A; color: #F7F3E8;
+      font-size: .55rem; font-weight: 600; letter-spacing: .5px; }
     .acad-soon { border: 2px dashed rgba(20,20,20,.14); border-radius: 24px; display: flex; align-items: center; justify-content: center;
       text-align: center; padding: 40px 28px; color: var(--mid); min-height: 260px; }
     .acad-soon b { display: block; font-family: var(--display); font-weight: 400; font-size: 1.7rem; color: var(--dark); margin-bottom: 8px; }
@@ -141,7 +148,12 @@
         </div>
       </a>
       <a class="acad-card acad-tool" href="/academy/business/end-card/">
-        <div class="media"><div class="mini">Your name here</div></div>
+        <div class="media"><div class="mini" aria-hidden="true">
+          <span class="ec-logo">Logo</span>
+          <span class="ec-line ec-line-lg"></span>
+          <span class="ec-line"></span>
+          <span class="ec-cta">Visit us</span>
+        </div></div>
         <div class="body">
           <small>Free tool</small>
           <h2>End card maker</h2>
