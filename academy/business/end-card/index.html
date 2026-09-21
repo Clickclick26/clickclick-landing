@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Free end card maker for shop and cafe videos | ClickClick</title>
+  <meta name="description" content="Add your logo, your colours and where to find you, and download a finished end card for the last two seconds of any Reel, TikTok or Short. Free, no sign-up, works on a phone." />
+  <meta name="author" content="ClickClick" />
+  <meta name="robots" content="index, follow, max-image-preview:large" />
+  <meta name="theme-color" content="#f3f4f4" />
+  <link rel="canonical" href="https://www.clickclick.video/academy/business/end-card/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="en_GB" />
+  <meta property="og:site_name" content="ClickClick" />
+  <meta property="og:url" content="https://www.clickclick.video/academy/business/end-card/" />
+  <meta property="og:title" content="Free end card maker for shop and cafe videos" />
+  <meta property="og:description" content="Your name, where you are, your colour. A finished end card for the last two seconds of any video, in ten seconds. Free." />
+  <meta property="og:image" content="https://www.clickclick.video/assets/og-image.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Free end card maker for shop and cafe videos" />
+  <meta name="twitter:description" content="Your name, where you are, your colour. A finished end card in ten seconds. Free." />
+  <meta name="twitter:image" content="https://www.clickclick.video/assets/og-image.png" />
+  <link rel="icon" href="/favicon.svg?v=c3" type="image/svg+xml" />
+  <link rel="icon" href="/favicon.png?v=c3" type="image/png" sizes="32x32" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png?v=c3" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Serif+Display&family=Montserrat:wght@400;500;600&family=Nunito:wght@400;600;800&family=Pacifico&family=Playfair+Display:wght@600&family=Poppins:wght@400;500;600&display=swap" />
+  <link rel="stylesheet" href="/styles.css?v=seo16" />
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.clickclick.video/" },
+          { "@type": "ListItem", "position": 2, "name": "Academy", "item": "https://www.clickclick.video/academy/" },
+          { "@type": "ListItem", "position": 3, "name": "Business", "item": "https://www.clickclick.video/academy/business/" },
+          { "@type": "ListItem", "position": 4, "name": "End card maker", "item": "https://www.clickclick.video/academy/business/end-card/" }
+        ]
+      },
+      {
+        "@type": "WebApplication",
+        "name": "End card maker",
+        "url": "https://www.clickclick.video/academy/business/end-card/",
+        "applicationCategory": "MultimediaApplication",
+        "operatingSystem": "Any",
+        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "GBP" },
+        "description": "Makes a 1080 by 1920 end card for the last two seconds of a vertical video: business name, where to find you, and a colour. Runs entirely in the browser."
+      }
+    ]
+  }
+  </script>
+
+  <style>
+    /* Scoped to this tool. Everything else comes from the site's styles.css. */
+    .ec { max-width: 980px; margin: 0 auto; padding: 32px 20px 64px; font-family: var(--font); color: var(--dark); }
+    .ec h1 { font-family: var(--display); font-weight: 400; font-size: clamp(34px, 6vw, 54px); line-height: 1.08; margin: 8px 0 12px; }
+    .ec-lede { color: var(--mid); font-size: 17px; line-height: 1.6; max-width: 620px; margin: 0 0 32px; }
+    .ec-eyebrow { font-size: 13px; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; color: var(--mid); margin: 0; }
+    .ec-eyebrow a { color: inherit; }
+
+    .ec-grid { display: grid; grid-template-columns: 1fr 300px; gap: 40px; align-items: start; }
+    @media (max-width: 760px) { .ec-grid { grid-template-columns: 1fr; gap: 28px; } }
+
+    .ec-field { margin: 0 0 22px; }
+    .ec-field label { display: block; font-weight: 600; font-size: 15px; margin: 0 0 6px; }
+    .ec-field .hint { display: block; font-weight: 400; color: var(--mid); font-size: 14px; margin-top: 2px; }
+    .ec-field input[type="text"] {
+      width: 100%; box-sizing: border-box; font: inherit; font-size: 17px;
+      padding: 12px 14px; border: 1.5px solid rgba(20,20,20,.18); border-radius: 10px;
+      background: #fff; color: var(--dark);
+    }
+    .ec-field input[type="text"]:focus { outline: none; border-color: var(--dark); }
+
+    .ec-swatches { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; }
+    .ec-swatch {
+      width: 40px; height: 40px; border-radius: 50%; border: 2px solid rgba(20,20,20,.15);
+      cursor: pointer; padding: 0; position: relative;
+    }
+    .ec-swatch[aria-pressed="true"] { box-shadow: 0 0 0 3px #fff, 0 0 0 5px var(--dark); }
+    .ec-custom { display: inline-flex; align-items: center; gap: 8px; font-size: 14px; color: var(--mid); margin-left: 4px; }
+    .ec-custom input { width: 40px; height: 40px; border: none; padding: 0; background: none; cursor: pointer; }
+
+    .ec-styles { display: grid; grid-template-columns: repeat(auto-fill, minmax(120px, 1fr)); gap: 8px; }
+    .ec-style {
+      font: inherit; text-align: left; padding: 10px 12px; border-radius: 10px; cursor: pointer;
+      border: 1.5px solid rgba(20,20,20,.15); background: #fff; color: var(--dark);
+    }
+    .ec-style b { display: block; font-size: 20px; font-weight: 400; line-height: 1.2; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    .ec-style small { color: var(--mid); font-size: 12px; }
+    .ec-style[aria-pressed="true"] { border-color: var(--dark); box-shadow: 0 0 0 1px var(--dark); }
+    .ec-logo { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
+    .ec-logo input[type="file"] { font: inherit; font-size: 14px; max-width: 100%; }
+    .ec-logo button { font: inherit; font-size: 14px; background: none; border: none; color: var(--mid); text-decoration: underline; cursor: pointer; padding: 0; }
+    .ec-sub { font-size: 13px; font-weight: 600; letter-spacing: .06em; text-transform: uppercase; color: var(--mid); margin: 14px 0 8px; }
+    .ec-row { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; font-size: 15px; }
+    .ec-row label { display: inline-flex; align-items: center; gap: 6px; font-weight: 400; margin: 0; cursor: pointer; }
+    .ec-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 30px; }
+    .ec-actions .btn-primary { border: none; cursor: pointer; font: inherit; }
+    .ec-note { font-size: 14px; color: var(--mid); margin: 14px 0 0; line-height: 1.55; }
+
+    .ec-preview { position: sticky; top: 24px; }
+    .ec-preview canvas {
+      width: 100%; height: auto; display: block; border-radius: 18px;
+      box-shadow: 0 30px 60px -30px rgba(0,0,0,.35); border: 1px solid rgba(20,20,20,.08);
+    }
+    .ec-preview p { font-size: 13px; color: var(--mid); text-align: center; margin: 10px 0 0; }
+    @media (max-width: 760px) { .ec-preview { position: static; max-width: 260px; margin: 0 auto; } }
+
+    .ec-how { margin-top: 56px; border-top: 1px solid rgba(20,20,20,.1); padding-top: 32px; }
+    .ec-how h2 { font-family: var(--display); font-weight: 400; font-size: 30px; margin: 0 0 14px; }
+    .ec-how ol { padding-left: 22px; line-height: 1.7; color: var(--dark); }
+    .ec-how p { color: var(--mid); line-height: 1.6; }
+  </style>
+</head>
+<body>
+
+<main class="ec">
+  <p class="ec-eyebrow"><a href="/academy/business/">ClickClick Academy</a> &middot; Free tool</p>
+  <h1>End card maker</h1>
+  <p class="ec-lede">
+    The last two seconds of a video should say who you are and where to find
+    you. Type it in, pick your colour, and save it. Then drop it on the end of
+    any video in whatever app you use.
+  </p>
+
+  <div class="ec-grid">
+    <form class="ec-form" id="ec-form" onsubmit="return false">
+      <div class="ec-field">
+        <label for="ec-logo">Your logo <span class="hint">Optional. A PNG with a see-through background looks best. It stays on your phone — nothing is uploaded.</span></label>
+        <div class="ec-logo">
+          <input type="file" id="ec-logo" accept="image/png,image/jpeg,image/webp,image/svg+xml" />
+          <button type="button" id="ec-logo-clear" hidden>Remove logo</button>
+        </div>
+      </div>
+      <div class="ec-field">
+        <label for="ec-name">Business name <span class="hint">Leave blank if your logo already says it</span></label>
+        <input type="text" id="ec-name" maxlength="48" value="The Corner Cafe" autocomplete="organization" />
+      </div>
+      <div class="ec-field">
+        <label for="ec-line1">Where to find you
+          <span class="hint">A street, a landmark, a town</span>
+        </label>
+        <input type="text" id="ec-line1" maxlength="60" value="Two doors down from the post office" />
+      </div>
+      <div class="ec-field">
+        <label for="ec-line2">One more line <span class="hint">Optional. Hours, or what to do next</span></label>
+        <input type="text" id="ec-line2" maxlength="60" value="Open every day till 5" />
+      </div>
+      <div class="ec-field">
+        <span id="ec-style-label" style="display:block;font-weight:600;font-size:15px;margin:0 0 10px">Lettering</span>
+        <div class="ec-styles" role="group" aria-labelledby="ec-style-label" id="ec-styles"></div>
+      </div>
+      <div class="ec-field">
+        <span id="ec-colour-label" style="display:block;font-weight:600;font-size:15px;margin:0 0 4px">Background colour</span>
+        <div id="ec-brand-wrap" hidden>
+          <p class="ec-sub">From your logo</p>
+          <div class="ec-swatches" id="ec-brand-swatches"></div>
+          <p class="ec-sub">Or</p>
+        </div>
+        <div class="ec-swatches" role="group" aria-labelledby="ec-colour-label" id="ec-swatches"></div>
+      </div>
+      <div class="ec-field">
+        <span style="display:block;font-weight:600;font-size:15px;margin:0 0 10px">Text colour</span>
+        <div class="ec-row">
+          <label><input type="radio" name="ec-ink" value="auto" checked /> Automatic</label>
+          <label><input type="radio" name="ec-ink" value="custom" /> Choose <input type="color" id="ec-ink-colour" value="#F7F3E8" aria-label="Text colour" /></label>
+        </div>
+      </div>
+
+      <div class="ec-actions">
+        <button type="button" class="btn-primary" id="ec-save"><span>Save end card</span></button>
+      </div>
+      <p class="ec-note" id="ec-note">
+        On an iPhone it goes straight to your Photos, so it is there when you
+        open Instagram or your editing app.
+      </p>
+    </form>
+
+    <div class="ec-preview">
+      <canvas id="ec-canvas" width="1080" height="1920" aria-label="Preview of your end card"></canvas>
+      <p>1080 &times; 1920, the size for Reels, TikTok and Shorts</p>
+    </div>
+  </div>
+
+  <section class="ec-how">
+    <h2>How to use it</h2>
+    <ol>
+      <li>Save the card to your phone.</li>
+      <li>Open your video in whatever app you edit in.</li>
+      <li>Add the card as the very last clip, and set it to two seconds.</li>
+      <li>Put your address and opening hours in the caption as well. People read the caption; they do not pause on the last frame.</li>
+    </ol>
+    <p>
+      Your words sit in the middle of the card on purpose. The bottom of the
+      screen and the right-hand edge get covered by the app's own buttons, so
+      anything there would be hidden.
+    </p>
+    <p>
+      This is one of the tools from <a href="/academy/business/mobile-video-making/">Mobile Video Making</a>,
+      the course that teaches a shop, cafe or salon to film its own videos on a
+      phone.
+    </p>
+  </section>
+</main>
+
+<script src="end-card.js"></script>
+
+</body>
+</html>
