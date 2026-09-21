@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Free end card maker for shop and cafe videos | ClickClick</title>
+  <meta name="description" content="Type your business name and where to find you, pick a colour, and download a finished end card for the last two seconds of any Reel, TikTok or Short. Free, no sign-up, works on a phone." />
+  <meta name="author" content="ClickClick" />
+  <meta name="robots" content="index, follow, max-image-preview:large" />
+  <meta name="theme-color" content="#f3f4f4" />
+  <link rel="canonical" href="https://www.clickclick.video/business/end-card/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="en_GB" />
+  <meta property="og:site_name" content="ClickClick" />
+  <meta property="og:url" content="https://www.clickclick.video/business/end-card/" />
+  <meta property="og:title" content="Free end card maker for shop and cafe videos" />
+  <meta property="og:description" content="Your name, where you are, your colour. A finished end card for the last two seconds of any video, in ten seconds. Free." />
+  <meta property="og:image" content="https://www.clickclick.video/assets/og-image.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Free end card maker for shop and cafe videos" />
+  <meta name="twitter:description" content="Your name, where you are, your colour. A finished end card in ten seconds. Free." />
+  <meta name="twitter:image" content="https://www.clickclick.video/assets/og-image.png" />
+  <link rel="icon" href="/favicon.svg?v=c3" type="image/svg+xml" />
+  <link rel="icon" href="/favicon.png?v=c3" type="image/png" sizes="32x32" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png?v=c3" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Poppins:wght@400;500;600&display=swap" />
+  <link rel="stylesheet" href="/styles.css?v=seo16" />
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.clickclick.video/" },
+          { "@type": "ListItem", "position": 2, "name": "Mobile Video Making", "item": "https://www.clickclick.video/business/" },
+          { "@type": "ListItem", "position": 3, "name": "End card maker", "item": "https://www.clickclick.video/business/end-card/" }
+        ]
+      },
+      {
+        "@type": "WebApplication",
+        "name": "End card maker",
+        "url": "https://www.clickclick.video/business/end-card/",
+        "applicationCategory": "MultimediaApplication",
+        "operatingSystem": "Any",
+        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "GBP" },
+        "description": "Makes a 1080 by 1920 end card for the last two seconds of a vertical video: business name, where to find you, and a colour. Runs entirely in the browser."
+      }
+    ]
+  }
+  </script>
+
+  <style>
+    /* Scoped to this tool. Everything else comes from the site's styles.css. */
+    .ec { max-width: 980px; margin: 0 auto; padding: 32px 20px 64px; font-family: var(--font); color: var(--dark); }
+    .ec h1 { font-family: var(--display); font-weight: 400; font-size: clamp(34px, 6vw, 54px); line-height: 1.08; margin: 8px 0 12px; }
+    .ec-lede { color: var(--mid); font-size: 17px; line-height: 1.6; max-width: 620px; margin: 0 0 32px; }
+    .ec-eyebrow { font-size: 13px; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; color: var(--mid); margin: 0; }
+    .ec-eyebrow a { color: inherit; }
+
+    .ec-grid { display: grid; grid-template-columns: 1fr 300px; gap: 40px; align-items: start; }
+    @media (max-width: 760px) { .ec-grid { grid-template-columns: 1fr; gap: 28px; } }
+
+    .ec-field { margin: 0 0 22px; }
+    .ec-field label { display: block; font-weight: 600; font-size: 15px; margin: 0 0 6px; }
+    .ec-field .hint { display: block; font-weight: 400; color: var(--mid); font-size: 14px; margin-top: 2px; }
+    .ec-field input[type="text"] {
+      width: 100%; box-sizing: border-box; font: inherit; font-size: 17px;
+      padding: 12px 14px; border: 1.5px solid rgba(20,20,20,.18); border-radius: 10px;
+      background: #fff; color: var(--dark);
+    }
+    .ec-field input[type="text"]:focus { outline: none; border-color: var(--dark); }
+
+    .ec-swatches { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; }
+    .ec-swatch {
+      width: 40px; height: 40px; border-radius: 50%; border: 2px solid rgba(20,20,20,.15);
+      cursor: pointer; padding: 0; position: relative;
+    }
+    .ec-swatch[aria-pressed="true"] { box-shadow: 0 0 0 3px #fff, 0 0 0 5px var(--dark); }
+    .ec-custom { display: inline-flex; align-items: center; gap: 8px; font-size: 14px; color: var(--mid); margin-left: 4px; }
+    .ec-custom input { width: 40px; height: 40px; border: none; padding: 0; background: none; cursor: pointer; }
+
+    .ec-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 30px; }
+    .ec-actions .btn-primary { border: none; cursor: pointer; font: inherit; }
+    .ec-note { font-size: 14px; color: var(--mid); margin: 14px 0 0; line-height: 1.55; }
+
+    .ec-preview { position: sticky; top: 24px; }
+    .ec-preview canvas {
+      width: 100%; height: auto; display: block; border-radius: 18px;
+      box-shadow: 0 30px 60px -30px rgba(0,0,0,.35); border: 1px solid rgba(20,20,20,.08);
+    }
+    .ec-preview p { font-size: 13px; color: var(--mid); text-align: center; margin: 10px 0 0; }
+    @media (max-width: 760px) { .ec-preview { position: static; max-width: 260px; margin: 0 auto; } }
+
+    .ec-how { margin-top: 56px; border-top: 1px solid rgba(20,20,20,.1); padding-top: 32px; }
+    .ec-how h2 { font-family: var(--display); font-weight: 400; font-size: 30px; margin: 0 0 14px; }
+    .ec-how ol { padding-left: 22px; line-height: 1.7; color: var(--dark); }
+    .ec-how p { color: var(--mid); line-height: 1.6; }
+  </style>
+</head>
+<body>
+
+<main class="ec">
+  <p class="ec-eyebrow"><a href="/business/">Mobile Video Making</a> &middot; Free tool</p>
+  <h1>End card maker</h1>
+  <p class="ec-lede">
+    The last two seconds of a video should say who you are and where to find
+    you. Type it in, pick your colour, and save it. Then drop it on the end of
+    any video in whatever app you use.
+  </p>
+
+  <div class="ec-grid">
+    <form class="ec-form" id="ec-form" onsubmit="return false">
+      <div class="ec-field">
+        <label for="ec-name">Business name</label>
+        <input type="text" id="ec-name" maxlength="48" value="The Corner Cafe" autocomplete="organization" />
+      </div>
+      <div class="ec-field">
+        <label for="ec-line1">Where to find you
+          <span class="hint">A street, a landmark, a town</span>
+        </label>
+        <input type="text" id="ec-line1" maxlength="60" value="Two doors down from the post office" />
+      </div>
+      <div class="ec-field">
+        <label for="ec-line2">One more line <span class="hint">Optional. Hours, or what to do next</span></label>
+        <input type="text" id="ec-line2" maxlength="60" value="Open every day till 5" />
+      </div>
+      <div class="ec-field">
+        <span id="ec-colour-label" style="display:block;font-weight:600;font-size:15px;margin:0 0 10px">Background colour</span>
+        <div class="ec-swatches" role="group" aria-labelledby="ec-colour-label" id="ec-swatches"></div>
+      </div>
+
+      <div class="ec-actions">
+        <button type="button" class="btn-primary" id="ec-save"><span>Save end card</span></button>
+      </div>
+      <p class="ec-note" id="ec-note">
+        On an iPhone it goes straight to your Photos, so it is there when you
+        open Instagram or your editing app.
+      </p>
+    </form>
+
+    <div class="ec-preview">
+      <canvas id="ec-canvas" width="1080" height="1920" aria-label="Preview of your end card"></canvas>
+      <p>1080 &times; 1920, the size for Reels, TikTok and Shorts</p>
+    </div>
+  </div>
+
+  <section class="ec-how">
+    <h2>How to use it</h2>
+    <ol>
+      <li>Save the card to your phone.</li>
+      <li>Open your video in whatever app you edit in.</li>
+      <li>Add the card as the very last clip, and set it to two seconds.</li>
+      <li>Put your address and opening hours in the caption as well. People read the caption; they do not pause on the last frame.</li>
+    </ol>
+    <p>
+      Your words sit in the middle of the card on purpose. The bottom of the
+      screen and the right-hand edge get covered by the app's own buttons, so
+      anything there would be hidden.
+    </p>
+    <p>
+      This is one of the tools from <a href="/business/">Mobile Video Making</a>,
+      the course that teaches a shop, cafe or salon to film its own videos on a
+      phone.
+    </p>
+  </section>
+</main>
+
+<script>
+(function () {
+  // Nothing leaves the browser. There is no server behind this page: the card
+  // is drawn on a canvas and handed straight back to the person who made it.
+
+  var W = 1080, H = 1920;
+  var canvas = document.getElementById('ec-canvas');
+  var ctx = canvas.getContext('2d');
+  var name = document.getElementById('ec-name');
+  var line1 = document.getElementById('ec-line1');
+  var line2 = document.getElementById('ec-line2');
+
+  // Neutral, business-friendly colours. Deliberately not ClickClick's own
+  // palette — this is their card, in their colour.
+  var PRESETS = [
+    { hex: '#141414', label: 'Black' },
+    { hex: '#FFFFFF', label: 'White' },
+    { hex: '#F0EAD6', label: 'Cream' },
+    { hex: '#2F4A3A', label: 'Forest green' },
+    { hex: '#1E2F4D', label: 'Navy' },
+    { hex: '#B5562E', label: 'Terracotta' },
+    { hex: '#7A1F2B', label: 'Burgundy' }
+  ];
+  var bg = PRESETS[0].hex;
+
+  // Pick readable text for whatever colour they choose, rather than making
+  // them choose a text colour as well.
+  function luminance(hex) {
+    var n = parseInt(hex.slice(1), 16);
+    var c = [(n >> 16) & 255, (n >> 8) & 255, n & 255].map(function (v) {
+      v /= 255;
+      return v <= 0.03928 ? v / 12.92 : Math.pow((v + 0.055) / 1.055, 2.4);
+    });
+    return 0.2126 * c[0] + 0.7152 * c[1] + 0.0722 * c[2];
+  }
+  function ink() { return luminance(bg) > 0.35 ? '#141414' : '#F7F3E8'; }
+  function soft() { return luminance(bg) > 0.35 ? 'rgba(20,20,20,0.62)' : 'rgba(247,243,232,0.72)'; }
+
+  // Shrink the name until it fits, wrapping onto up to three lines first.
+  function fitName(text) {
+    var maxW = W * 0.8;
+    for (var size = 150; size >= 64; size -= 4) {
+      ctx.font = size + 'px "DM Serif Display", Georgia, serif';
+      var words = text.split(/\s+/).filter(Boolean), lines = [], cur = '';
+      for (var i = 0; i < words.length; i++) {
+        var test = cur ? cur + ' ' + words[i] : words[i];
+        if (ctx.measureText(test).width <= maxW) { cur = test; }
+        else { if (cur) lines.push(cur); cur = words[i]; }
+      }
+      if (cur) lines.push(cur);
+      var fits = lines.length <= 3 && lines.every(function (l) { return ctx.measureText(l).width <= maxW; });
+      if (fits) return { size: size, lines: lines };
+    }
+    return { size: 64, lines: [text] };
+  }
+
+  function clampLine(text, font, maxW) {
+    ctx.font = font;
+    if (ctx.measureText(text).width <= maxW) return text;
+    while (text.length && ctx.measureText(text + '…').width > maxW) text = text.slice(0, -1);
+    return text + '…';
+  }
+
+  function draw() {
+    ctx.fillStyle = bg;
+    ctx.fillRect(0, 0, W, H);
+    ctx.textAlign = 'center';
+    ctx.textBaseline = 'alphabetic';
+
+    var n = fitName((name.value || 'Your business').trim());
+    var l1 = line1.value.trim();
+    var l2 = line2.value.trim();
+
+    var nameLH = n.size * 1.08;
+    var gapRule = 70, ruleH = 6, gapAfter = 70;
+    var f1 = '500 54px Poppins, system-ui, sans-serif', l1H = 54 * 1.35;
+    var f2 = '400 46px Poppins, system-ui, sans-serif', l2H = 46 * 1.4;
+
+    var block = n.lines.length * nameLH + (l1 || l2 ? gapRule + ruleH + gapAfter : 0)
+      + (l1 ? l1H : 0) + (l2 ? l2H : 0);
+
+    // Centre in the safe band: clear of the top, and of the bottom fifth,
+    // which the app's caption and buttons cover once it is posted.
+    var bandTop = H * 0.14, bandBottom = H * 0.76;
+    var y = bandTop + (bandBottom - bandTop - block) / 2;
+
+    ctx.fillStyle = ink();
+    ctx.font = n.size + 'px "DM Serif Display", Georgia, serif';
+    n.lines.forEach(function (line) { y += nameLH; ctx.fillText(line, W / 2, y - n.size * 0.18); });
+
+    if (l1 || l2) {
+      y += gapRule;
+      ctx.fillStyle = ink();
+      ctx.globalAlpha = 0.85;
+      ctx.fillRect(W / 2 - 60, y, 120, ruleH);
+      ctx.globalAlpha = 1;
+      y += ruleH + gapAfter;
+    }
+    if (l1) {
+      ctx.fillStyle = ink();
+      ctx.font = f1;
+      ctx.fillText(clampLine(l1, f1, W * 0.84), W / 2, y + 54 * 0.8);
+      y += l1H;
+    }
+    if (l2) {
+      ctx.fillStyle = soft();
+      ctx.font = f2;
+      ctx.fillText(clampLine(l2, f2, W * 0.84), W / 2, y + 46 * 0.85);
+    }
+  }
+
+  // Swatches
+  var wrap = document.getElementById('ec-swatches');
+  PRESETS.forEach(function (p, i) {
+    var b = document.createElement('button');
+    b.type = 'button';
+    b.className = 'ec-swatch';
+    b.style.background = p.hex;
+    b.setAttribute('aria-label', p.label);
+    b.setAttribute('aria-pressed', i === 0 ? 'true' : 'false');
+    b.addEventListener('click', function () { choose(p.hex, b); });
+    wrap.appendChild(b);
+  });
+  var custom = document.createElement('label');
+  custom.className = 'ec-custom';
+  custom.innerHTML = '<input type="color" value="#141414" aria-label="Choose your own colour" /> Your own';
+  wrap.appendChild(custom);
+  custom.querySelector('input').addEventListener('input', function (e) { choose(e.target.value, null); });
+
+  function choose(hex, btn) {
+    bg = hex;
+    [].forEach.call(wrap.querySelectorAll('.ec-swatch'), function (s) {
+      s.setAttribute('aria-pressed', s === btn ? 'true' : 'false');
+    });
+    draw();
+  }
+
+  [name, line1, line2].forEach(function (el) { el.addEventListener('input', draw); });
+
+  function filename() {
+    var slug = (name.value || 'end-card').toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
+    return (slug || 'end-card') + '-end-card.png';
+  }
+
+  // On a phone, the share sheet's "Save Image" puts it in Photos, which is
+  // where their editing app will look. A plain download on iOS lands in Files
+  // instead, and people then cannot find it. So share first, download second.
+  document.getElementById('ec-save').addEventListener('click', function () {
+    canvas.toBlob(function (blob) {
+      var file = new File([blob], filename(), { type: 'image/png' });
+      if (navigator.canShare && navigator.canShare({ files: [file] })) {
+        navigator.share({ files: [file] }).catch(function () { /* they closed the sheet */ });
+        return;
+      }
+      var a = document.createElement('a');
+      a.href = URL.createObjectURL(blob);
+      a.download = filename();
+      document.body.appendChild(a);
+      a.click();
+      setTimeout(function () { URL.revokeObjectURL(a.href); a.remove(); }, 1000);
+    }, 'image/png');
+  });
+
+  // Fonts have to be loaded before the canvas can use them, or the first
+  // preview draws in a fallback face and looks wrong.
+  var ready = document.fonts && document.fonts.load
+    ? Promise.all([
+        document.fonts.load('150px "DM Serif Display"'),
+        document.fonts.load('500 54px Poppins'),
+        document.fonts.load('400 46px Poppins')
+      ])
+    : Promise.resolve();
+  draw();
+  ready.then(draw, draw);
+})();
+</script>
+
+</body>
+</html>
