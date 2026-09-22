@@ -171,6 +171,8 @@
         return;
       }
       document.getElementById('code').textContent = out.data.code;
+      // The button opens the course with the code already in (22 Sep 2026).
+      document.getElementById('open').href = 'https://academy.clickclick.video/?k=' + encodeURIComponent(out.data.code) + '&src=buyer';
       if (out.data.portfolio) {
         document.getElementById('lead').textContent =
           'Here is the code that opens your course and your portfolio page. It is yours alone, so keep it to yourself.';
